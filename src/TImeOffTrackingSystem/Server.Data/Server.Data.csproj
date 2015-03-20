@@ -39,13 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Days.cs" />
+    <Compile Include="Model\Days.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestStates.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserDays.cs" />
-    <Compile Include="UserRoles.cs" />
+    <Compile Include="Model\RequestStates.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserDays.cs" />
+    <Compile Include="Model\UserRoles.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

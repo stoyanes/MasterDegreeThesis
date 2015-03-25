@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Business", "Server.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Services", "Server.Services\Server.Services.csproj", "{EEFFF4DC-ED62-49A3-B2EA-6DBDA3B1B9AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.App", "Client.App\Client.App.csproj", "{E9FE639C-2B10-46DD-A069-7406EDD135B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Web.App", "Client.App\Client.Web.App.csproj", "{E9FE639C-2B10-46DD-A069-7406EDD135B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

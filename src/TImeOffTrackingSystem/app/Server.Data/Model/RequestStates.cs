@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace Server.Data
 {
-//    [DataContract]
     public enum RequestStates
     {
-//        [EnumMember]
         Submitted,
 
-//        [EnumMember]
         Approved,
 
-//        [EnumMember]
         Rejected
     }
 }

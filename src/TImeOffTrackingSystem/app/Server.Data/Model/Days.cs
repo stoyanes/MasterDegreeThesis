@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Server.Data
 {
-//    [DataContract]
     public class Days
     {
         public int Taken { get; set; }

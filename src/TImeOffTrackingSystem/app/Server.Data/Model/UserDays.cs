@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Server.Data
 {
-    // [DataContract]
     public class UserDays
     {
         public string UserId { get; set; }
+
         public Days Days { get; set; }
     }
 }

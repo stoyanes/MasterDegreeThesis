@@ -8,13 +8,10 @@ namespace Server.Data
 {
     public enum UserRoles
     {
-        //[EnumMember]
         Employee,
 
-        //[EnumMember]
         ProjectManager,
 
-        //[EnumMember]
         HumanResources
     }
 }

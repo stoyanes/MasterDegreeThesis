@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{3ABA70
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{21605CF6-584E-4006-BA26-2BFCACA0E731}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Data", "Server.Data\Server.Data.csproj", "{0EBEDC96-0D9B-4AB7-A277-8AE7D8326014}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Data", "app\Server.Data\Server.Data.csproj", "{0EBEDC96-0D9B-4AB7-A277-8AE7D8326014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Business", "Server.Business\Server.Business.csproj", "{B1508440-4E8D-47D7-89E1-2E7D8BBF9DF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Business", "app\Server.Business\Server.Business.csproj", "{B1508440-4E8D-47D7-89E1-2E7D8BBF9DF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Services", "Server.Services\Server.Services.csproj", "{EEFFF4DC-ED62-49A3-B2EA-6DBDA3B1B9AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Services", "app\Server.Services\Server.Services.csproj", "{EEFFF4DC-ED62-49A3-B2EA-6DBDA3B1B9AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Web.App", "Client.App\Client.Web.App.csproj", "{E9FE639C-2B10-46DD-A069-7406EDD135B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Web.App", "app\Client.App\Client.Web.App.csproj", "{E9FE639C-2B10-46DD-A069-7406EDD135B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

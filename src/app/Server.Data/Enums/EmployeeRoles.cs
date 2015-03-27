@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Server.Data
 {
-    public class Days
+    public enum EmployeeRoles
     {
-        public int Id { get; set; }
+        Employee,
 
-        public int Taken { get; set; }
+        ProjectManager,
 
-        public int Remaining { get; set; }
+        HumanResources
     }
 }

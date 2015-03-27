@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Server.Services.Providers;
 using Server.Services.Models;
+using Server.Data;
 
 namespace Server.Services
 {

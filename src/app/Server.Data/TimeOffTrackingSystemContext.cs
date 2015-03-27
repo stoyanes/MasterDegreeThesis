@@ -1,17 +1,14 @@
 ﻿using System;
+using System.Data;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Data
+namespace Server.Data.Contexts
 {
-    public enum UserRoles
+    public class TimeOffTrackingSystemContext : DbContext
     {
-        Employee,
-
-        ProjectManager,
-
-        HumanResources
     }
 }

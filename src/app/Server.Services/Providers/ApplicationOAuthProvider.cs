@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using Server.Data;
+using Server.Data.Models;
 using Server.Services.Models;
 
 namespace Server.Services.Providers

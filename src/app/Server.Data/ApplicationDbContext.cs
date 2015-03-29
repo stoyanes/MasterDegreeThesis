@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using Server.Services.Models;
+using Server.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

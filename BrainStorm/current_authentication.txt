@@ -1,0 +1,7 @@
+Add this field to header:
+
+Content-type: application/x-www-form-urlencoded;charset=UTF-8
+
+In the body use this format:
+
+grant_type=password&userName=sample1@abv.bg&password=Sample_1

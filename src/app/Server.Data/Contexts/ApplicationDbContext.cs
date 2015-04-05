@@ -19,5 +19,16 @@ namespace Server.Data
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Employee>().ToTable("Employee");
+            modelBuilder.Entity<IdentityUserRole>().ToTable("EmployeeRole");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("EmployeeLogin");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("EmployeeClaim");
+            modelBuilder.Entity<IdentityRole>().ToTable("Role");
+        }
     }
 }

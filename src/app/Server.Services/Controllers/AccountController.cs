@@ -17,7 +17,7 @@ using Server.Services.Models;
 using Server.Services.Providers;
 using Server.Services.Results;
 using Server.Data;
-using Server.Data.Models;
+using Server.Data.Model;
 
 namespace Server.Services.Controllers
 {

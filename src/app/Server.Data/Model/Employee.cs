@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Server.Data.Models
+namespace Server.Data.Model
 {
-    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class Employee : IdentityUser
     {
+        #region Public methods
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Employee> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -15,6 +15,9 @@ namespace Server.Data.Models
             // Add custom user claims here
             return userIdentity;
         }
+        #endregion
+
+        public virtual IdentityRole EmployeeRole { get; set; }
     }
 
 }

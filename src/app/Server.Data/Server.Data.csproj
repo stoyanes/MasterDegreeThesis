@@ -73,17 +73,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configs\ApplicationDatabaseInitializer.cs" />
     <Compile Include="Contexts\ApplicationDbContext.cs" />
     <Compile Include="Configs\IdentityConfig.cs" />
-    <Compile Include="Model\Days.cs" />
-    <Compile Include="Model\IdentityModels.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\EmployeeLeaveDays.cs" />
+    <Compile Include="Model\Holiday.cs" />
+    <Compile Include="Model\Request.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\RequestStates.cs" />
-    <Compile Include="Model\UserDays.cs" />
     <Compile Include="Enums\EmployeeRoles.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Contexts\TimeOffTrackingSystemContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

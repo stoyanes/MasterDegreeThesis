@@ -77,7 +77,7 @@
     <Compile Include="Contexts\ApplicationDbContext.cs" />
     <Compile Include="Configs\IdentityConfig.cs" />
     <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\EmployeeLeaveDays.cs" />
+    <Compile Include="Model\LeaveDays.cs" />
     <Compile Include="Model\Holiday.cs" />
     <Compile Include="Model\Request.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

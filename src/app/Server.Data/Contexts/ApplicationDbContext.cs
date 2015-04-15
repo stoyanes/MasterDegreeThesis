@@ -36,10 +36,11 @@ namespace Server.Data
             modelBuilder.Entity<IdentityRole>().ToTable("Role");
         }
 
-        public DbSet<EmployeeLeaveDays> LeaveDays { get; set; }
+        public DbSet<LeaveDays> LeaveDays { get; set; }
 
         public DbSet<Holiday> Holidays { get; set; }
 
         public DbSet<Request> Requests { get; set; }
+
     }
 }

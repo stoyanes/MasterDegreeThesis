@@ -24,17 +24,23 @@ namespace Server.Data.Configs
 
             var HRUser = new Employee { Email = "HRUser@myemail.com", UserName = "HRUser@myemail.com" };
             manager.Create(HRUser, "Temp_123");
+            
+            var managerUser = new Employee { Email = "managerUser@myemail.com", UserName = "managerUser@myemail.com" };
+            manager.Create(managerUser, "Temp_123");
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             roleManager.Create(new IdentityRole("admin"));
-            roleManager.Create(new IdentityRole("regular"));
+            roleManager.Create(new IdentityRole("employee"));
             roleManager.Create(new IdentityRole("hr"));
+            roleManager.Create(new IdentityRole("manager"));
 
             manager.AddToRole(adminUser.Id, "admin");
-            manager.AddToRole(regularUser.Id, "regular");
+            manager.AddToRole(regularUser.Id, "employee");
             manager.AddToRole(HRUser.Id, "hr");
+            manager.AddToRole(managerUser.Id, "manager");
 
             
+
             context.SaveChanges();
         }
     }

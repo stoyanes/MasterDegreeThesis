@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace Server.Data.Repositories
 {
-    public class Repository<TEntity, TContext> : IRepository<TEntity>, IDisposable
+    public class Repository<TEntity> : IRepository<TEntity>, IDisposable
         where TEntity : class
-        where TContext : DbContext
     {
-        protected TContext Context;
+        protected DbContext Context;
 
         public Repository(DbContext dbContext)
         {
-            Context = dbContext as TContext;
+            Context = dbContext;
         }
 
         public virtual TEntity Create()

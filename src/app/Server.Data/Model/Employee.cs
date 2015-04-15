@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -7,6 +9,11 @@ namespace Server.Data.Model
 {
     public class Employee : IdentityUser
     {
+        public Employee()
+        {
+
+        }
+
         #region Public methods
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Employee> manager, string authenticationType)
         {
@@ -17,7 +24,9 @@ namespace Server.Data.Model
         }
         #endregion
 
-        public virtual IdentityRole EmployeeRole { get; set; }
+        public virtual IEnumerable<Request> Requests { get; set; }
+
+        public virtual IEnumerable<LeaveDays> LeaveDays { get; set; }
     }
 
 }

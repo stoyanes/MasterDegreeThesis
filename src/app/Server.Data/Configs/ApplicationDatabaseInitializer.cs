@@ -39,7 +39,8 @@ namespace Server.Data.Configs
             manager.AddToRole(HRUser.Id, "hr");
             manager.AddToRole(managerUser.Id, "manager");
 
-            
+            context.Holidays.Add(new Holiday(){ ForYear = 2015, HolidayDate = new DateTime(2015, 6, 1) });
+            context.Holidays.Add(new Holiday() { ForYear = 2015, HolidayDate = new DateTime(2015, 6, 6) });
 
             context.SaveChanges();
         }

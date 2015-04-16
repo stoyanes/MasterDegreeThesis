@@ -13,6 +13,11 @@ namespace Server.Data.Repositories
     {
         protected DbContext Context;
 
+        public Repository()
+        {
+            Context = new ApplicationDbContext();
+        }
+
         public Repository(DbContext dbContext)
         {
             Context = dbContext;

@@ -1,20 +1,21 @@
-﻿using System;
+﻿using Server.Data;
+using Server.Data.Model;
+using Server.Data.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Server.Data;
-using Server.Data.Model;
-using Server.Data.Repositories;
 
 namespace Server.Services.Controllers
 {
     [AllowAnonymous]
-    [RoutePrefix("api/Employees")]
-    public class EmployeeController : ApiController
+    [RoutePrefix("api/Holidays")]
+    public class HolidayController : ApiController
     {
-        private IRepository<Employee> employeeRepository = new Repository<Employee>(new ApplicationDbContext());
+
+        private IRepository<Holiday> employeeRepository = new Repository<Holiday>(new ApplicationDbContext());
 
         [AllowAnonymous]
         [HttpGet]

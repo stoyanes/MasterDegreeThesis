@@ -25,6 +25,20 @@ namespace Server.Services
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            SetJsonSettings(config);
+
+            // we currently don't want xml to be returned
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+        }
+
+        /// <summary>
+        /// This method updates formatting to the .NET objects to JavaScript style ones i.e. from PascalCase to camelCase  
+        /// </summary>
+        private static void SetJsonSettings(HttpConfiguration config)
+        {
+            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

@@ -20,9 +20,9 @@ namespace Server.Services.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<Employee> GetAll()
+        public IEnumerable<Holiday> GetAll()
         {
-            var employees = employeeRepository.FindAll().ToList<Employee>();
+            var employees = employeeRepository.FindAll().ToList<Holiday>();
             return employees;
         }
     }

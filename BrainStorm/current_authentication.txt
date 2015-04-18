@@ -1,7 +1,19 @@
 Add this field to header:
 
-Content-type: application/x-www-form-urlencoded;charset=UTF-8
+Content-type: application/x-www-form-urlencoded;
 
 In the body use this format:
 
 grant_type=password&userName=admin@myemail.com&password=Temp_123
+
+---------------------
+
+When logged in and making request include this is the headers:
+
+Authorization Bearer Access_Token
+
+--------------------
+
+To get user id from web api controller:
+1. using Microsoft.AspNet.Identity;
+2. User.Identity.GetUserId()

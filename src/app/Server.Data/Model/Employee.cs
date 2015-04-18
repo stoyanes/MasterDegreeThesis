@@ -27,6 +27,8 @@ namespace Server.Data.Model
         public virtual IEnumerable<Request> Requests { get; set; }
 
         public virtual IEnumerable<LeaveDays> LeaveDays { get; set; }
+
+        public bool IsEmployeeActive { get; set; }
     }
 
 }

@@ -18,21 +18,21 @@ namespace Server.Services.Controllers
 
         [Authorize(Roles="admin, hr")]
         [Route("GetAll")]
-        public IEnumerable<Employee> GetAll()
+        public IHttpActionResult GetAll()
         {
             var employees = employeeRepository.FindAll().ToList<Employee>();
-            return employees;
+            return Ok(employees);
         }
 
         [Authorize(Roles="admin, hr")]
         [Route("GetAllActive")]
-        public IEnumerable<Employee> GetAllActive()
+        public IHttpActionResult GetAllActive()
         {
             var employees = employeeRepository
                 .FindAll()
                 .Where(employee => employee.IsEmployeeActive == true)
                 .ToList<Employee>();
-            return employees;
+            return Ok(employees);
         }
     }
 }

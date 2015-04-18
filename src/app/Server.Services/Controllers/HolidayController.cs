@@ -10,27 +10,27 @@ using System.Web.Http;
 
 namespace Server.Services.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/holidays")]
     public class HolidayController : ApiController
     {
         private IRepository<Holiday> holidayRepository = new Repository<Holiday>(new ApplicationDbContext());
 
         [Route("GetAll")]
-        public IEnumerable<Holiday> GetAll()
+        public IHttpActionResult GetAll()
         {
             var holidays = holidayRepository.FindAll().ToList<Holiday>();
-            return holidays;
+            return Ok(holidays);
         }
 
         [Route("GetAllForYear")]
-        public IEnumerable<Holiday> GetAllForYear(int year)
+        public IHttpActionResult GetAllForYear(int year)
         {
             var holidays = holidayRepository.FindAll()
                 .Where(holiday =>  holiday.ForYear == year)
                 .ToList();
 
-            return holidays;
+            return Ok(holidays);
         }
     }
 }

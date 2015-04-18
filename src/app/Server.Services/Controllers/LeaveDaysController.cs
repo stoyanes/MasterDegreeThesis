@@ -18,17 +18,17 @@ namespace Server.Services.Controllers
 
         [Authorize(Roles="admin, hr")]
         [Route("GetAll")]
-        public IEnumerable<LeaveDays> GetAll()
+        public IHttpActionResult GetAll()
         {
             var allLeaveDays = leaveDaysRepository
                                 .FindAll()
                                 .ToList();
 
-            return allLeaveDays;
+            return Ok(allLeaveDays);
         }
 
         [Route("GetForEmployee")]
-        public IEnumerable<LeaveDays> GetForEmployee()
+        public IHttpActionResult GetForEmployee()
         {
             var currentEmployeeId = User.Identity.GetUserId();
 
@@ -37,7 +37,7 @@ namespace Server.Services.Controllers
                                  .Where(leaveDay => currentEmployeeId == leaveDay.EmployeeID)
                                  .ToList();
 
-            return employeeLeaveDays;
+            return Ok(employeeLeaveDays);
         } 
     }
 }

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Time Off Tracking System</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="IndexController">
+        <div>
+            <label>Name:</label>
+            <input type="text" ng-model="userName" placeholder="Enter user name here...">
+            <label>Password:</label>
+            <input type="password" ng-model="userPassword" placeholder="Enter password here...">
+            <input id="authButton" type="submit" value="submit" ng-click="authenticate()" />
+
+            <p> yoy just entered {{ userName }}</p>
+        </div>
+    </div>
+    <script src="bower_components/requirejs/require.js" data-main="./app/js/main.js"></script>
+</body>
+</html>

@@ -27,14 +27,27 @@ namespace Server.Services.Controllers
             return Ok(allLeaveDays);
         }
 
-        [Route("GetForEmployee")]
-        public IHttpActionResult GetForEmployee()
+        [Route("GetAllForEmployee")]
+        public IHttpActionResult GetAllForEmployee()
         {
             var currentEmployeeId = User.Identity.GetUserId();
 
             var employeeLeaveDays = leaveDaysRepository
                                  .FindAll()
                                  .Where(leaveDay => currentEmployeeId == leaveDay.EmployeeID)
+                                 .ToList();
+
+            return Ok(employeeLeaveDays);
+        } 
+
+        [Route("GetAllForEmployeeByYear")]
+        public IHttpActionResult GetAllForEmployeeByYear(int year)
+        {
+            var currentEmployeeId = User.Identity.GetUserId();
+
+            var employeeLeaveDays = leaveDaysRepository
+                                 .FindAll()
+                                 .Where(leaveDay => currentEmployeeId == leaveDay.EmployeeID && leaveDay.ForYear == year)
                                  .ToList();
 
             return Ok(employeeLeaveDays);

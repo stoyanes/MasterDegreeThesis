@@ -2,6 +2,6 @@
 
     function (app) {
         app = app.constant('CONNECTION_CONSTANTS', {
-            authenticationUri: './api/Token'
+            authenticationUri: 'http://localhost:49790/Token' // ./api/Token
         });
     });

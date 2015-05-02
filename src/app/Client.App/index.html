@@ -3,18 +3,81 @@
 <head>
     <title>Time Off Tracking System</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="app/css/baseTheme.css" rel="stylesheet" />
 </head>
 <body>
-    <div ng-controller="IndexController">
-        <div>
-            <label>Name:</label>
-            <input type="text" ng-model="userName" placeholder="Enter user name here...">
-            <label>Password:</label>
-            <input type="password" ng-model="userPassword" placeholder="Enter password here...">
-            <input id="authButton" type="submit" value="submit" ng-click="authenticate()" />
+    <div ng-controller="LoginController">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">TimeOffTracking</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav ng-hide">
+                        <li>
+                            <a href="#">Item1</a>
+                        </li>
+                        <li>
+                            <a href="#">Item2</a>
+                        </li>
+                        <li>
+                            <a href="#">Item3</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
 
-            <p> yoy just entered {{ userName }}</p>
+        <div class="container">
+            <div class="row ng-hide">
+                <div class="col-md-3">
+                    <p class="lead">TimeOffSystem</p>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Item 1</a>
+                        <a href="#" class="list-group-item">Item 2</a>
+                        <a href="#" class="list-group-item">Item 3</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+
+                </div>
+                <div class="well col-sm-6">
+                    <p>Please, enter you credentials.</p>
+                    <div class="form-group">
+                        <label for="userNameInput">Name:</label>
+                        <input id="userNameInput" type="text" ng-model="credentials.userName" class="form-control" placeholder="Enter user name here...">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPasswordId">Password:</label>
+                        <input id="userPasswordId" type="password" ng-model="credentials.userPassword" class="form-control" placeholder="Enter password here...">
+                    </div>
+
+                    <div class="form-group">
+                        <button id="authButton" type="submit" class="btn btn-default" ng-click="authenticate(credentials)"> Log in </button>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+
+                </div>
+            </div>
         </div>
+
     </div>
     <script src="bower_components/requirejs/require.js" data-main="./app/js/main.js"></script>
 </body>

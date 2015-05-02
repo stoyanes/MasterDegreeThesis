@@ -3,7 +3,7 @@
 
     './configs/constants',
 
-    './controllers/indexController',
+    './controllers/loginController',
 
     './services/authenticationService'
 

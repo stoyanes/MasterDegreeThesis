@@ -266,7 +266,7 @@ namespace Server.Services.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, Newtonsoft.Json.JsonConvert.SerializeObject(await UserManager.GetRolesAsync(user.Id)));
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else

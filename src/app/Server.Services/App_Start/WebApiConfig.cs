@@ -18,9 +18,6 @@ namespace Server.Services
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-//            var corsAttr = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(new EnableCorsAttribute("http://localhost:21620", "*", "*"));
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 

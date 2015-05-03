@@ -5,7 +5,9 @@
 
     './controllers/loginController',
 
-    './services/authenticationService'
+    './services/authenticationService',
+    
+    './services/sessionService'
 
 ], function (ng) {
 

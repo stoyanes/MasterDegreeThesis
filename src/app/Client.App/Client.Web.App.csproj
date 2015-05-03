@@ -64,6 +64,7 @@
     <Content Include="app\js\services\authenticationService.js" />
     <Content Include="app\js\main.js" />
     <Content Include="app\js\modulesLoader.js" />
+    <Content Include="app\js\services\sessionService.js" />
     <Content Include="bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

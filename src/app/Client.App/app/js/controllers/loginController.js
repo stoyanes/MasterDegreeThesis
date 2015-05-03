@@ -5,8 +5,8 @@
     function (app) {
 
         app.controller('LoginController', [
-            '$scope', 'AuthenticationService',
-         function ($scope, autherticationService) {
+            '$scope', 'AuthenticationService', 'SessionService',
+         function ($scope, autherticationService, sessionService) {
 
              $scope.credentials = {
                  userName: '',
@@ -26,6 +26,7 @@
                  authPromise.then(
                      function (data) {
                          console.log('ok = ', data);
+                         console.log('Testing user session', sessionService.getUserSession());
                      },
                      function (data) {
                          console.log('not ok = ', data);

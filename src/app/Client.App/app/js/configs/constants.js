@@ -2,8 +2,8 @@
 
     function (app) {
         app = app.constant('CONNECTION_CONSTANTS', {
-            //authenticationUri: 'http://localhost:49790/Token' 
-            authenticationUri: './api/Token'
+            authenticationUri: 'http://localhost:49790/Token' 
+            //authenticationUri: './api/Token'
         });
 
         app = app.constant('AUTH_EVENTS', {

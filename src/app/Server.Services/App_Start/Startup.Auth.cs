@@ -10,6 +10,7 @@ using Owin;
 using Server.Services.Providers;
 using Server.Services.Models;
 using Server.Data;
+using Microsoft.Owin.Cors;
 
 namespace Server.Services
 {
@@ -21,7 +22,7 @@ namespace Server.Services
 
         public void ConfigureAuth(IAppBuilder app)
         {
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll); 
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
@@ -42,9 +43,6 @@ namespace Server.Services
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 AllowInsecureHttp = true
             };
-
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
-
             // Enable the application to use bearer tokens to authenticate users
             app.UseOAuthBearerTokens(OAuthOptions);
         }

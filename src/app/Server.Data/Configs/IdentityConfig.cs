@@ -37,6 +37,7 @@ namespace Server.Data
             {
                 manager.UserTokenProvider = new DataProtectorTokenProvider<Employee>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
+
             return manager;
         }
     }

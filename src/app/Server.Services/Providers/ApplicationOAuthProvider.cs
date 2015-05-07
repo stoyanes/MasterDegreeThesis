@@ -32,6 +32,7 @@ namespace Server.Services.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
             Employee user = await userManager.FindAsync(context.UserName, context.Password);
 

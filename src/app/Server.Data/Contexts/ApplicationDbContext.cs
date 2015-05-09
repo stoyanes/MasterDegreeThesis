@@ -34,6 +34,9 @@ namespace Server.Data
             modelBuilder.Entity<IdentityUserLogin>().ToTable("EmployeeLogin");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("EmployeeClaim");
             modelBuilder.Entity<IdentityRole>().ToTable("Role");
+
+
+            modelBuilder.Entity<Employee>().HasOptional(e => e.Manager).WithMany().HasForeignKey(m => m.ManagerID);
         }
 
         public DbSet<LeaveDays> LeaveDays { get; set; }

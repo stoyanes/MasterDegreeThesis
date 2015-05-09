@@ -5,9 +5,14 @@
 
     './controllers/loginController',
 
+    './controllers/applicationController',
+
     './services/authenticationService',
     
-    './services/sessionService'
+    './services/sessionService',
+
+    './services/authInterceptor'
+
 
 ], function (ng) {
 

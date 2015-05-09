@@ -9,8 +9,8 @@
          function ($scope, autherticationService, sessionService) {
 
              $scope.credentials = {
-                 userName: '',
-                 userPassword: ''
+                 userName: 'admin@myemail.com',
+                 userPassword: 'Temp_123'
              };
 
              $scope.authenticate = function (credentials) {
@@ -25,8 +25,7 @@
 
                  authPromise.then(
                      function (data) {
-                         console.log('ok = ', data);
-                         console.log('Testing user session', sessionService.getUserSession());
+                         $scope.setCurrentUser(sessionService.getUserSession());
                      },
                      function (data) {
                          console.log('not ok = ', data);

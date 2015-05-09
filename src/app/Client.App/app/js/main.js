@@ -20,6 +20,10 @@ requirejs.config({
             '../bower_components/angular-bootstrap/ui-bootstrap-tpls.min'
         ],
 
+        'angular-ui-router': [
+            '../bower_components/angular-ui-router/release/angular-ui-router.min'
+        ],
+
         'app': [
             '../app/js/app'
         ]
@@ -41,7 +45,12 @@ requirejs.config({
         "angular-route": {
             deps: ["angular"]
         },
+
         'ui-bootstrap-tpls': {
+            deps:['angular']
+        },
+
+        'angular-ui-router': {
             deps:['angular']
         }
     }

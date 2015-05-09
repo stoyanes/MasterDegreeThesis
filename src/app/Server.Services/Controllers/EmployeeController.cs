@@ -10,13 +10,13 @@ using Server.Data.Repositories;
 
 namespace Server.Services.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/Employees")]
     public class EmployeeController : ApiController
     {
         private IRepository<Employee> employeeRepository = new Repository<Employee>(new ApplicationDbContext());
 
-        [Authorize(Roles="admin, hr")]
+        //[Authorize(Roles="admin, hr")]
         [Route("GetAll")]
         public IHttpActionResult GetAll()
         {

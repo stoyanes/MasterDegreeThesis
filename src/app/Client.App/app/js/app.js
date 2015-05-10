@@ -5,7 +5,7 @@
         'angular-ui-router'
     ],
     function (angular) {
-        'use string';
+        'use strict';
 
         var app = angular.module('app', [
             'ngResource',

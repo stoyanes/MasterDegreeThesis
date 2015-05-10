@@ -12,7 +12,7 @@
                     $state.go('login');
                 }
 
-                $scope.currentUser;
+                $scope.currentUser = undefined;
                 $scope.userRoles = USER_ROLES;
                 $scope.isAuthorized = authenticationService.isAuthorized;
 

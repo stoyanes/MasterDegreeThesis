@@ -6,8 +6,8 @@
 
     'use strict';
 
-    app.factory('AuthenticationService', ['$resource', '$q', 'CONNECTION_CONSTANTS', 'SessionService',
-        function ($resource, $q, CONNECTION_CONSTANTS, sessionService) {
+    app.factory('AuthenticationService', ['$resource', '$q', 'CONNECTION_CONSTANTS', 'SessionService', 'GUEST_USER',
+        function ($resource, $q, CONNECTION_CONSTANTS, sessionService, GUEST_USER) {
 
             var _resource = $resource(CONNECTION_CONSTANTS.authenticationUri),
 
@@ -31,8 +31,9 @@
             };
 
             authenticationService.isAuthenticated = function () {
-                return !!sessionService.getUserSession().accessToken &&
-                    sessionService.getUserSession().accessToken  !== 'GUEST_TOKEN';
+                var userAccessToken = sessionService.getUserSession().accessToken;
+
+                return !!userAccessToken && userAccessToken !== GUEST_USER.accessToken;
             };
 
             authenticationService.isAuthorized = function (authorizedRoles) {

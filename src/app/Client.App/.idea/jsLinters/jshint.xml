@@ -58,7 +58,7 @@
     <option passfail="false" />
     <option phantom="false" />
     <option plusplus="false" />
-    <option predef="requirejs, define, require, angular, " />
+    <option predef="requirejs, define, require, angular, $" />
     <option proto="false" />
     <option prototypejs="false" />
     <option qunit="false" />

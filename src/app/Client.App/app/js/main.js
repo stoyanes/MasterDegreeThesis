@@ -1,6 +1,4 @@
-﻿'use strict';
-
-requirejs.config({
+﻿requirejs.config({
     baseUrl: 'js',
     paths: {
         'jquery': [
@@ -64,6 +62,7 @@ require(
         '../app/js/modulesLoader'
     ],
     function (ng) {
+        'use strict';
         ng.bootstrap(document, ['app']);
     }
 ); // end of require

@@ -7,10 +7,10 @@
 
     'use strict';
 
-    app.factory('SessionService', ['USER_ROLES', function (USER_ROLES) {
+    app.factory('SessionService', ['USER_ROLES', 'GUEST_USER', function (USER_ROLES, GUEST_USER) {
         var userSession = {
-                userName: 'Guest',
-                accessToken: 'GUEST_TOKEN',
+                userName: GUEST_USER.userName,
+                accessToken: GUEST_USER.accessToken,
                 userRoles: [USER_ROLES.guest]
 
             },

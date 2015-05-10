@@ -1,9 +1,19 @@
 ﻿define([
-    'app'
+
+    'app',
+    '../configs/constants'
+
 ], function (app) {
+
     'use strict';
-    app.factory('SessionService', [function () {
-        var userSession = {},
+
+    app.factory('SessionService', ['USER_ROLES', function (USER_ROLES) {
+        var userSession = {
+                userName: 'Guest',
+                accessToken: 'GUEST_TOKEN',
+                userRoles: [USER_ROLES.guest]
+
+            },
 
             sessionService = {};
 
@@ -25,5 +35,5 @@
 
         return sessionService;
 
-    }])
+    }]);
 });

@@ -60,11 +60,14 @@
     <Content Include="app\css\baseTheme.css" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\configs\constants.js" />
+    <Content Include="app\js\configs\onStartup.js" />
+    <Content Include="app\js\configs\routings.js" />
     <Content Include="app\js\controllers\applicationController.js" />
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\services\authenticationService.js" />
     <Content Include="app\js\main.js" />
     <Content Include="app\js\modulesLoader.js" />
+    <Content Include="app\js\services\authInterceptor.js" />
     <Content Include="app\js\services\sessionService.js" />
     <Content Include="bower.json" />
     <None Include="Web.Debug.config">

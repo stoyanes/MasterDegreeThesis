@@ -31,11 +31,13 @@
             };
 
             authenticationService.isAuthenticated = function () {
-                return !!sessionService.getUserSession().accessToken;
+                return !!sessionService.getUserSession().accessToken &&
+                    sessionService.getUserSession().accessToken  !== 'GUEST_TOKEN';
             };
 
             authenticationService.isAuthorized = function (authorizedRoles) {
-                var authorizedRolesLocal;
+
+                var authorizedRolesLocal = angular.copy(authorizedRoles);
 
                 if (!angular.isArray(authorizedRoles)) {
                     authorizedRolesLocal = [authorizedRoles];
@@ -47,8 +49,7 @@
                         return userRoles.indexOf(value) !== -1;
                     });
 
-                return (authService.isAuthenticated() &&
-                  userRolesInAuthorizedRoles.length > 0);
+                return userRolesInAuthorizedRoles.length > 0;
             };
 
             return authenticationService;

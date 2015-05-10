@@ -17,6 +17,7 @@
 
         app = app.constant('USER_ROLES', {
             admin: 'admin',
-            regular: 'regular'
+            regular: 'regular',
+            guest: 'guest'
         });
     });

@@ -64,6 +64,6 @@ require(
         '../app/js/modulesLoader'
     ],
     function (ng) {
-        ng.bootstrap(document, ['app'])
+        ng.bootstrap(document, ['app']);
     }
 ); // end of require

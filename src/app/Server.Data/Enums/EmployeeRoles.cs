@@ -8,10 +8,7 @@ namespace Server.Data
 {
     public enum EmployeeRoles
     {
-        Employee,
-
-        ProjectManager,
-
-        HumanResources
+        Admin,
+        Employee
     }
 }

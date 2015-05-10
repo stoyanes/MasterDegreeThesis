@@ -1,13 +1,12 @@
-﻿'use string';
-
-define(
+﻿define(
     [
         'angular',
         'angular-resource',
         'angular-ui-router'
     ],
-
     function (angular) {
+        'use string';
+
         var app = angular.module('app', [
             'ngResource',
             'ui.router'

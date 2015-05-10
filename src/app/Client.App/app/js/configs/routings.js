@@ -14,7 +14,7 @@
 
                 // Now set up the states
                 $stateProvider
-                    .state('notAuthenticated', {
+                    .state('login', {
                         url: "/",
                         templateUrl: "app/views/login.html",
                         data: {
@@ -27,21 +27,13 @@
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
+                    })
+                    .state('admin', {
+                        url: "/admin",
+                        templateUrl: "app/views/admin.html",
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin]
+                        }
                     });
-                //.state('state2', {
-                //    url: "/state2",
-                //    templateUrl: "templates/state2.html",
-                //    data: {
-                //        authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
-                //    }
-                //})
-                //.state('adminState', {
-                //    url: "/adminState",
-                //    templateUrl: "templates/adminState.html",
-                //    data: {
-                //        authorizedRoles: [USER_ROLES.admin]
-                //    }
-                //})
-
             }]);
     });

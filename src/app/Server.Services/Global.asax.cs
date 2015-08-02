@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -16,7 +12,7 @@ namespace Server.Services
         protected void Application_Start()
         {
 
-            // In production remove or comment next line of code
+            // TODO: In production remove or comment next line of code
             Database.SetInitializer(new ApplicationDatabaseInitializer());
 
             AreaRegistration.RegisterAllAreas();

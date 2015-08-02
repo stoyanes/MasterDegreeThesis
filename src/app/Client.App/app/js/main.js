@@ -22,6 +22,22 @@
             '../bower_components/angular-ui-router/release/angular-ui-router.min'
         ],
 
+        'moment': [
+            '../bower_components/moment/min/moment.min'
+        ],
+
+        'angular-ui-calendar': [
+            '../bower_components/angular-ui-calendar/src/calendar'
+        ],
+
+        'fullcalendar': [
+            '../bower_components/fullcalendar/dist/fullcalendar.min'
+        ],
+
+        'gcal': [
+            '../bower_components/fullcalendar/dist/gcal'
+        ],
+
         'app': [
             '../app/js/app'
         ]
@@ -45,11 +61,14 @@
         },
 
         'ui-bootstrap-tpls': {
-            deps:['angular']
+            deps: ['angular']
         },
 
         'angular-ui-router': {
-            deps:['angular']
+            deps: ['angular']
+        },
+        'angular-ui-calendar': {
+            deps: ['angular', 'moment', 'fullcalendar', 'gcal']
         }
     }
 });

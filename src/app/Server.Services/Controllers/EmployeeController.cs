@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using Server.Data;
 using Server.Data.Model;
@@ -11,7 +7,7 @@ using Server.Data.Repositories;
 namespace Server.Services.Controllers
 {
     //[Authorize]
-    [RoutePrefix("api/Employees")]
+    [RoutePrefix("Employees")]
     public class EmployeeController : ApiController
     {
         private IRepository<Employee> employeeRepository = new Repository<Employee>(new ApplicationDbContext());

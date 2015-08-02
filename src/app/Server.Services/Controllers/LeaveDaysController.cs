@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using Server.Data.Model;
 using Server.Data.Repositories;
@@ -11,7 +7,7 @@ using Microsoft.AspNet.Identity;
 namespace Server.Services.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/LeaveDays")]
+    [RoutePrefix("LeaveDays")]
     public class LeaveDaysController : ApiController
     {
         private IRepository<LeaveDays> leaveDaysRepository = new Repository<LeaveDays>();

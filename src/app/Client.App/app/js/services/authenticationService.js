@@ -56,5 +56,4 @@
             return authenticationService;
 
         }]); // end of service
-
 }); // end of define

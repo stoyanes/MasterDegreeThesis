@@ -2,14 +2,16 @@
     [
         'angular',
         'angular-resource',
-        'angular-ui-router'
+        'angular-ui-router',
+        'angular-ui-calendar'
     ],
     function (angular) {
         'use strict';
 
         var app = angular.module('app', [
             'ngResource',
-            'ui.router'
+            'ui.router',
+            'ui.calendar'
         ]);
 
         /* Adding the auth interceptor here, to check every $http request*/

@@ -6,6 +6,7 @@
     './configs/routings',
 
     './controllers/loginController',
+    './controllers/homeController',
     './controllers/applicationController',
 
     './services/authenticationService',

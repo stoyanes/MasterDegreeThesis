@@ -17,6 +17,7 @@
                     .state('login', {
                         url: "/",
                         templateUrl: "app/views/login.html",
+                        controller: 'LoginController',
                         data: {
                             authorizedRoles: [USER_ROLES.guest]
                         }
@@ -24,6 +25,7 @@
                     .state('home', {
                         url: "/home",
                         templateUrl: "app/views/home.html",
+                        controller: 'HomeController',
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }

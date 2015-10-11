@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Server.Data.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace Server.Data
@@ -44,6 +39,5 @@ namespace Server.Data
         public DbSet<Holiday> Holidays { get; set; }
 
         public DbSet<Request> Requests { get; set; }
-
     }
 }

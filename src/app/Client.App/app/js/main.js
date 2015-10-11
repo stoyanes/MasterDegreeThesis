@@ -67,8 +67,12 @@
         'angular-ui-router': {
             deps: ['angular']
         },
+
         'angular-ui-calendar': {
             deps: ['angular', 'moment', 'fullcalendar', 'gcal']
+        },
+        'gcal': {
+            deps: ['fullcalendar']
         }
     }
 });

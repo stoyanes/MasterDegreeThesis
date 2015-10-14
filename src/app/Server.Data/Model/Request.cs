@@ -14,7 +14,7 @@ namespace Server.Data.Model
         public int ID { get; set; }
 
         [ForeignKey("Employee")]
-        public string EmployeeID { get; set; }
+        public int EmployeeID { get; set; }
 
         public virtual Employee Employee { get; set; }
 

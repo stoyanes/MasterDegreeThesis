@@ -82,6 +82,13 @@
     <Compile Include="Configs\ApplicationDatabaseInitializer.cs" />
     <Compile Include="Contexts\ApplicationDbContext.cs" />
     <Compile Include="Configs\IdentityConfig.cs" />
+    <Compile Include="Model\CustomIdentityModels\ApplicationRoleManager.cs" />
+    <Compile Include="Model\CustomIdentityModels\CustomRole.cs" />
+    <Compile Include="Model\CustomIdentityModels\CustomRoleStore.cs" />
+    <Compile Include="Model\CustomIdentityModels\CustomUserClaim.cs" />
+    <Compile Include="Model\CustomIdentityModels\CustomUserRole.cs" />
+    <Compile Include="Model\CustomIdentityModels\CustomUserLogin.cs" />
+    <Compile Include="Model\CustomIdentityModels\CustomUserStore.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\LeaveDays.cs" />
     <Compile Include="Model\Holiday.cs" />

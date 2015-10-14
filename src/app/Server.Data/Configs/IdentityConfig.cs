@@ -6,18 +6,18 @@ using Server.Data.Model;
 
 namespace Server.Data
 {
-    public class ApplicationUserManager : UserManager<Employee>
+    public class ApplicationUserManager : UserManager<Employee, int>
     {
-        public ApplicationUserManager(IUserStore<Employee> store)
+        public ApplicationUserManager(IUserStore<Employee, int> store)
             : base(store)
         {
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<Employee>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new CustomUserStore(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<Employee>(manager)
+            manager.UserValidator = new UserValidator<Employee, int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -34,7 +34,7 @@ namespace Server.Data
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = new DataProtectorTokenProvider<Employee>(dataProtectionProvider.Create("ASP.NET Identity"));
+                manager.UserTokenProvider = new DataProtectorTokenProvider<Employee, int>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
 
             return manager;

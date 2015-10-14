@@ -4,11 +4,11 @@ using System.Data.Entity;
 
 namespace Server.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<Employee>
+    public class ApplicationDbContext : IdentityDbContext<Employee, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
         #region Constructors
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
         }
 
@@ -20,16 +20,15 @@ namespace Server.Data
             return new ApplicationDbContext();
         }
 
-        protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Employee>().ToTable("Employee");
-            modelBuilder.Entity<IdentityUserRole>().ToTable("EmployeeRole");
-            modelBuilder.Entity<IdentityUserLogin>().ToTable("EmployeeLogin");
-            modelBuilder.Entity<IdentityUserClaim>().ToTable("EmployeeClaim");
-            modelBuilder.Entity<IdentityRole>().ToTable("Role");
-
+            modelBuilder.Entity<CustomUserRole>().ToTable("EmployeeRole");
+            modelBuilder.Entity<CustomUserLogin>().ToTable("EmployeeLogin");
+            modelBuilder.Entity<CustomUserClaim>().ToTable("EmployeeClaim");
+            modelBuilder.Entity<CustomRole>().ToTable("Role");
 
             modelBuilder.Entity<Employee>().HasOptional(e => e.Manager).WithMany().HasForeignKey(m => m.ManagerID);
         }

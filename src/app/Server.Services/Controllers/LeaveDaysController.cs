@@ -26,7 +26,7 @@ namespace Server.Services.Controllers
         [Route("GetAllForEmployee")]
         public IHttpActionResult GetAllForEmployee()
         {
-            var currentEmployeeId = User.Identity.GetUserId();
+            var currentEmployeeId = User.Identity.GetUserId<int>();
 
             var employeeLeaveDays = leaveDaysRepository
                                  .FindAll()
@@ -39,7 +39,7 @@ namespace Server.Services.Controllers
         [Route("GetAllForEmployeeByYear")]
         public IHttpActionResult GetAllForEmployeeByYear(int year)
         {
-            var currentEmployeeId = User.Identity.GetUserId();
+            var currentEmployeeId = User.Identity.GetUserId<int>();
 
             var employeeLeaveDays = leaveDaysRepository
                                  .FindAll()

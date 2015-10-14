@@ -10,7 +10,7 @@ namespace Server.Data.Configs
     {
         protected override void Seed(ApplicationDbContext context)
         {
-            ApplicationUserManager manager = new ApplicationUserManager(new UserStore<Employee>(context));
+            ApplicationUserManager manager = new ApplicationUserManager(new UserStore<Employee, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>(context));
 
             var adminUser = new Employee { Email = "admin@myemail.com", UserName = "admin@myemail.com" };
             manager.Create(adminUser, "Temp_123");
@@ -21,9 +21,9 @@ namespace Server.Data.Configs
             var managerUser = new Employee { Email = "managerUser@myemail.com", UserName = "managerUser@myemail.com" };
             manager.Create(managerUser, "Temp_123");
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            roleManager.Create(new IdentityRole("admin"));
-            roleManager.Create(new IdentityRole("employee"));
+            var roleManager = new ApplicationRoleManager(new RoleStore<CustomRole, int, CustomUserRole>(context));
+            roleManager.Create(new CustomRole("admin"));
+            roleManager.Create(new CustomRole("employee"));
 
             manager.AddToRole(adminUser.Id, "admin");
             manager.AddToRole(employeeUser.Id, "employee");

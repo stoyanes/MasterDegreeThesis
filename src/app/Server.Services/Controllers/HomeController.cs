@@ -10,7 +10,5 @@ namespace Server.Services.Controllers
 
             return View();
         }
-
-
     }
 }

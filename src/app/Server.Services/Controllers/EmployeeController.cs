@@ -70,7 +70,7 @@ namespace Server.Services.Controllers
 
         [HttpPut]
         //[Authorize(Roles="admin, hr")]
-        [Route("")]
+        [Route("{id}")]
         public IHttpActionResult UpdateEmployee([FromBody] Employee newEmployee)
         {
             if (ModelState.IsValid)

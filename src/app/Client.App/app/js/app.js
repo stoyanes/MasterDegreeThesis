@@ -4,7 +4,8 @@
         'angular-resource',
         'angular-ui-router',
         'angular-ui-calendar',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        'angular-animate'
     ],
     function (angular) {
         'use strict';
@@ -13,7 +14,8 @@
             'ngResource',
             'ui.router',
             'ui.calendar',
-            'angular-loading-bar'
+            'angular-loading-bar',
+            'ngAnimate'
         ]);
 
 

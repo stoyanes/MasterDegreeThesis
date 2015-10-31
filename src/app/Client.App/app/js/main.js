@@ -42,6 +42,10 @@
             '../bower_components/angular-loading-bar/build/loading-bar.min'
         ],
 
+        'angular-animate': [
+            '../bower_components/angular-animate/angular-animate.min'
+        ],
+
         'app': [
             '../app/js/app'
         ]
@@ -79,6 +83,9 @@
             deps: ['fullcalendar']
         },
         'angular-loading-bar': {
+            deps: ['angular']
+        },
+        'angular-animate': {
             deps: ['angular']
         }
     }

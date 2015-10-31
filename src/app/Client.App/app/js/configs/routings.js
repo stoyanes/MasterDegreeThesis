@@ -15,15 +15,15 @@
                 // Now set up the states
                 $stateProvider
                     .state('login', {
-                        url: "/",
-                        templateUrl: "app/views/login.html",
+                        url: '/',
+                        templateUrl: 'app/views/login.html',
                         controller: 'LoginController',
                         data: {
                             authorizedRoles: [USER_ROLES.guest]
                         }
                     })
                     .state('home', {
-                        url: "/home",
+                        url: '/home',
                         templateUrl: "app/views/home.html",
                         controller: 'HomeController',
                         data: {
@@ -31,8 +31,8 @@
                         }
                     })
                     .state('admin', {
-                        url: "/admin",
-                        templateUrl: "app/views/admin.html",
+                        url: '/admin',
+                        templateUrl: 'app/views/admin.html',
                         data: {
                             authorizedRoles: [USER_ROLES.admin]
                         }

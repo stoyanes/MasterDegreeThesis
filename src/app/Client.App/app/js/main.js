@@ -38,6 +38,10 @@
             '../bower_components/fullcalendar/dist/gcal'
         ],
 
+        'angular-loading-bar': [
+            '../bower_components/angular-loading-bar/build/loading-bar.min'
+        ],
+
         'app': [
             '../app/js/app'
         ]
@@ -73,6 +77,9 @@
         },
         'gcal': {
             deps: ['fullcalendar']
+        },
+        'angular-loading-bar': {
+            deps: ['angular']
         }
     }
 });

@@ -13,7 +13,6 @@
     './services/sessionService',
     './services/authInterceptor'
 
-
 ], function (ng) {
 
 });

@@ -58,18 +58,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\css\angular-csp.css" />
     <Content Include="app\css\baseTheme.css" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\configs\constants.js" />
     <Content Include="app\js\configs\onStartup.js" />
     <Content Include="app\js\configs\routings.js" />
     <Content Include="app\js\controllers\applicationController.js" />
+    <Content Include="app\js\controllers\homeController.js" />
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\services\authenticationService.js" />
     <Content Include="app\js\main.js" />
     <Content Include="app\js\modulesLoader.js" />
     <Content Include="app\js\services\authInterceptor.js" />
     <Content Include="app\js\services\sessionService.js" />
+    <Content Include="app\views\admin.html" />
+    <Content Include="app\views\home.html" />
+    <Content Include="app\views\login.html" />
     <Content Include="bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -79,7 +84,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
+    <Content Include="TODO.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +95,6 @@
   <ItemGroup>
     <Folder Include="app\img\" />
     <Folder Include="app\js\directives\" />
-    <Folder Include="app\views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

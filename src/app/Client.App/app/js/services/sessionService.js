@@ -4,7 +4,6 @@
     '../configs/constants'
 
 ], function (app) {
-
     'use strict';
 
     app.factory('SessionService', ['USER_ROLES', 'GUEST_USER', function (USER_ROLES, GUEST_USER) {
@@ -12,7 +11,6 @@
                 userName: GUEST_USER.userName,
                 accessToken: GUEST_USER.accessToken,
                 userRoles: [USER_ROLES.guest]
-
             },
 
             sessionService = {};
@@ -28,12 +26,11 @@
         };
 
         sessionService.destroySession = function () {
-            userSession.userName = undefined;
-            userSession.accessToken = undefined;
-            userSession.userRoles = undefined;
+            userSession.userName = GUEST_USER.userName;
+            userSession.accessToken = GUEST_USER.accessToken;
+            userSession.userRoles = [USER_ROLES.guest];
         };
 
         return sessionService;
-
     }]);
 });

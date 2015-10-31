@@ -4,9 +4,11 @@
     <title>Time Off Tracking System</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../bower_components/fullcalendar/dist/fullcalendar.css" rel="stylesheet" />
+    <link href="../bower_components/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet" />
     <link href="app/css/baseTheme.css" rel="stylesheet"/>
+    <link href="../app/css/angular-csp.css" rel="stylesheet" />
 </head>
-<body ng-controller="ApplicationController">
+<body ng-controller="ApplicationController" ng-cloak>
 <div>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -27,9 +29,14 @@
                         <a ui-sref="home"> Hello, {{ currentUser.userName || '' }}
                         </a>
                     </li>
-                    <li ng-if="isCurrentUserInRole(currentUser, userRoles.admin)">
+                    <li ng-show="isCurrentUserInRole(currentUser, userRoles.admin)">
                         <a ui-sref="admin">
                             Admin Panel
+                        </a>
+                    </li>
+                    <li ng-show="isCurrentUserInRole(currentUser, userRoles.admin) || 
+                        isCurrentUserInRole(currentUser, userRoles.regular)">
+                        <a ng-click="logOut()"> Log-out
                         </a>
                     </li>
                 </ul>

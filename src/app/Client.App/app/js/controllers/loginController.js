@@ -25,14 +25,11 @@
 
                     authPromise.then(
                         function () {
-                            $scope.setCurrentUser(sessionService.getUserSession());
                             $state.go('home');
                         },
                         function () {
                             $state.go('notAuthenticated');
                         });
                 };
-
             }]); // end of controller
-
     }); // end of define

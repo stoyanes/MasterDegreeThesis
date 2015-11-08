@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Data
+namespace Server.Data.Enums
 {
-    public enum EmployeeRoles
+    public enum VacationType
     {
         None,
-        Admin,
-        Employee
+        Paid,
+        Unpaid,
+        Sickness
     }
 }

@@ -12,8 +12,15 @@ namespace Server.Services.Controllers
     {
         private IRepository<LeaveDays> leaveDaysRepository = new Repository<LeaveDays>();
 
+        // DI for later unit testing
+        public LeaveDaysController(IRepository<LeaveDays> leaveDaysRepo)
+        {
+            this.leaveDaysRepository = leaveDaysRepo;
+        }
+
         [Authorize(Roles="admin, hr")]
-        [Route("GetAll")]
+        [HttpGet]
+        [Route("All")]
         public IHttpActionResult GetAll()
         {
             var allLeaveDays = leaveDaysRepository
@@ -23,7 +30,8 @@ namespace Server.Services.Controllers
             return Ok(allLeaveDays);
         }
 
-        [Route("GetAllForEmployee")]
+        [HttpGet]
+        [Route("AllForEmployee")]
         public IHttpActionResult GetAllForEmployee()
         {
             var currentEmployeeId = User.Identity.GetUserId<int>();
@@ -36,7 +44,8 @@ namespace Server.Services.Controllers
             return Ok(employeeLeaveDays);
         } 
 
-        [Route("GetAllForEmployeeByYear")]
+        [HttpGet]
+        [Route("AllForEmployeeByYear")]
         public IHttpActionResult GetAllForEmployeeByYear(int year)
         {
             var currentEmployeeId = User.Identity.GetUserId<int>();

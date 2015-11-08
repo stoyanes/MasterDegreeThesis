@@ -12,6 +12,12 @@ namespace Server.Services.Controllers
     {
         private IRepository<Employee> employeesRepository = new Repository<Employee>(new ApplicationDbContext());
 
+        // DI for later unit testing
+        public EmployeeController(IRepository<Employee> employeesRepo)
+        {
+            this.employeesRepository = employeesRepo;
+        }
+
         [HttpGet]
         //[Authorize(Roles="admin, hr")]
         [Route("")]

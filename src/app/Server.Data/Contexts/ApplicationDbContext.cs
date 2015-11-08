@@ -37,6 +37,6 @@ namespace Server.Data
 
         public DbSet<Holiday> Holidays { get; set; }
 
-        public DbSet<Request> Requests { get; set; }
+        public DbSet<VacationRequest> Requests { get; set; }
     }
 }

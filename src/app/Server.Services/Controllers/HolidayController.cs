@@ -12,6 +12,12 @@ namespace Server.Services.Controllers
     {
         private IRepository<Holiday> holidayRepository = new Repository<Holiday>(new ApplicationDbContext());
 
+        // DI for unit testng
+        public HolidayController(IRepository<Holiday> holidayRepo)
+        {
+            this.holidayRepository = holidayRepo; 
+        }
+
         [HttpGet]
         [Route("")]
         public IHttpActionResult GetAll()

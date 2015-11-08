@@ -23,7 +23,7 @@ namespace Server.Data.Model
         }
         #endregion
 
-        public virtual IEnumerable<Request> Requests { get; set; }
+        public virtual IEnumerable<VacationRequest> Requests { get; set; }
 
         public virtual IEnumerable<LeaveDays> LeaveDays { get; set; }
 

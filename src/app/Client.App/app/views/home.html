@@ -1,4 +1,11 @@
 <div>
-    <p> HOME! </p>
-    <div ui-calendar ng-model="eventsData"></div>
+    <!-- tt-- prefix for TimeTracking namespace-->
+    <aside class="col-md-3 ttMainMenu">
+       <div ng-include="'app/views/menus/regular.html'"></div>
+       <div ng-if ="isCurrentUserInRole(currentUser, userRoles.admin)" ng-include="'app/views/menus/admin.html'"></div>
+    </aside>
+    <div class="col-md-6" ui-calendar ng-model="eventsData"></div>
+    <aside class="col-md-3 ttSideMenu" >
+       <div ng-include="'app/views/menus/side.html'"></div>
+    </aside>
 </div>

@@ -22,32 +22,22 @@
                 </button>
                 <a class="navbar-brand" href="#/home">Time-Off Tracking</a>
             </div>
-
             <div class="collapse navbar-collapse" id="navbar-collapse" ng-class="!navCollapsed && 'in'" >
                 <ul class="nav navbar-nav ">
                     <li ng-show="currentUser">
                         <a ui-sref="home"> Hello, {{ currentUser.userName || '' }}
                         </a>
                     </li>
-                    <li ng-show="isCurrentUserInRole(currentUser, userRoles.admin)">
-                        <a ui-sref="admin">
-                            Admin Panel
-                        </a>
-                    </li>
-                    <li ng-show="isCurrentUserInRole(currentUser, userRoles.admin) || 
-                        isCurrentUserInRole(currentUser, userRoles.regular)">
-                        <a ng-click="logOut()"> Log-out
-                        </a>
+                    <li ng-show="!isCurrentUserInRole(currentUser, userRoles.guest)">
+                        <a ng-click="logOut()"> Log-out </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="container">
         <div ui-view></div>
     </div>
-
 </div>
 <script src="bower_components/requirejs/require.js" data-main="./app/js/main.js"></script>
 </body>

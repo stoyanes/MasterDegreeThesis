@@ -16,10 +16,6 @@
                 $scope.userRoles = USER_ROLES;
                 $scope.isAuthorized = authenticationService.isAuthorized;
 
-                //$scope.setCurrentUser = function (user) {
-                //    $scope.currentUser = user;
-                //};
-
                 $scope.isCurrentUserInRole = function (currentUser, role) {
                     if (currentUser && currentUser.userRoles) {
                         return currentUser.userRoles.indexOf(role) !== -1;
@@ -31,6 +27,13 @@
                     sessionService.destroySession();
                     $state.go('login');
                 };
+
+                $scope.$on('IdleStart', function () {
+                    // the user appears to have gone idle
+                    if (!$scope.isCurrentUserInRole($scope.currentUser, $scope.userRoles.guest)) {
+                        $scope.logOut();
+                    }
+                });
             }]);
 
     }); // end of define

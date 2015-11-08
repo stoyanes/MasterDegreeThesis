@@ -46,13 +46,17 @@
             '../bower_components/angular-animate/angular-animate.min'
         ],
 
+        'ng-idle': [
+            '../bower_components/ng-idle/angular-idle.min'
+        ],
+
         'app': [
             '../app/js/app'
         ]
     },
     shim: {
-        "jquery": {
-            exports: "jquery"
+        'jquery': {
+            exports: 'jquery'
         },
 
         'angular': {
@@ -60,12 +64,12 @@
             exports: 'angular'
         },
 
-        "angular-resource": {
-            deps: ["angular"]
+        'angular-resource': {
+            deps: ['angular']
         },
 
-        "angular-route": {
-            deps: ["angular"]
+        'angular-route': {
+            deps: ['angular']
         },
 
         'ui-bootstrap-tpls': {
@@ -86,6 +90,9 @@
             deps: ['angular']
         },
         'angular-animate': {
+            deps: ['angular']
+        },
+        'ng-idle': {
             deps: ['angular']
         }
     }

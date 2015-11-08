@@ -7,8 +7,8 @@
     function (app) {
         "use strict";
 
-        app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS',
-            function ($rootScope, authenticationService, AUTH_EVENTS) {
+        app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS','Idle',
+            function ($rootScope, authenticationService, AUTH_EVENTS, idle) {
 
                 $rootScope.$on('$stateChangeStart', function (event, next) {
                     var authorizedRoles = next.data.authorizedRoles;
@@ -24,5 +24,7 @@
                         }
                     }
                 });
+
+                idle.watch();
             }]);
     });

@@ -23,10 +23,10 @@ namespace Server.Data.Configs
 
             var roleManager = new ApplicationRoleManager(new RoleStore<CustomRole, int, CustomUserRole>(context));
             roleManager.Create(new CustomRole("admin"));
-            roleManager.Create(new CustomRole("employee"));
+            roleManager.Create(new CustomRole("regular"));
 
             manager.AddToRole(adminUser.Id, "admin");
-            manager.AddToRole(employeeUser.Id, "employee");
+            manager.AddToRole(employeeUser.Id, "regular");
 
             context.Holidays.Add(new Holiday(){ ForYear = 2015, HolidayDate = new DateTime(2015, 6, 1), Name = "Worker's day."});
             context.Holidays.Add(new Holiday() { ForYear = 2015, HolidayDate = new DateTime(2015, 6, 6), Name = "St. George's Day." });

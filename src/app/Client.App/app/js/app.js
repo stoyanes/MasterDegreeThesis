@@ -6,7 +6,8 @@
         'angular-ui-calendar',
         'angular-loading-bar',
         'angular-animate',
-        'ng-idle'
+        'ng-idle',
+        'ui-bootstrap-tpls'
     ],
     function (angular) {
         'use strict';
@@ -17,7 +18,8 @@
             'ui.calendar',
             'angular-loading-bar',
             'ngAnimate',
-            'ngIdle'
+            'ngIdle',
+            'ui.bootstrap'
         ]);
 
         /* Adding the auth interceptor here, to check every $http request*/

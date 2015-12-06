@@ -25,7 +25,7 @@
 
                     authPromise.then(
                         function () {
-                            $state.go('home');
+                            $state.go('system');
                         },
                         function () {
                             $state.go('notAuthenticated');

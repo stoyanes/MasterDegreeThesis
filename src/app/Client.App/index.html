@@ -20,12 +20,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/home">Time-Off Tracking</a>
+                <a class="navbar-brand" href="#/system">Time-Off Tracking</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse" ng-class="!navCollapsed && 'in'" >
                 <ul class="nav navbar-nav ">
                     <li ng-show="currentUser">
-                        <a ui-sref="home"> Hello, {{ currentUser.userName || '' }}
+                        <a ui-sref="system"> Hello, {{ currentUser.userName || '' }}
                         </a>
                     </li>
                     <li ng-show="!isCurrentUserInRole(currentUser, userRoles.guest)">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container col-md-12">
         <div ui-view></div>
     </div>
 </div>

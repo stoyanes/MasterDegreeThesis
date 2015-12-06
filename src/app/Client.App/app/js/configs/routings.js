@@ -22,10 +22,10 @@
                             authorizedRoles: [USER_ROLES.guest]
                         }
                     })
-                    .state('home', {
-                        url: '/home',
-                        templateUrl: "app/views/home.html",
-                        controller: 'HomeController',
+                    .state('system', {
+                        url: '/system',
+                        templateUrl: 'app/views/system.html',
+                        controller: 'SystemController',
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
@@ -35,6 +35,15 @@
                         templateUrl: 'app/views/admin.html',
                         data: {
                             authorizedRoles: [USER_ROLES.admin]
+                        }
+                    })
+                    .state('requestVacation', {
+                        parent: 'system',
+                        url: '/requestVacation',
+                        templateUrl: 'app/views/requestVacation.html',
+                        controller: 'RequestVacationController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
                     });
             }]);

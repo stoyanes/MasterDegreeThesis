@@ -6,8 +6,9 @@
     './configs/routings',
 
     './controllers/loginController',
-    './controllers/homeController',
+    './controllers/systemController',
     './controllers/applicationController',
+    './controllers/requestVacationController',
 
     './services/authenticationService',
     './services/sessionService',

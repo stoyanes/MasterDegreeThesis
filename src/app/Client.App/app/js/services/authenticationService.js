@@ -3,12 +3,10 @@
     'angular-resource',
     '../configs/constants'
 ], function (app) {
-
     'use strict';
 
     app.factory('AuthenticationService', ['$resource', '$q', 'CONNECTION_CONSTANTS', 'SessionService', 'GUEST_USER',
         function ($resource, $q, CONNECTION_CONSTANTS, sessionService, GUEST_USER) {
-
             var _resource = $resource(CONNECTION_CONSTANTS.authenticationUri),
 
                 authenticationService = {};

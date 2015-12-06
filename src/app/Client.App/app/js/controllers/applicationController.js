@@ -34,6 +34,5 @@
                         $scope.logOut();
                     }
                 });
-            }]);
-
+            }]); // end of controller
     }); // end of define

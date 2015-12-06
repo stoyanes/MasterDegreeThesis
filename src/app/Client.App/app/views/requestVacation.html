@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label for="ttStartDate">Start Date</label>
                     <p class="input-group">
-                        <input type="text" 
+                        <input type="text"
                                id="ttStartDate"
                                class="form-control"
                                uib-datepicker-popup
@@ -17,10 +17,10 @@
                                ng-required="true"
                                close-text="Close" />
                         <span class="input-group-btn">
-                            <button type="button" 
-                                    class="btn btn-default" 
+                            <button type="button"
+                                    class="btn btn-default"
                                     ng-click="startVacationDateModel.togglePopUp($event)">
-                            <i class="glyphicon glyphicon-calendar"></i>
+                                <i class="glyphicon glyphicon-calendar"></i>
                             </button>
                         </span>
                     </p>
@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for="ttEndDate">End Date</label>
                     <p class="input-group">
-                        <input type="text" 
+                        <input type="text"
                                id="ttEndDate"
                                class="form-control"
                                min-date="endVacationDateModel.minDate"
@@ -39,22 +39,31 @@
                                ng-required="true"
                                close-text="Close" />
                         <span class="input-group-btn">
-                            <button type="button" 
-                                    class="btn btn-default" 
+                            <button type="button"
+                                    class="btn btn-default"
                                     ng-click="endVacationDateModel.togglePopUp($event)">
-                            <i class="glyphicon glyphicon-calendar"></i>
+                                <i class="glyphicon glyphicon-calendar"></i>
                             </button>
                         </span>
                     </p>
                 </div>
                 <div class="form-group">
+                    <label for="ttVacationType">Vacation Type</label>
+                    <select class="form-control"
+                             id="ttVacationType"
+                             ng-options="item as item.label for item in vacationTypeSelectOptions track by item.id" 
+                             ng-model="vacationTypeSelection">
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="ttNote">Note</label>
-                    <textarea id="ttNote" 
-                              class="form-control" 
-                              placeholder="Note" 
+                    <textarea id="ttNote"
+                              class="form-control"
+                              placeholder="Note"
                               rows="5">
                     </textarea>
                 </div>
+                <button class="btn btn-default" ng-click="requestVacation()">Request Vacation</button>
             </form>
         </div>
     </div>

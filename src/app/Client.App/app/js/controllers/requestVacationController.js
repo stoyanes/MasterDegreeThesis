@@ -11,10 +11,10 @@
                     $event.preventDefault();
                     $event.stopPropagation();
                     dpModel.popupOpenStatus = true;
-                }
+                };
 
                 var startVacationDateModel = {
-                    date: new Date(),
+                    date: null,
                     minDate: new Date(),
                     popupOpenStatus: false,
                     dateOptions: {
@@ -24,10 +24,10 @@
                     togglePopUp: function ($event) {
                         openDatepickerPopup($event, this);
                     }
-                }
+                };
 
                 var endVacationDateModel = {
-                    date: new Date(),
+                    date: null,
                     minDate: new Date(),
                     popupOpenStatus: false,
                     dateOptions: {
@@ -37,9 +37,31 @@
                     togglePopUp: function ($event) {
                         openDatepickerPopup($event, this);
                     }
-                }
+                };
 
                 $scope.startVacationDateModel = startVacationDateModel;
                 $scope.endVacationDateModel = endVacationDateModel;
+
+                $scope.vacationTypeSelectOptions = [
+                    {
+                        id: 0,
+                        label: 'Select...'
+                    },
+                    {
+                        id: 1,
+                        label: 'Paid'
+                    },
+                    {
+                        id: 2,
+                        label: 'Unpaid'
+                    },
+                    {
+                        id: 3,
+                        label: 'Sickness'
+                    }
+                ];
+                $scope.vacationTypeSelection = $scope.vacationTypeSelectOptions[0];
+
+
             }]); // end of controller
     }); // end of define

@@ -1,11 +1,13 @@
-﻿define(['app'],
+﻿define(
+    ['app'],
 
     function (app) {
         'use strict';
 
         app = app.constant('CONNECTION_CONSTANTS', {
             //authenticationUri: 'http://localhost/api/Token' 
-            authenticationUri: './api/Token'
+            authenticationUri: './api/Token',
+            requestVacationUri: './api/VacationRequests'
         });
 
         app = app.constant('AUTH_EVENTS', {
@@ -26,6 +28,5 @@
         app = app.constant('GUEST_USER', {
             userName: 'Guest',
             accessToken: 'GUEST_USER_TOKEN',
-
         });
     });

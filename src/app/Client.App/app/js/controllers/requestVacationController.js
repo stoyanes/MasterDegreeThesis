@@ -4,8 +4,8 @@
     function (app) {
         'use strict';
         app.controller('RequestVacationController', [
-            '$scope', '$state',
-            function ($scope, $state) {
+            '$scope', '$state', 'RequestVacationService',
+            function ($scope, $state, requestVacationService) {
 
                 var openDatepickerPopup = function ($event, dpModel) {
                     $event.preventDefault();
@@ -39,29 +39,50 @@
                     }
                 };
 
+                $scope.description = '';
                 $scope.startVacationDateModel = startVacationDateModel;
                 $scope.endVacationDateModel = endVacationDateModel;
 
                 $scope.vacationTypeSelectOptions = [
                     {
-                        id: 0,
+                        vacationType: 0,
                         label: 'Select...'
                     },
                     {
-                        id: 1,
+                        vacationType: 1,
                         label: 'Paid'
                     },
                     {
-                        id: 2,
+                        vacationType: 2,
                         label: 'Unpaid'
                     },
                     {
-                        id: 3,
+                        vacationType: 3,
                         label: 'Sickness'
                     }
                 ];
                 $scope.vacationTypeSelection = $scope.vacationTypeSelectOptions[0];
 
+                $scope.requestVacation = function () {
+                    var requestVacationData = {
+                        vacationType: $scope.vacationTypeSelection.vacationType,
+                        startDate: $scope.startVacationDateModel.date,
+                        endDate: $scope.endVacationDateModel.date,
+                        description: $scope.description
+                    };
+
+                    requestVacationService
+                        .requestAsync(requestVacationData)
+                        .then(
+                        // success callback
+                        function () {
+                            console.log('Cool.');
+                        },
+                        // error callback
+                        function () {
+                            console.log('Bad.')
+                        });
+                }
 
             }]); // end of controller
     }); // end of define

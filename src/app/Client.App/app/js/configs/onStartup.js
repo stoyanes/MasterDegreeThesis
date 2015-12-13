@@ -5,9 +5,9 @@
         '../services/authenticationService'
     ],
     function (app) {
-        "use strict";
+        'use strict';
 
-        app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS','Idle',
+        app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS', 'Idle',
             function ($rootScope, authenticationService, AUTH_EVENTS, idle) {
 
                 $rootScope.$on('$stateChangeStart', function (event, next) {

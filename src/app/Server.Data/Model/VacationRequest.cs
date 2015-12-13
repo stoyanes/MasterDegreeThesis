@@ -27,9 +27,9 @@ namespace Server.Data.Model
         [MaxLength(500)]
         public string Description { get; set; }
 
-        [Required]
         public RequestStates Status { get; set; }
 
+        [Required]
         public VacationType VacationType { get; set; }
     }
 }

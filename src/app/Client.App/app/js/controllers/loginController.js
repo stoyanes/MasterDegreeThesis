@@ -1,7 +1,7 @@
 ﻿define([
         'app',
         '../services/authenticationService'
-    ],
+],
     function (app) {
         'use strict';
         app.controller('LoginController', [
@@ -21,7 +21,8 @@
                         'password': credentials.userPassword
                     };
 
-                    var authPromise = autherticationService.authenticateAsync($.param(authenticationData));
+                    var authPromise = autherticationService
+                                        .authenticateAsync($.param(authenticationData));
 
                     authPromise.then(
                         function () {

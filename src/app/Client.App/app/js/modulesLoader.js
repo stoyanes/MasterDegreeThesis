@@ -12,8 +12,8 @@
 
     './services/authenticationService',
     './services/sessionService',
-    './services/authInterceptor'
-
+    './services/authInterceptor',
+    './services/requestVacationService'
 ], function (ng) {
 
 });

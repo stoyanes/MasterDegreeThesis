@@ -28,9 +28,7 @@ namespace Server.Data.Model
         public virtual IEnumerable<LeaveDays> LeaveDays { get; set; }
 
         public int? ManagerID { get; set; }
+
         public virtual Employee Manager { get; set; }
-
-        public bool IsEmployeeActive { get; set; }
     }
-
 }

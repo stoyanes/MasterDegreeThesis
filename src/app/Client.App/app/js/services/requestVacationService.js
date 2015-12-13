@@ -11,6 +11,22 @@
 
                 requestVacationService = {};
 
+            requestVacationService.requestAsync = function (requestData) {
+                var deffered = $q.defer();
+
+                _resource.save(requestData,
+                    function (responce) {
+                        deffered.resolve(responce);
+                    },
+
+                    function (responce) {
+                        deffered.reject(responce);
+                    }
+                );
+
+                return deffered.promise;
+            };
+
             return requestVacationService;
 
         }]); // end of service

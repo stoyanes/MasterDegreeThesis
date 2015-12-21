@@ -45,6 +45,14 @@
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
-                    });
+                    })
+                    .state('error', {
+                        url: '/error',
+                        templateUrl: 'app/views/error.html',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
+                        }
+                    })
+
             }]);
     });

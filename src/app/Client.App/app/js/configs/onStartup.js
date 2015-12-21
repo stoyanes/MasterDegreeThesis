@@ -7,8 +7,8 @@
     function (app) {
         'use strict';
 
-        app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS', 'Idle',
-            function ($rootScope, authenticationService, AUTH_EVENTS, idle) {
+        app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS', 'Idle', '$state',
+            function ($rootScope, authenticationService, AUTH_EVENTS, idle, $state) {
 
                 $rootScope.$on('$stateChangeStart', function (event, next) {
                     var authorizedRoles = next.data.authorizedRoles;
@@ -19,12 +19,20 @@
                             $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
                         } else {
                             // user is not logged in
-
                             $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
                         }
                     }
                 });
-
+                
                 idle.watch();
+
+                $rootScope.isDefiened = function (obj) {
+                    return obj !== null && obj !== undefined;
+                };
+
+                $rootScope.isDate = function (date) {
+                    return Object.prototype.toString.call(date) === "[object Date]";
+                };
+
             }]);
     });

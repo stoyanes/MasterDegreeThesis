@@ -4,8 +4,8 @@
     function (app) {
         'use strict';
         app.controller('RequestVacationController', [
-            '$scope', '$state', 'RequestVacationService',
-            function ($scope, $state, requestVacationService) {
+            '$rootScope','$scope', '$state', 'RequestVacationService',
+            function ($rootScope, $scope, $state, requestVacationService) {
 
                 var openDatepickerPopup = function ($event, dpModel) {
                     $event.preventDefault();
@@ -76,13 +76,27 @@
                         .then(
                         // success callback
                         function () {
-                            console.log('Cool.');
+                            $state.go('system');
                         },
                         // error callback
                         function () {
-                            console.log('Bad.')
+                            $state.go('error');
                         });
                 }
+
+                $scope.isVacationRequestValid = function () {
+                    var isValid = true;
+                    if (!$rootScope.isDate($scope.startVacationDateModel.date)) {
+                        isValid = false;
+                    }
+                    if (!$rootScope.isDate($scope.endVacationDateModel.date)) {
+                        isValid = false;
+                    }
+                    if ($scope.vacationTypeSelection.vacationType === $scope.vacationTypeSelectOptions[0].vacationType) {
+                        isValid = false;
+                    }
+                    return isValid;
+                };
 
             }]); // end of controller
     }); // end of define

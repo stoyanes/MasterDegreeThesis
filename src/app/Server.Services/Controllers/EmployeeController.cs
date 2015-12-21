@@ -3,9 +3,9 @@ using Server.Data.Model;
 
 namespace Server.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("Employees")]
     public class EmployeeController : BaseController<Employee>
-    { 
+    {
     }
 }

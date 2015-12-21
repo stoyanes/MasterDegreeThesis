@@ -12,9 +12,10 @@
                     userName: 'admin@myemail.com',
                     userPassword: 'Temp_123'
                 };
+                $scope.isLoginButtonDisabled = false;
 
                 $scope.authenticate = function (credentials) {
-
+                    $scope.isLoginButtonDisabled = true;
                     var authenticationData = {
                         'grant_type': 'password',
                         'userName': credentials.userName,
@@ -24,12 +25,16 @@
                     var authPromise = autherticationService
                                         .authenticateAsync($.param(authenticationData));
 
-                    authPromise.then(
+                    authPromise
+                        .then(
                         function () {
                             $state.go('system');
                         },
                         function () {
                             $state.go('notAuthenticated');
+                        })
+                        .finally(function () {
+                            $scope.isLoginButtonDisabled = false;
                         });
                 };
             }]); // end of controller

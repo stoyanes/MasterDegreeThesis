@@ -13,7 +13,13 @@
         </div>
 
         <div class="form-group">
-            <button id="authButton" type="submit" class="btn btn-default" ng-click="authenticate(credentials)"> Log in </button>
+            <button id="authButton"
+                    type="submit"
+                    class="btn btn-default"
+                    ng-disabled="isLoginButtonDisabled"
+                    ng-click="authenticate(credentials)">
+                Log in
+            </button>
         </div>
     </div>
     <div class="col-sm-3">

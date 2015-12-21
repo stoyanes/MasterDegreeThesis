@@ -74,6 +74,7 @@
     <Content Include="app\js\services\authInterceptor.js" />
     <Content Include="app\js\services\requestVacationService.js" />
     <Content Include="app\js\services\sessionService.js" />
+    <Content Include="app\views\error.html" />
     <Content Include="app\views\system.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\menus\admin.html" />

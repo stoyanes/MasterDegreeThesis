@@ -26,13 +26,12 @@
                 
                 idle.watch();
 
-                $rootScope.isDefiened = function (obj) {
+                $rootScope.isDefined = function (obj) {
                     return obj !== null && obj !== undefined;
                 };
 
                 $rootScope.isDate = function (date) {
                     return Object.prototype.toString.call(date) === "[object Date]";
                 };
-
             }]);
     });

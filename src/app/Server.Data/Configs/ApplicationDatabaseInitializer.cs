@@ -14,7 +14,7 @@ namespace Server.Data.Configs
 
             var adminUser = new Employee { Email = "admin@myemail.com", UserName = "admin@myemail.com" };
             manager.Create(adminUser, "Temp_123");
-
+            
             var employeeUser = new Employee { Email = "employee1@myemail.com", UserName = "employee1@myemail.com" };
             manager.Create(employeeUser, "Temp_123");
 

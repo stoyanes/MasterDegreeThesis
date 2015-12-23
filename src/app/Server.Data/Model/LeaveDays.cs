@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server.Data.Model
 {
@@ -14,12 +9,14 @@ namespace Server.Data.Model
         public int ID { get; set; }
 
         [ForeignKey("Employee")]
+        [Index("IX_LeaveDaysForYear", 1, IsUnique = true)]
         public int EmployeeID { get; set; }
 
         public virtual Employee Employee { get; set; }
 
         [Required]
         [Range(1970, 2099)]
+        [Index("IX_LeaveDaysForYear", 2, IsUnique = true)]
         public int ForYear { get; set; }
 
         [Required]

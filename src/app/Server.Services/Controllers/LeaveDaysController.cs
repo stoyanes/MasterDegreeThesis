@@ -28,7 +28,7 @@ namespace Server.Services.Controllers
         public IHttpActionResult GetAllForEmployeeByYear(int year)
         {
             var currentEmployeeId = this.User.Identity.GetUserId<int>();
-
+            // TODO add where expression to FindAll method
             var employeeLeaveDays = entityRepository
                 .FindAll()
                 .Where(leaveDay => currentEmployeeId == leaveDay.EmployeeID && leaveDay.ForYear == year)

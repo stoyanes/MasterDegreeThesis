@@ -46,13 +46,22 @@
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
                     })
+                    .state('userRequests', {
+                        parent: 'system',
+                        url: '/userRequests',
+                        templateUrl: 'app/views/userRequests.html',
+                        controller: 'UserRequestsController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
+                        }
+                    })
                     .state('error', {
+                        parent: 'system',
                         url: '/error',
                         templateUrl: 'app/views/error.html',
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
-                    })
-
+                    });
             }]);
     });

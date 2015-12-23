@@ -1,7 +1,5 @@
 ﻿define([
-    'app',
-    'angular-resource',
-    '../configs/constants'
+    'app'
 ], function (app) {
     'use strict';
 

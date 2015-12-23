@@ -1,7 +1,6 @@
 ﻿define([
 
-    'app',
-    '../configs/constants'
+    'app'
 
 ], function (app) {
     'use strict';

@@ -5,7 +5,7 @@ using System;
 
 namespace Server.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("VacationRequests")]
     public class VacationRequestController : BaseController<VacationRequest>
     {

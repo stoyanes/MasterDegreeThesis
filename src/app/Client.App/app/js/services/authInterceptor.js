@@ -4,8 +4,7 @@
  * event, given the response status codes from the server. 
  */
 define([
-'app',
-'../configs/constants'
+'app'
 ], function (app) {
     'use strict';
     app.factory('AuthInterceptor', [

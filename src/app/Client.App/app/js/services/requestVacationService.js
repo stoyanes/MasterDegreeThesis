@@ -1,7 +1,5 @@
 ﻿define([
-    'app',
-    'angular-resource',
-    '../configs/constants'
+    'app'
 ], function (app) {
     'use strict';
 
@@ -27,7 +25,22 @@
                 return deffered.promise;
             };
 
-            return requestVacationService;
+            requestVacationService.getAllRequestsAsync = function () {
+                var deffered = $q.defer();
 
+                _resource.query({},
+                    function (responce) {
+                        deffered.resolve(responce);
+                    },
+
+                    function (responce) {
+                        deffered.reject(responce);
+                    }
+                );
+
+                return deffered.promise;
+            };
+
+            return requestVacationService;
         }]); // end of service
 }); // end of define

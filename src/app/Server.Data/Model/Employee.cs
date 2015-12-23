@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace Server.Data.Model
 {
@@ -10,7 +11,8 @@ namespace Server.Data.Model
     {
         public Employee()
         {
-
+            LeaveDays = new List<LeaveDays>();
+            LeaveDays.Add(new LeaveDays() { AllowedNonPaidDays = 60, EmployeeID = this.Id, AllowedPaidDays = 20, ForYear = DateTime.Now.Year });
         }
 
         #region Public methods
@@ -23,9 +25,9 @@ namespace Server.Data.Model
         }
         #endregion
 
-        public virtual IEnumerable<VacationRequest> Requests { get; set; }
+        public virtual IList<VacationRequest> Requests { get; set; }
 
-        public virtual IEnumerable<LeaveDays> LeaveDays { get; set; }
+        public virtual IList<LeaveDays> LeaveDays { get; set; }
 
         public int? ManagerID { get; set; }
 

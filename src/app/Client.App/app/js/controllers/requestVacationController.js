@@ -82,7 +82,7 @@
                         function () {
                             $state.go('error');
                         });
-                }
+                };
 
                 $scope.isVacationRequestValid = function () {
                     var isValid = true;
@@ -98,5 +98,6 @@
                     return isValid;
                 };
 
+                $scope.calendarData = [];
             }]); // end of controller
     }); // end of define

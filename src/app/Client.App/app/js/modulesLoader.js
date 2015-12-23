@@ -9,6 +9,7 @@
     './controllers/systemController',
     './controllers/applicationController',
     './controllers/requestVacationController',
+    './controllers/userRequestsController',
 
     './services/authenticationService',
     './services/sessionService',

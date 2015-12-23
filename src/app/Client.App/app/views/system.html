@@ -1,11 +1,11 @@
-<div>
+<div class="row">
     <!-- tt-- prefix for TimeTracking namespace-->
     <aside class="col-md-3 ttMainMenu">
        <div ng-include="'app/views/menus/regular.html'"></div>
        <div ng-if ="isCurrentUserInRole(currentUser, userRoles.admin)" ng-include="'app/views/menus/admin.html'"></div>
     </aside>
 
-    <div ui-view class="col-md-4" ng-show="showNestedView()"></div>
-
-    <div class="col-md-5" ui-calendar ng-model="eventsData"></div>
+    <div ui-view class="col-md-9">
+        <div ui-calendar ng-model="eventsData"></div>
+    </div>
 </div>

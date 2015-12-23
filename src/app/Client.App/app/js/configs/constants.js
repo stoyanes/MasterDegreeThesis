@@ -1,11 +1,12 @@
 ﻿define(
-    ['app'],
+    [
+        'app'
+    ],
 
     function (app) {
         'use strict';
 
         app = app.constant('CONNECTION_CONSTANTS', {
-            //authenticationUri: 'http://localhost/api/Token' 
             authenticationUri: './api/Token',
             requestVacationUri: './api/VacationRequests'
         });

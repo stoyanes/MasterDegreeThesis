@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Data.Model
@@ -9,14 +10,13 @@ namespace Server.Data.Model
         public int ID { get; set; }
 
         [ForeignKey("Employee")]
-        [Index("IX_LeaveDaysForYear", 1, IsUnique = true)]
         public int EmployeeID { get; set; }
 
+        [JsonIgnore]
         public virtual Employee Employee { get; set; }
 
         [Required]
         [Range(1970, 2099)]
-        [Index("IX_LeaveDaysForYear", 2, IsUnique = true)]
         public int ForYear { get; set; }
 
         [Required]
@@ -38,5 +38,13 @@ namespace Server.Data.Model
         [Required]
         [Range(0, 100)]
         public int SickDays { get; set; }
+
+        [Required]
+        [Range(0, 10)]
+        public int TransferredDays { get; set; }
+
+        [Required]
+        [Range(0, 100)]
+        public int CompensationDays { get; set; }
     }
 }

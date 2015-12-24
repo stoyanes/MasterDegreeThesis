@@ -24,7 +24,7 @@ namespace Server.Services.Controllers
         } 
 
         [HttpGet]
-        [Route("AllForEmployeeByYear")]
+        [Route("AllForEmployeeByYear/{year}")]
         public IHttpActionResult GetAllForEmployeeByYear(int year)
         {
             var currentEmployeeId = this.User.Identity.GetUserId<int>();
@@ -32,7 +32,7 @@ namespace Server.Services.Controllers
             var employeeLeaveDays = entityRepository
                 .FindAll()
                 .Where(leaveDay => currentEmployeeId == leaveDay.EmployeeID && leaveDay.ForYear == year)
-                .ToList();
+                .FirstOrDefault();
 
             return Ok(employeeLeaveDays);
         } 

@@ -7,7 +7,7 @@
             '$scope', '$state', 'RequestVacationService',
             function ($scope, $state, requestVacationService) {
 
-                $scope.userRequests = []
+                $scope.userRequests = [];
 
                 $scope.getUserRequests = function () {
                     requestVacationService

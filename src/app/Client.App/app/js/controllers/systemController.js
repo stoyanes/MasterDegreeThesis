@@ -1,18 +1,28 @@
 ﻿define([
         'app'
-    ],
+],
     function (app) {
         'use strict';
         app.controller('SystemController', [
-            '$scope', '$state',
-            function ($scope, $state) {
-                $scope.eventsData = [];
+            '$scope', '$state', 'LeaveDaysService',
+            function ($scope, $state, leaveDaysService) {
+                $scope.calendarData = [];
+                $scope.leaveDays = {};
 
-                //$scope.showNestedView = function () {
-                //    return $state.current.name === 'requestVacation' || $state.current.name === 'userRequests';
-                //};
-                $scope.showCalendar = function () {
-                    return $state.current.name === 'system';
+                $scope.getLeaveDays = function () {
+                    leaveDaysService
+                        .getLeaveDaysAsync((new Date()).getFullYear())
+                        .then(
+                        // success
+                        function (resultData) {
+                            $scope.leaveDays = resultData;
+                        },
+                        // error
+                        function () {
+                            $state.go('error');
+                        });
                 };
+
+                $scope.getLeaveDays();
             }]); // end of controller
     }); // end of define

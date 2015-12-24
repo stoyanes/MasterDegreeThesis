@@ -1,4 +1,5 @@
-﻿using Server.Data.Enums;
+﻿using Newtonsoft.Json;
+using Server.Data.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,7 @@ namespace Server.Data.Model
         [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
 
+        [JsonIgnore]
         public virtual Employee Employee { get; set; }
 
         [Required]

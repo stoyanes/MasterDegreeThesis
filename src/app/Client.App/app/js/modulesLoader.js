@@ -14,7 +14,8 @@
     './services/authenticationService',
     './services/sessionService',
     './services/authInterceptor',
-    './services/requestVacationService'
+    './services/requestVacationService',
+    './services/leaveDaysService'
 ], function (ng) {
 
 });

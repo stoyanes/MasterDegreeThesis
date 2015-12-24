@@ -11,10 +11,6 @@ namespace Server.Data.Model
         public int ID { get; set; }
 
         [Required]
-        [Range(1970, 2099)]
-        public int ForYear { get; set; }
-
-        [Required]
         public DateTime HolidayDate { get; set; }
         
         [Required]

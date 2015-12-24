@@ -14,7 +14,7 @@ namespace Server.Services.Controllers
         {
             var holidays = this.entityRepository
                 .FindAll()
-                .Where(holiday => holiday.ForYear == year)
+                .Where(holiday => holiday.HolidayDate.Year == year)
                 .ToList();
 
             return Ok(holidays);

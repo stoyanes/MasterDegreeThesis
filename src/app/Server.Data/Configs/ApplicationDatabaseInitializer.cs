@@ -28,8 +28,8 @@ namespace Server.Data.Configs
             manager.AddToRole(adminUser.Id, "admin");
             manager.AddToRole(employeeUser.Id, "regular");
 
-            context.Holidays.Add(new Holiday(){ ForYear = 2015, HolidayDate = new DateTime(2015, 6, 1), Name = "Worker's day."});
-            context.Holidays.Add(new Holiday() { ForYear = 2015, HolidayDate = new DateTime(2015, 6, 6), Name = "St. George's Day." });
+            context.Holidays.Add(new Holiday(){ HolidayDate = new DateTime(2015, 6, 1), Name = "Worker's day."});
+            context.Holidays.Add(new Holiday() { HolidayDate = new DateTime(2015, 6, 6), Name = "St. George's Day." });
 
             context.SaveChanges();
         }

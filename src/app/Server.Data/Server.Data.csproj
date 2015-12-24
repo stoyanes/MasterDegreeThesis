@@ -91,6 +91,7 @@
     <Compile Include="Model\CustomIdentityModels\CustomUserLogin.cs" />
     <Compile Include="Model\CustomIdentityModels\CustomUserStore.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\AdditionalWorkingDay.cs" />
     <Compile Include="Model\LeaveDays.cs" />
     <Compile Include="Model\Holiday.cs" />
     <Compile Include="Model\VacationRequest.cs" />

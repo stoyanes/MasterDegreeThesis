@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Server.Data.Configs;
-
+using Server.Business.Configs;
 namespace Server.Services
 {
     public class WebApiApplication : System.Web.HttpApplication
@@ -20,6 +20,7 @@ namespace Server.Services
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutoMapperBusinessConfiguration.Configure();
         }
     }
 }

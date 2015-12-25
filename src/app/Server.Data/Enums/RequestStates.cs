@@ -1,4 +1,4 @@
-﻿namespace Server.Data
+﻿namespace Server.Data.Enums
 {
     public enum RequestStates
     {

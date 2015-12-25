@@ -10,11 +10,6 @@ namespace Server.Services.Controllers
     {
         protected IRepository<TEntity> entityRepository = new Repository<TEntity>(new ApplicationDbContext());
 
-        //public BaseController(IRepository<TEntity> injectedEntityRepository)
-        //{
-        //    this.entityRepository = injectedEntityRepository;
-        //}
-
         [HttpGet]
         [Route("")]
         public virtual IHttpActionResult GetAll()

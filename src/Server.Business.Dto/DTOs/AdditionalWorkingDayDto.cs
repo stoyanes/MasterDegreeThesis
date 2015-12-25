@@ -1,10 +1,7 @@
-﻿using Server.Data.Model;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 
 namespace Server.Business.Dto
 {
-    [MetadataType(typeof(AdditionalWorkingDay))]
     public class AdditionalWorkingDayDto
     {
         public DateTime WorkingDate { get; set; }

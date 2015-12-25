@@ -99,5 +99,9 @@
                 };
 
                 $scope.calendarData = [];
+
+                $scope.$watch('startVacationDateModel', function () {
+                    $scope.endVacationDateModel.minDate = $scope.startVacationDateModel.date;
+                }, true);
             }]); // end of controller
     }); // end of define

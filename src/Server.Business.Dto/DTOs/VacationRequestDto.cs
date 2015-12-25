@@ -1,11 +1,8 @@
 ﻿using Server.Data.Enums;
-using Server.Data.Model;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace Server.Business.Dto
 {
-    [MetadataType(typeof(VacationRequest))]
     public class VacationRequestDto
     {
         public int EmployeeID { get; set; }

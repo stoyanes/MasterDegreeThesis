@@ -1,9 +1,5 @@
-﻿using Server.Data.Model;
-using System.ComponentModel.DataAnnotations;
-
-namespace Server.Business.Dto
+﻿namespace Server.Business.Dto
 {
-    [MetadataType(typeof(LeaveDays))]
     public class LeaveDaysDto
     {
         public int EmployeeID { get; set; }

@@ -2,6 +2,7 @@
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using System;
+using Server.Data.Enums;
 
 namespace Server.Services.Controllers
 {
@@ -15,7 +16,7 @@ namespace Server.Services.Controllers
             {
                 newEntity.EmployeeID = this.User.Identity.GetUserId<int>();
                 newEntity.CreatedDate = DateTime.Now;
-                newEntity.Status = Data.RequestStates.Submitted;
+                newEntity.Status = RequestStates.Submitted;
 
                 VacationRequest createdRequest = entityRepository.Create(newEntity);
                 entityRepository.SaveChanges();

@@ -2,6 +2,7 @@
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Server.Services.Providers;
+using Server.Services.ActionFilters;
 
 namespace Server.Services
 {
@@ -13,6 +14,7 @@ namespace Server.Services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Filters.Add(new GlobalExceptionAttribute());
 
             // Web API routes
             config.MapHttpAttributeRoutes(new CustomDirectRouteProvider());

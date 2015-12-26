@@ -17,6 +17,12 @@ namespace Server.Services.Controllers
         public IHttpActionResult GetAll()
         {
             var entities = vacationRequestService.GetAll();
+
+            if (entities == null)
+            {
+                return NotFound();
+            }
+
             return Ok(entities);
         }
 
@@ -25,6 +31,12 @@ namespace Server.Services.Controllers
         public IHttpActionResult GetById(int entityId)
         {
             var entity = vacationRequestService.GetById(entityId);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
             return Ok(entity);
         }
 
@@ -41,8 +53,12 @@ namespace Server.Services.Controllers
         [Route("")]
         public IHttpActionResult UpdateEntity([FromBody] VacationRequestDto newEntity)
         {
-            vacationRequestService.UpdateEntity(newEntity);
-            return Ok();
+            bool updateResult = vacationRequestService.UpdateEntity(newEntity);
+            if (updateResult)
+            {
+                return Ok();
+            }
+            return InternalServerError();
         }
 
         [HttpDelete]
@@ -56,8 +72,7 @@ namespace Server.Services.Controllers
             }
             else
             {
-                // TODO some better error here?
-                return NotFound();
+                return InternalServerError();
             }
         }
     }

@@ -93,6 +93,7 @@
     <Compile Include="Contexts\ApplicationDbContext.cs" />
     <Compile Include="Configs\IdentityConfig.cs" />
     <Compile Include="Enums\VacationType.cs" />
+    <Compile Include="Interfaces\IBaseEntity.cs" />
     <Compile Include="Model\CustomIdentityModels\ApplicationRoleManager.cs" />
     <Compile Include="Model\CustomIdentityModels\CustomRole.cs" />
     <Compile Include="Model\CustomIdentityModels\CustomRoleStore.cs" />

@@ -1,14 +1,15 @@
 ﻿using Server.Data.Enums;
+using Server.Data.Interfaces;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Data.Model
 {
-    public class VacationRequest
+    public class VacationRequest : IBaseEntity
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("Employee")]
         public int EmployeeID { get; set; }

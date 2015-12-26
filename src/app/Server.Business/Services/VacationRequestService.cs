@@ -11,7 +11,7 @@ using Server.Data.Enums;
 
 namespace Server.Business.Services
 {
-    public class VacationRequestService: IVacationRequestService
+    public class VacationRequestService: IBaseBusinessService<VacationRequestDto> 
     {
         private IRepository<VacationRequest> entityRepository = new Repository<VacationRequest>(new ApplicationDbContext());
 
@@ -32,15 +32,19 @@ namespace Server.Business.Services
             return resultEntity;
         }
 
-        public int CreateEntity(int employeeId, VacationRequestDto newEntity)
+        public int CreateEntity(VacationRequestDto newEntity, int? employeeId)
         {
+            if (!employeeId.HasValue)
+            {
+                throw new ArgumentNullException(nameof(employeeId));
+            }
             VacationRequest vacationRequestToCreate = Mapper.Map<VacationRequest>(newEntity);
-            vacationRequestToCreate.EmployeeID = employeeId;
+            vacationRequestToCreate.EmployeeID = employeeId.Value;
             vacationRequestToCreate.CreatedDate = DateTime.Now;
             vacationRequestToCreate.Status = RequestStates.Submitted;
             VacationRequest createdEntity = entityRepository.Create(vacationRequestToCreate);
             entityRepository.SaveChanges();
-            return createdEntity.ID;
+            return createdEntity.Id;
         }
 
 

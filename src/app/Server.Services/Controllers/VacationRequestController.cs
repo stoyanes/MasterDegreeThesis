@@ -10,7 +10,7 @@ namespace Server.Services.Controllers
     [RoutePrefix("VacationRequests")]
     public class VacationRequestController : ApiController
     {
-        IVacationRequestService vacationRequestService = new VacationRequestService();
+        IBaseBusinessService<VacationRequestDto> vacationRequestService = new VacationRequestService();
 
         [HttpGet]
         [Route("")]
@@ -22,7 +22,6 @@ namespace Server.Services.Controllers
             {
                 return NotFound();
             }
-
             return Ok(entities);
         }
 
@@ -45,7 +44,7 @@ namespace Server.Services.Controllers
         public IHttpActionResult CreateEntity([FromBody] VacationRequestDto newEntity)
         {
             int employeeId = this.User.Identity.GetUserId<int>();
-            int createdId = vacationRequestService.CreateEntity(employeeId, newEntity);
+            int createdId = vacationRequestService.CreateEntity(newEntity, employeeId);
             return Ok(createdId);
         }
 

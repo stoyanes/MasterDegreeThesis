@@ -1,18 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿using Server.Data.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Data.Model
 {
-    public class LeaveDays
+    public class LeaveDays : IBaseEntity
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
 
-        [JsonIgnore]
         public virtual Employee Employee { get; set; }
 
         [Required]

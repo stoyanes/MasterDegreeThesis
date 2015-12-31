@@ -5,8 +5,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Server.Services.Providers;
-using Server.Data;
 using Microsoft.Owin.Cors;
+using Server.Data;
 using Server.Data.Model;
 
 namespace Server.Services

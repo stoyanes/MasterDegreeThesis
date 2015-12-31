@@ -1,31 +1,77 @@
-﻿using Server.Data.Model;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Server.Business.Interfaces;
+using Server.Business.Services;
+using Server.Business.Dto;
 using Microsoft.AspNet.Identity;
-using System;
 
 namespace Server.Services.Controllers
 {
     [Authorize]
     [RoutePrefix("VacationRequests")]
-    public class VacationRequestController : BaseController<VacationRequest>
+    public class VacationRequestController : ApiController
     {
-        public override IHttpActionResult CreateEntity([FromBody] VacationRequest newEntity)
+        IBaseBusinessService<VacationRequestDto> vacationRequestService = new VacationRequestService();
+
+        [HttpGet]
+        [Route("")]
+        public IHttpActionResult GetAll()
         {
-            if (ModelState.IsValid)
+            var entities = vacationRequestService.GetAll();
+
+            if (entities == null)
             {
-                newEntity.EmployeeID = this.User.Identity.GetUserId<int>();
-                newEntity.CreatedDate = DateTime.Now;
-                newEntity.Status = Data.RequestStates.Submitted;
+                return NotFound();
+            }
+            return Ok(entities);
+        }
 
-                VacationRequest createdRequest = entityRepository.Create(newEntity);
-                entityRepository.SaveChanges();
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult GetById(int entityId)
+        {
+            var entity = vacationRequestService.GetById(entityId);
 
-                string createdLocation = string.Format("{0}/{1}", Request.RequestUri.ToString(), "");
-                return Created(createdLocation, createdRequest);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+        }
+
+        [HttpPost]
+        [Route("")]
+        public IHttpActionResult CreateEntity([FromBody] VacationRequestDto newEntity)
+        {
+            int employeeId = this.User.Identity.GetUserId<int>();
+            int createdId = vacationRequestService.CreateEntity(newEntity, employeeId);
+            return Ok(createdId);
+        }
+
+        [HttpPut]
+        [Route("")]
+        public IHttpActionResult UpdateEntity([FromBody] VacationRequestDto newEntity)
+        {
+            bool updateResult = vacationRequestService.UpdateEntity(newEntity);
+            if (updateResult)
+            {
+                return Ok();
+            }
+            return InternalServerError();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IHttpActionResult DeleteEntity(int id)
+        {
+            bool deleteResult = vacationRequestService.DeleteEntityById(id);
+            if (deleteResult)
+            {
+                return Ok();
             }
             else
             {
-                return BadRequest();
+                return InternalServerError();
             }
         }
     }

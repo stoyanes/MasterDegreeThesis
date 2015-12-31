@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using Server.Data.Interfaces;
 
 namespace Server.Data.Model
 {
-    public class Employee : IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>
+    public class Employee : IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>, IBaseEntity
     {
         public Employee()
         {

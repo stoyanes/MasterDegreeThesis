@@ -63,9 +63,12 @@
   <ItemGroup>
     <Compile Include="Configs\AutoMapperBusinessConfiguration.cs" />
     <Compile Include="Interfaces\IBaseBusinessService.cs" />
+    <Compile Include="Interfaces\IHolidayService.cs" />
     <Compile Include="Interfaces\ILeaveDaysService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseBusinessService.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\HolidayService.cs" />
     <Compile Include="Services\LeaveDaysService.cs" />
     <Compile Include="Services\VacationRequestService.cs" />
   </ItemGroup>

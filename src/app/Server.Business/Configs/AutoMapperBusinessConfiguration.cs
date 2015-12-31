@@ -19,7 +19,7 @@ namespace Server.Business.Configs
                 cfg.CreateMap<AdditionalWorkingDay, AdditionalWorkingDayDto>();
 
                 cfg.CreateMap<EmployeeDto, Employee>();
-                cfg.CreateMap<Holiday, HolidayDto>();
+                cfg.CreateMap<Employee, EmployeeDto>();
 
                 cfg.CreateMap<HolidayDto, Holiday>();
                 cfg.CreateMap<Holiday, HolidayDto>();

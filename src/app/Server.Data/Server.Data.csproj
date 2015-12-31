@@ -91,7 +91,7 @@
   <ItemGroup>
     <Compile Include="Configs\ApplicationDatabaseInitializer.cs" />
     <Compile Include="Contexts\ApplicationDbContext.cs" />
-    <Compile Include="Configs\IdentityConfig.cs" />
+    <Compile Include="Configs\ApplicationUserManager.cs" />
     <Compile Include="Enums\VacationType.cs" />
     <Compile Include="Interfaces\IBaseEntity.cs" />
     <Compile Include="Model\CustomIdentityModels\ApplicationRoleManager.cs" />

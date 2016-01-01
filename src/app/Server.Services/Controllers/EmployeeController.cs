@@ -58,7 +58,7 @@ namespace Server.Services.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public virtual IHttpActionResult DeleteEntity(int id)
+        public IHttpActionResult DeleteEntity(int id)
         {
             bool deleteResult = employeeService.DeleteEntityById(id);
             if (deleteResult)

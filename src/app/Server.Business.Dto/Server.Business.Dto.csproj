@@ -49,7 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\app\Server.Data\Server.Data.csproj">
+    <ProjectReference Include="..\Server.Data\Server.Data.csproj">
       <Project>{0ebedc96-0d9b-4ab7-a277-8ae7d8326014}</Project>
       <Name>Server.Data</Name>
     </ProjectReference>

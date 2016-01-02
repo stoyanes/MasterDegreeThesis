@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Server.Business.Dto;
 using Server.Data.Model;
+using Server.Data.Repositories;
 
 namespace Server.Business.Configs
 {
@@ -28,6 +29,21 @@ namespace Server.Business.Configs
                 cfg.CreateMap<LeaveDays, LeaveDaysDto>();
 
                 cfg.CreateMap<VacationRequestDto, VacationRequest>();
+                //.ConstructUsing((VacationRequestDto vacationReqDto) =>
+                //{
+                //    IRepository<Employee> empRepo = new Repository<Employee>();
+                //    VacationRequest mappedVacationRequest = new VacationRequest()
+                //    {
+                //        Description = vacationReqDto.Description,
+                //        EmployeeID = vacationReqDto.EmployeeID,
+                //        StartDate = vacationReqDto.StartDate,
+                //        EndDate = vacationReqDto.EndDate,
+                //        VacationType = vacationReqDto.VacationType
+                //    };
+
+                //    mappedVacationRequest.Employee = empRepo.FindById(vacationReqDto.EmployeeID);
+                //    return mappedVacationRequest;
+                //});
                 cfg.CreateMap<VacationRequest, VacationRequestDto>();
             });
         }

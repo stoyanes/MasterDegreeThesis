@@ -43,18 +43,18 @@ namespace Server.Business.Services
         public override int CreateEntity(VacationRequestDto newEntity)
         {
             VacationRequest vacationRequestToCreate = Mapper.Map<VacationRequest>(newEntity);
+            
             vacationRequestToCreate.CreatedDate = DateTime.Now;
             vacationRequestToCreate.Status = RequestStates.Submitted;
 
-            EmployeeDto employee = employeeService.GetById(vacationRequestToCreate.EmployeeID);
-            LeaveDaysDto empLeaveDays = leaveDaysService.GetAllForEmployeeByYear(employee.Id, vacationRequestToCreate.StartDate.Year);
+            LeaveDaysDto empLeaveDays = leaveDaysService.GetAllForEmployeeByYear(vacationRequestToCreate.EmployeeID, vacationRequestToCreate.StartDate.Year);
 
-            if (empLeaveDays.TakenPaidDays == 0)
+            if (empLeaveDays.TakenPaidDays >= empLeaveDays.AllowedPaidDays)
             {
                 throw new Exception("Employee does not have enought paid days.");
             }
 
-            if (empLeaveDays.TakenNonPaidDays == 0)
+            if (empLeaveDays.TakenNonPaidDays >= empLeaveDays.AllowedNonPaidDays)
             {
                 throw new Exception("Employee does not have enought non-paid days.");
             }
@@ -63,19 +63,30 @@ namespace Server.Business.Services
 
             if (vacationRequestToCreate.VacationType == VacationType.Paid)
             {
+                if (empLeaveDays.TakenPaidDays + workingDays.Count > empLeaveDays.AllowedPaidDays)
+                {
+                    throw new Exception("Requested days are more than left.");
+                }
 
+                empLeaveDays.TakenPaidDays += workingDays.Count;
             }
             else if (vacationRequestToCreate.VacationType == VacationType.Unpaid)
             {
-
+                if (empLeaveDays.AllowedNonPaidDays > workingDays.Count)
+                {
+                    throw new Exception("Requested days are more than allowed.");
+                }
+                empLeaveDays.TakenNonPaidDays += workingDays.Count;
             }
             else if (vacationRequestToCreate.VacationType == VacationType.Sickness)
             {
-
+                empLeaveDays.SickDays += workingDays.Count;
+                vacationRequestToCreate.Status = RequestStates.Approved;
             }
 
             VacationRequest createdEntity = entityRepository.Create(vacationRequestToCreate);
             entityRepository.SaveChanges();
+            leaveDaysService.UpdateEntity(empLeaveDays);
             return createdEntity.Id;
         }
     }

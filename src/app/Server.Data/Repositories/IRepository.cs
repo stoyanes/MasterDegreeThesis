@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Server.Data.Repositories
 {
-    public interface IRepository<TEntity>
+    public interface IRepository<TEntity> : IDisposable
     {
         /// <summary>
         /// Creates a new empty entity.

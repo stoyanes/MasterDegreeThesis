@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -32,7 +33,8 @@ namespace Server.Data.Repositories
 
         public virtual TEntity Update(TEntity entity)
         {
-            Context.Entry(entity).State = EntityState.Modified;
+            Context.Set<TEntity>().AddOrUpdate(entity);
+                //Context.Entry(entity).State = EntityState.Modified;
             return entity;
         }
 

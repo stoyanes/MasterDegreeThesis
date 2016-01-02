@@ -2,6 +2,8 @@
 {
     public class LeaveDaysDto
     {
+        public int Id { get; set; }
+
         public int EmployeeID { get; set; }
 
         public int ForYear { get; set; }

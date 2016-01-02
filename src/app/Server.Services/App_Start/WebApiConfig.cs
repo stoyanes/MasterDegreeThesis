@@ -29,6 +29,8 @@ namespace Server.Services
 
             // we currently don't want xml to be returned
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Local;
+
         }
 
         /// <summary>

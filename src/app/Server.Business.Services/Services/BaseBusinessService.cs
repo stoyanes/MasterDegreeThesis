@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Server.Business.Services
 {
-    public class BaseBusinessService<TEntity, TEntityDto> : IBaseBusinessService<TEntityDto> where TEntity : class, IBaseEntity
+    public class BaseBusinessService<TEntity, TEntityDto> : IDisposable, IBaseBusinessService<TEntityDto> where TEntity : class, IBaseEntity
     {
         protected IRepository<TEntity> entityRepository = new Repository<TEntity>(new ApplicationDbContext());
         public virtual int CreateEntity(TEntityDto newEntity)
@@ -50,6 +50,11 @@ namespace Server.Business.Services
             entityRepository.Update(entityToUpdate);
             bool updateResult = entityRepository.SaveChanges();
             return updateResult;
+        }
+        
+        public void Dispose()
+        {
+            entityRepository.Dispose();
         }
     }
 }

@@ -5,6 +5,7 @@ namespace Server.Business.Dto
 {
     public class VacationRequestDto
     {
+        public int Id { get; set; }
         public int EmployeeID { get; set; }
 
         public DateTime StartDate { get; set; }

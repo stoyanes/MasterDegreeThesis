@@ -44,7 +44,8 @@ namespace Server.Services.Controllers
         public IHttpActionResult CreateEntity([FromBody] VacationRequestDto newEntity)
         {
             int employeeId = this.User.Identity.GetUserId<int>();
-            int createdId = vacationRequestService.CreateEntity(newEntity, employeeId);
+            newEntity.EmployeeID = this.User.Identity.GetUserId<int>();
+            int createdId = vacationRequestService.CreateEntity(newEntity);
             return Ok(createdId);
         }
 

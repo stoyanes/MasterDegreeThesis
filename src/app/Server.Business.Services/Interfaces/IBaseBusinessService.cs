@@ -8,7 +8,7 @@ namespace Server.Business.Interfaces
 
         TEntity GetById(int id);
 
-        int CreateEntity(TEntity newEntity, int? employeeId = null);
+        int CreateEntity(TEntity newEntity);
 
         bool UpdateEntity(TEntity newEntity);
 

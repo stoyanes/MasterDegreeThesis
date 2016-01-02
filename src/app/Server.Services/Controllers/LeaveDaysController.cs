@@ -40,8 +40,8 @@ namespace Server.Services.Controllers
         [Route("")]
         public virtual IHttpActionResult CreateEntity([FromBody] LeaveDaysDto newEntity)
         {
-            var currentEmployeeId = this.User.Identity.GetUserId<int>();
-            var createdEntityId = leaveDaysService.CreateEntity(newEntity, currentEmployeeId);
+            newEntity.EmployeeID = this.User.Identity.GetUserId<int>();
+            var createdEntityId = leaveDaysService.CreateEntity(newEntity);
             return Ok(createdEntityId);
         }
 

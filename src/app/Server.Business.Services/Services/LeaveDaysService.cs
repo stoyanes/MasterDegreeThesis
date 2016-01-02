@@ -10,15 +10,9 @@ namespace Server.Business.Services
 {
     public class LeaveDaysService : BaseBusinessService<LeaveDays, LeaveDaysDto>, ILeaveDaysService
     {
-        public override int CreateEntity(LeaveDaysDto newEntity, int? employeeId)
+        public override int CreateEntity(LeaveDaysDto newEntity)
         {
-            if (!employeeId.HasValue)
-            {
-                throw new ArgumentNullException(nameof(employeeId));
-            }
-
             LeaveDays leaveDaysToCreate = Mapper.Map<LeaveDays>(newEntity);
-            leaveDaysToCreate.EmployeeID = employeeId.Value;
             LeaveDays createdEntity = entityRepository.Create(leaveDaysToCreate);
             entityRepository.SaveChanges();
             return createdEntity.Id;

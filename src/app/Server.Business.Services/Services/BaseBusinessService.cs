@@ -12,12 +12,8 @@ namespace Server.Business.Services
     public class BaseBusinessService<TEntity, TEntityDto> : IBaseBusinessService<TEntityDto> where TEntity : class, IBaseEntity
     {
         protected IRepository<TEntity> entityRepository = new Repository<TEntity>(new ApplicationDbContext());
-        public virtual int CreateEntity(TEntityDto newEntity, int? employeeId = default(int?))
+        public virtual int CreateEntity(TEntityDto newEntity)
         {
-            if (!employeeId.HasValue)
-            {
-                throw new ArgumentNullException(nameof(employeeId));
-            }
             TEntity entityToCreate = Mapper.Map<TEntity>(newEntity);
             TEntity createdEntity = entityRepository.Create(entityToCreate);
             entityRepository.SaveChanges();

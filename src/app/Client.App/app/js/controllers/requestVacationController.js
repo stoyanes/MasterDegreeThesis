@@ -76,7 +76,7 @@
                         .then(
                         // success callback
                         function () {
-                            $state.go('system');
+                            $state.transitionTo('system', null, { reload: true });
                         },
                         // error callback
                         function () {

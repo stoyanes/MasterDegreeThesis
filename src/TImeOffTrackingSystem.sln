@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{21605CF6-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Data", "app\Server.Data\Server.Data.csproj", "{0EBEDC96-0D9B-4AB7-A277-8AE7D8326014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Services", "app\Server.Services\Server.Services.csproj", "{EEFFF4DC-ED62-49A3-B2EA-6DBDA3B1B9AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Web.Services", "app\Server.Services\Server.Web.Services.csproj", "{EEFFF4DC-ED62-49A3-B2EA-6DBDA3B1B9AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Web.App", "app\Client.App\Client.Web.App.csproj", "{E9FE639C-2B10-46DD-A069-7406EDD135B8}"
 EndProject

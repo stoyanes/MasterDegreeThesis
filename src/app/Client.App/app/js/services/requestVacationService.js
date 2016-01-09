@@ -41,6 +41,39 @@
                 return deffered.promise;
             };
 
+            requestVacationService.getAllRequestsForCurrentUserAsync = function () {
+                var localResourse = $resource(CONNECTION_CONSTANTS.requestVacationUri + '/GetAllForCurrentUser');
+                var deffered = $q.defer();
+
+                localResourse.query({},
+                    function (responce) {
+                        deffered.resolve(responce);
+                    },
+
+                    function (responce) {
+                        deffered.reject(responce);
+                    }
+                );
+
+                return deffered.promise;
+            };
+
+            requestVacationService.getRequestsToApprove = function () {
+                var localResource = $resource(CONNECTION_CONSTANTS.requestVacationUri + '/GetRequestsToApprove')
+                var deffered = $q.defer();
+
+                localResource.query({},
+                    function (responce) {
+                        deffered.resolve(responce);
+                    },
+
+                    function (responce) {
+                        deffered.reject(responce);
+                    }
+                );
+
+                return deffered.promise;
+            };
             return requestVacationService;
         }]); // end of service
 }); // end of define

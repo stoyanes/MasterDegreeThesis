@@ -6,17 +6,31 @@ using Microsoft.AspNet.Identity;
 
 namespace Server.Services.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("VacationRequests")]
     public class VacationRequestController : ApiController
     {
-        IBaseBusinessService<VacationRequestDto> vacationRequestService = new VacationRequestService();
+        IVacationRequestService vacationRequestService = new VacationRequestService();
 
         [HttpGet]
         [Route("")]
         public IHttpActionResult GetAll()
         {
             var entities = vacationRequestService.GetAll();
+
+            if (entities == null)
+            {
+                return NotFound();
+            }
+            return Ok(entities);
+        }
+
+        [HttpGet]
+        [Route("GetAllForCurrentUser")]
+        public IHttpActionResult GetAllForCurrentUser()
+        {
+            int employeeId = this.User.Identity.GetUserId<int>();
+            var entities = vacationRequestService.GetAllForEmployee(employeeId);
 
             if (entities == null)
             {
@@ -74,6 +88,15 @@ namespace Server.Services.Controllers
             {
                 return InternalServerError();
             }
+        }
+
+        [HttpGet]
+        [Route("GetRequestsToApprove")]
+        public IHttpActionResult GetRequestsToApprove()
+        {
+            int employeeId = this.User.Identity.GetUserId<int>();
+            var vaqReqToApprove = this.vacationRequestService.GetRequestsToApprove(employeeId);
+            return Ok(vaqReqToApprove);
         }
     }
 }

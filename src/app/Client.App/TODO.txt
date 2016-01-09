@@ -1,4 +1,2 @@
 ﻿Things to be done:
-0.1. Test all existing controllers after BaseController refactorigns
-0.2. Improve ugly calls to find all in Holiday and LeaveDays controllers
-1. Implement client side request vacation service.
+1. Move all messages inside app into angular constants

@@ -3,27 +3,9 @@
 ],
     function (app) {
         'use strict';
-        app.controller('UserRequestsController', [
+        app.controller('RequestApprovingController', [
             '$scope', '$state', 'RequestVacationService',
             function ($scope, $state, requestVacationService) {
-
-                $scope.userRequests = [];
-
-                $scope.getUserRequests = function () {
-                    requestVacationService
-                        .getAllRequestsForCurrentUserAsync()
-                        .then(
-                        // success
-                        function (resultData) {
-                            $scope.userRequests = resultData;
-                        },
-                        // error
-                        function () {
-                            $state.go('error');
-                        });
-                };
-
-                $scope.getUserRequests();
 
                 $scope.getVacationTypeName = function (vacationType) {
                     var vacationTypeName = '';
@@ -57,5 +39,25 @@
                     }
                     return cssClass;
                 };
+
+                $scope.requestsToApprove = [];
+
+                $scope.getRequestsToApprove = function () {
+                    requestVacationService
+                        .getRequestsToApprove()
+                        .then(
+                        // success
+                        function (resultData) {
+                            $scope.requestsToApprove = resultData;
+                            console.log(resultData);
+
+                        },
+                        // error
+                        function () {
+                            $state.go('error');
+                        });
+                };
+
+                $scope.getRequestsToApprove();
             }]); // end of controller
     }); // end of define

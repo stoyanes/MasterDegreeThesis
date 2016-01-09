@@ -9,7 +9,8 @@
         app = app.constant('CONNECTION_CONSTANTS', {
             authenticationUri: './api/Token',
             requestVacationUri: './api/VacationRequests',
-            leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear'
+            leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
+            employeeUri: './api/employees'
         });
 
         app = app.constant('AUTH_EVENTS', {

@@ -9,40 +9,49 @@
         <div class="row">
             <div class="col-md-7" ui-calendar ng-model="calendarData"></div>
             <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Vacation status</div>
-                    <div class="panel-body">
-
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.takenPaidDays }}</span>
-                                Taken paid days
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.allowedPaidDays }}</span>
-                                Allowed paid days
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.allowedPaidDays - leaveDays.takenPaidDays }}</span>
-                                Balance paid days
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.takenNonPaidDays }}</span>
-                                Taken non-paid days
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.sickDays }}</span>
-                                Taken sickness days
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.transferredDays }}</span>
-                                Transferred from last year
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">{{ leaveDays.compensationDays }}</span>
-                                Compensasion
-                            </li>
-                        </ul>
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Approval manager</div>
+                        <div class="panel-body">
+                            {{ getApprovalManagerName() }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Vacation status</div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.takenPaidDays }}</span>
+                                    Taken paid days
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.allowedPaidDays }}</span>
+                                    Allowed paid days
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.allowedPaidDays - leaveDays.takenPaidDays }}</span>
+                                    Balance paid days
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.takenNonPaidDays }}</span>
+                                    Taken non-paid days
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.sickDays }}</span>
+                                    Taken sickness days
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.transferredDays }}</span>
+                                    Transferred from last year
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge">{{ leaveDays.compensationDays }}</span>
+                                    Compensasion
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -34,7 +34,6 @@ namespace Server.Data.Repositories
         public virtual TEntity Update(TEntity entity)
         {
             Context.Set<TEntity>().AddOrUpdate(entity);
-                //Context.Entry(entity).State = EntityState.Modified;
             return entity;
         }
 

@@ -306,9 +306,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Server.Business.Dto\Server.Business.Dto.csproj">
       <Project>{46caa020-c825-4d92-9d0b-9168ab871970}</Project>
       <Name>Server.Business.Dto</Name>

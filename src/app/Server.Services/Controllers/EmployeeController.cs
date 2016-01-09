@@ -3,6 +3,7 @@ using Server.Data.Model;
 using Server.Business.Interfaces;
 using Server.Business.Dto;
 using Server.Business.Services;
+using Microsoft.AspNet.Identity;
 
 namespace Server.Services.Controllers
 {
@@ -18,6 +19,33 @@ namespace Server.Services.Controllers
         {
             var entities = employeeService.GetAll();
             return Ok(entities);
+        }
+
+
+        [NonAction]
+        private EmployeeDto GetEmployeeById(int id)
+        {
+            EmployeeDto entity = employeeService.GetById(id);
+
+            return entity;
+        }
+        [HttpGet]
+        [Route("current")]
+        public IHttpActionResult GetCurrentUserInfo ()
+        {
+            int currentEmployeeId = this.User.Identity.GetUserId<int>();
+            EmployeeDto currentEmployee = this.GetEmployeeById(currentEmployeeId);
+
+            if (currentEmployee != null)
+            {
+                return Ok(currentEmployee);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+
         }
 
         [HttpGet]

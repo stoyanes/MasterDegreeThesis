@@ -55,6 +55,15 @@
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
                     })
+                    .state('requestsToApprove', {
+                        parent: 'system',
+                        url: '/requestsToApprove',
+                        templateUrl: 'app/views/requestsToApprove.html',
+                        controller: 'RequestApprovingController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
+                        }
+                    })
                     .state('error', {
                         parent: 'system',
                         url: '/error',

@@ -1,0 +1,19 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        Requests
+    </div>
+    <div class="panel-body">
+        <div class="panel-body">
+            <ul ng-repeat="userRequest in requestsToApprove">
+                <li class="list-group-item" ng-class="getCssClass(userRequest)">
+                    <div class="row">
+                        <div class="col-md-3">Start Date: {{ userRequest.startDate }}</div>
+                        <div class="col-md-3">End Date: {{ userRequest.endDate }}</div>
+                        <div class="col-md-3">Vacation Type: {{ getVacationTypeName(userRequest.vacationType) }}</div>
+                        <div class="col-md-3">Status: {{ getStatusName(userRequest.status) }}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

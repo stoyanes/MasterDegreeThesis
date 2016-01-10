@@ -10,7 +10,12 @@ namespace Server.Services.Controllers
     [RoutePrefix("VacationRequests")]
     public class VacationRequestController : ApiController
     {
-        IVacationRequestService vacationRequestService = new VacationRequestService();
+        IVacationRequestService vacationRequestService; // = new VacationRequestService();
+
+        public VacationRequestController(IVacationRequestService vacationReqService)
+        {
+            vacationRequestService = vacationReqService;
+        }
 
         [HttpGet]
         [Route("")]

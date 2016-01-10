@@ -11,7 +11,12 @@ namespace Server.Services.Controllers
     [RoutePrefix("Employees")]
     public class EmployeeController : ApiController
     {
-        IBaseBusinessService<EmployeeDto> employeeService = new BaseBusinessService<Employee, EmployeeDto>();
+        IEmployeeService employeeService; // = new EmployeeService();
+
+        public EmployeeController(IEmployeeService empService)
+        {
+            employeeService = empService;
+        }
 
         [HttpGet]
         [Route("")]

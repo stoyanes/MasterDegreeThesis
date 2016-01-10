@@ -33,5 +33,9 @@
                 $rootScope.isDate = function (date) {
                     return Object.prototype.toString.call(date) === "[object Date]";
                 };
+
+                $rootScope.triggerDigest = function () {
+                    !$rootScope.$$phase && $rootScope.$apply();
+                };
             }]);
     });

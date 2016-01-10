@@ -7,13 +7,20 @@
             <ul ng-repeat="userRequest in userRequests">
                 <li class="list-group-item" ng-class="getCssClass(userRequest)">
                     <div class="row">
-                        <div class="col-md-3">Start Date: {{ userRequest.startDate }}</div>
-                        <div class="col-md-3">End Date: {{ userRequest.endDate }}</div>
-                        <div class="col-md-3">Vacation Type: {{ getVacationTypeName(userRequest.vacationType) }}</div>
-                        <div class="col-md-3">Status: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-4">Start Date: {{ userRequest.startDate | date:'yyyy-MM-dd'}}</div>
+                        <div class="col-md-4">End Date: {{ userRequest.endDate | date:'yyyy-MM-dd'}}</div>
+                        <div class="col-md-4">Vacation Type: {{ getVacationTypeName(userRequest.vacationType) }}</div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6">Description: {{ userRequest.description }}</div>
+                        <div class="col-md-6">Status: {{ getStatusName(userRequest.status) }}</div>
                     </div>
                 </li>
             </ul>
+            <div ng-if="userRequests.length === 0">
+                There are no requests.
+            </div>
         </div>
     </div>
 </div>

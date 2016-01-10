@@ -8,6 +8,8 @@ namespace Server.Business.Dto
         public int Id { get; set; }
         public int EmployeeID { get; set; }
 
+        public string EmployeeUserName { get; set; }
+
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }

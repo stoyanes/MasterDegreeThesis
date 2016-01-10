@@ -12,7 +12,12 @@ namespace Server.Services.Controllers
     public class HolidayController : ApiController
     {
 
-        IHolidayService holidayService = new HolidayService();
+        IHolidayService holidayService; // = new HolidayService();
+
+        public HolidayController(IHolidayService holService)
+        {
+            holidayService = holService;
+        }
 
         [HttpGet]
         [Route("ForYear")]

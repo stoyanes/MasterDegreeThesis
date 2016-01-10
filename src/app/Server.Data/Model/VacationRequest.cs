@@ -22,8 +22,6 @@ namespace Server.Data.Model
         [Required]
         public DateTime EndDate { get; set; }
 
-        public DateTime CreatedDate { get; set; }
-
         [MaxLength(500)]
         public string Description { get; set; }
 

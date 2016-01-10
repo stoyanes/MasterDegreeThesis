@@ -7,13 +7,26 @@
             <ul ng-repeat="userRequest in requestsToApprove">
                 <li class="list-group-item" ng-class="getCssClass(userRequest)">
                     <div class="row">
-                        <div class="col-md-3">Start Date: {{ userRequest.startDate }}</div>
-                        <div class="col-md-3">End Date: {{ userRequest.endDate }}</div>
-                        <div class="col-md-3">Vacation Type: {{ getVacationTypeName(userRequest.vacationType) }}</div>
-                        <div class="col-md-3">Status: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-4">Request from: {{ userRequest.employeeUserName }}</div>
+                        <div class="col-md-4">Start Date: {{ userRequest.startDate | date:'yyyy-MM-dd' }}</div>
+                        <div class="col-md-4">End Date: {{ userRequest.endDate | date:'yyyy-MM-dd' }}</div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">Vacation Type: {{ getVacationTypeName(userRequest.vacationType) }}</div>
+                        <div class="col-md-4">Description: {{ userRequest.description }}</div>
+                        <div class="col-md-4">Status: {{ getStatusName(userRequest.status) }}</div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <button type="button" class="btn btn-success" ng-click="approveRequest(userRequest.id)">Approve</button>
+                        <button type="button" class="btn btn-danger"ng-click="rejectRequest(userRequest.id)">Reject</button>
                     </div>
                 </li>
             </ul>
+            <div ng-if="requestsToApprove.length === 0">
+                There are no requests for approving.
+            </div>
         </div>
     </div>
 </div>

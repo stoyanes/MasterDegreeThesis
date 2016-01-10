@@ -5,7 +5,9 @@
 
     app.factory('RequestVacationService', ['$resource', '$q', 'CONNECTION_CONSTANTS',
         function ($resource, $q, CONNECTION_CONSTANTS) {
-            var _resource = $resource(CONNECTION_CONSTANTS.requestVacationUri),
+            var _resource = $resource(CONNECTION_CONSTANTS.requestVacationUri, null, {
+                update: { method: 'PUT' }
+            }),
 
                 requestVacationService = {};
 
@@ -74,6 +76,23 @@
 
                 return deffered.promise;
             };
+
+            requestVacationService.updateVacationRequest = function (vaqRequest) {
+                var deffered = $q.defer();
+
+                _resource.update(vaqRequest,
+                    function (responce) {
+                        deffered.resolve(responce);
+                    },
+
+                    function (responce) {
+                        deffered.reject(responce);
+                    }
+                );
+
+                return deffered.promise;
+            }
+
             return requestVacationService;
         }]); // end of service
 }); // end of define

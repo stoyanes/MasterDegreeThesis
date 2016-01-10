@@ -46,7 +46,6 @@ namespace Server.Business.Services
         {
             VacationRequest vacationRequestToCreate = Mapper.Map<VacationRequest>(newEntity);
 
-            vacationRequestToCreate.CreatedDate = DateTime.Now;
             vacationRequestToCreate.Status = RequestStates.Submitted;
 
             LeaveDaysDto empLeaveDays = leaveDaysService.GetAllForEmployeeByYear(vacationRequestToCreate.EmployeeID, vacationRequestToCreate.StartDate.Year);
@@ -79,7 +78,7 @@ namespace Server.Business.Services
             }
             else if (vacationRequestToCreate.VacationType == VacationType.Unpaid)
             {
-                if (empLeaveDays.AllowedNonPaidDays > workingDays.Count)
+                if (empLeaveDays.AllowedNonPaidDays < workingDays.Count + empLeaveDays.TakenNonPaidDays)
                 {
                     throw new Exception("Requested days are more than allowed.");
                 }

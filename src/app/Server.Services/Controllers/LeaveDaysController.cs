@@ -10,7 +10,12 @@ namespace Server.Services.Controllers
     [RoutePrefix("LeaveDays")]
     public class LeaveDaysController : ApiController
     {
-        ILeaveDaysService leaveDaysService = new LeaveDaysService();
+        ILeaveDaysService leaveDaysService; // = new LeaveDaysService();
+
+        public LeaveDaysController(ILeaveDaysService leavDaysService)
+        {
+            leaveDaysService = leavDaysService;
+        }
 
         [HttpGet]
         [Route("")]

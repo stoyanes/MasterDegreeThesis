@@ -6,6 +6,8 @@ using Server.Data.Enums;
 using System.Collections.Generic;
 using Server.Business.Interfaces;
 using System.Linq;
+using Server.Business.Configs;
+using Microsoft.Practices.Unity;
 
 namespace Server.Business.Services
 {
@@ -15,6 +17,14 @@ namespace Server.Business.Services
         private IAdditionalWorkingDaysService additionalWroingDaysService = new AdditionalWorkingDaysService();
         private IEmployeeService employeeService = new EmployeeService();
         private ILeaveDaysService leaveDaysService = new LeaveDaysService();
+
+        //public VacationRequestService(IUnityContainer container)
+        //{
+        //    holidayService = container.Resolve<IHolidayService>();
+        //    additionalWroingDaysService = container.Resolve<IAdditionalWorkingDaysService>();
+        //    employeeService = container.Resolve<IEmployeeService>();
+        //    leaveDaysService = container.Resolve<ILeaveDaysService>();
+        //}
 
         private IList<DateTime> GetWorkingDays(DateTime startDate, DateTime endDate, IList<VacationRequestDto> currentVacationRequests)
         {
@@ -98,8 +108,8 @@ namespace Server.Business.Services
         public IList<VacationRequestDto> GetAllForEmployeeByYear(int employeeId, int year)
         {
             var vacationReqs = this.entityRepository
-               .FindAll(vacationReq => 
-                    vacationReq.EmployeeID == employeeId 
+               .FindAll(vacationReq =>
+                    vacationReq.EmployeeID == employeeId
                     && (vacationReq.StartDate.Year == year && vacationReq.EndDate.Year == year
                         || (vacationReq.StartDate.Year == year && vacationReq.EndDate.Year == year + 1))
                )

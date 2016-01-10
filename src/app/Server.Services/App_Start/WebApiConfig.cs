@@ -3,6 +3,7 @@ using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Server.Services.Providers;
 using Server.Services.ActionFilters;
+using Server.Business.Configs;
 using Microsoft.Practices.Unity;
 using Server.Business.Interfaces;
 using Server.Business.Services;
@@ -28,8 +29,6 @@ namespace Server.Services
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            SetUpDIContainer(config);
-
             SetJsonSettings(config);
 
             // we currently don't want xml to be returned
@@ -45,16 +44,6 @@ namespace Server.Services
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-        }
-
-        private static void SetUpDIContainer(HttpConfiguration config)
-        {
-            var container = new UnityContainer();
-            container.RegisterType<IEmployeeService, EmployeeService>(new HierarchicalLifetimeManager());
-            container.RegisterType<IHolidayService, HolidayService>(new HierarchicalLifetimeManager());
-            container.RegisterType<ILeaveDaysService, LeaveDaysService>(new HierarchicalLifetimeManager());
-            container.RegisterType<IVacationRequestService, VacationRequestService>(new HierarchicalLifetimeManager());
-            config.DependencyResolver = new UnityResolver(container);
         }
     }
 }

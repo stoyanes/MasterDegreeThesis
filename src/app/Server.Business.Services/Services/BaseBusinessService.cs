@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Server.Business.Configs;
 using Server.Business.Interfaces;
 using Server.Data;
 using Server.Data.Interfaces;
@@ -6,12 +7,23 @@ using Server.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Practices.Unity;
 
 namespace Server.Business.Services
 {
     public class BaseBusinessService<TEntity, TEntityDto> : IDisposable, IBaseBusinessService<TEntityDto> where TEntity : class, IBaseEntity
     {
-        protected IRepository<TEntity> entityRepository = new Repository<TEntity>(new ApplicationDbContext());
+        protected IRepository<TEntity> entityRepository; // = new Repository<TEntity>(new ApplicationDbContext());
+
+        public BaseBusinessService()
+        {
+            entityRepository = UnityDIResolver.DefaultContainer.Resolve<IRepository<TEntity>>();
+        }
+        public BaseBusinessService(IRepository<TEntity> repository)
+        {
+            entityRepository = repository;
+        }
+
         public virtual int CreateEntity(TEntityDto newEntity)
         {
             TEntity entityToCreate = Mapper.Map<TEntity>(newEntity);
@@ -51,7 +63,7 @@ namespace Server.Business.Services
             bool updateResult = entityRepository.SaveChanges();
             return updateResult;
         }
-        
+
         public void Dispose()
         {
             entityRepository.Dispose();

@@ -78,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configs\AutoMapperBusinessConfiguration.cs" />
-    <Compile Include="Configs\UnityResolver.cs" />
+    <Compile Include="Configs\UnityDIResolver.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
     <Compile Include="Interfaces\IAdditionalWorkingDaysService.cs" />
     <Compile Include="Interfaces\IBaseBusinessService.cs" />

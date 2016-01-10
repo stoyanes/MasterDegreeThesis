@@ -1,15 +1,13 @@
 ﻿using Microsoft.Practices.Unity;
 using Server.Business.Interfaces;
 using Server.Business.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Server.Data;
+using Server.Data.Repositories;
+using System.Data.Entity;
 
 namespace Server.Business.Configs
 {
-    public class UnityResolver
+    public class UnityDIResolver
     {
         private static IUnityContainer defaultContainer = null;
 
@@ -37,6 +35,11 @@ namespace Server.Business.Configs
             container.RegisterType<IHolidayService, HolidayService>(new HierarchicalLifetimeManager());
             container.RegisterType<ILeaveDaysService, LeaveDaysService>(new HierarchicalLifetimeManager());
             container.RegisterType<IVacationRequestService, VacationRequestService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IAdditionalWorkingDaysService, AdditionalWorkingDaysService>(new HierarchicalLifetimeManager());
+
+
+            container.RegisterType<DbContext, ApplicationDbContext>();
+            container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
 
             return container;
         }

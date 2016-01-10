@@ -13,10 +13,23 @@ namespace Server.Business.Services
 {
     public class VacationRequestService : BaseBusinessService<VacationRequest, VacationRequestDto>, IVacationRequestService
     {
-        private IHolidayService holidayService = new HolidayService();
+        private IHolidayService holidayService  = new HolidayService();
         private IAdditionalWorkingDaysService additionalWroingDaysService = new AdditionalWorkingDaysService();
         private IEmployeeService employeeService = new EmployeeService();
         private ILeaveDaysService leaveDaysService = new LeaveDaysService();
+
+        //public VacationRequestService()
+        //    : base(entity)
+        //{
+        //}
+
+        public VacationRequestService(IHolidayService hs, IAdditionalWorkingDaysService aws, IEmployeeService es, ILeaveDaysService ld)
+        {
+            holidayService = hs;
+            additionalWroingDaysService = aws;
+            employeeService = es;
+            leaveDaysService = ld;
+        }
 
         //public VacationRequestService(IUnityContainer container)
         //{
@@ -108,8 +121,8 @@ namespace Server.Business.Services
         public IList<VacationRequestDto> GetAllForEmployeeByYear(int employeeId, int year)
         {
             var vacationReqs = this.entityRepository
-               .FindAll(vacationReq =>
-                    vacationReq.EmployeeID == employeeId
+               .FindAll(vacationReq => 
+                    vacationReq.EmployeeID == employeeId 
                     && (vacationReq.StartDate.Year == year && vacationReq.EndDate.Year == year
                         || (vacationReq.StartDate.Year == year && vacationReq.EndDate.Year == year + 1))
                )

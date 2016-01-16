@@ -6,7 +6,6 @@
     ],
     function (app) {
         'use strict';
-
         app.run(['$rootScope', 'AuthenticationService', 'AUTH_EVENTS', 'Idle', '$state',
             function ($rootScope, authenticationService, AUTH_EVENTS, idle, $state) {
 
@@ -24,6 +23,9 @@
                     }
                 });
                 
+                // language inside application
+                $rootScope.appLangResource = appLanguageEn || { };
+
                 idle.watch();
 
                 $rootScope.isDefined = function (obj) {

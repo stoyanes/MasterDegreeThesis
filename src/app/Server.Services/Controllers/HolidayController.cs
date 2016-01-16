@@ -1,8 +1,5 @@
 ﻿using Server.Business.Dto;
 using Server.Business.Interfaces;
-using Server.Business.Services;
-using Server.Data.Model;
-using System.Linq;
 using System.Web.Http;
 
 namespace Server.Services.Controllers
@@ -11,8 +8,7 @@ namespace Server.Services.Controllers
     [RoutePrefix("Holidays")]
     public class HolidayController : ApiController
     {
-
-        IHolidayService holidayService; // = new HolidayService();
+        IHolidayService holidayService;
 
         public HolidayController(IHolidayService holService)
         {
@@ -29,10 +25,25 @@ namespace Server.Services.Controllers
 
         [HttpPost]
         [Route("")]
-        public IHttpActionResult Create(HolidayDto holidayToCreate)
+        public IHttpActionResult CreateOrUpdate(HolidayDto holiday)
         {
-            int createdId = holidayService.CreateEntity(holidayToCreate);
-            return Ok(createdId);
+            if (holiday.Id == 0)
+            {
+                holidayService.CreateEntity(holiday);
+            }
+            else
+            {
+                holidayService.UpdateEntity(holiday);
+            }
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            bool deleteResult = holidayService.DeleteEntityById(id);
+            return Ok(deleteResult);
         }
     }
 }

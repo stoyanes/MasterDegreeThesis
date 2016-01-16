@@ -4,25 +4,26 @@
     function (app) {
         'use strict';
         app.controller('SystemController', [
-            '$scope', '$state', 'LeaveDaysService', 'EmployeeService', 'HolidayService',
-            function ($scope, $state, leaveDaysService, employeeService, holidayService) {
+            '$rootScope', '$scope', '$state', 'LeaveDaysService', 'EmployeeService', 'HolidayService',
+            function ($rootScope, $scope, $state, leaveDaysService, employeeService, holidayService) {
+
                 $scope.calendarData = [];
                 $scope.leaveDays = [];
                 $scope.currentEmployeeInfo = {};
-                $scope.nonWorkingDays = [];
+                $rootScope.nonWorkingDays = [];
 
                 $scope.getNonWorkingDays = function () {
                     holidayService
                         .getHolidaysForYear((new Date()).getFullYear())
                         .then(
-                        // success
-                        function (resultData) {
-                            $scope.nonWorkingDays = resultData;
-                        },
-                        // error
-                        function () {
-                            $state.go('error');
-                        });
+                            // success
+                            function (resultData) {
+                                $rootScope.nonWorkingDays = resultData;
+                            },
+                            // error
+                            function () {
+                                $state.go('error');
+                            });
                 };
 
                 $scope.getLeaveDays = function () {

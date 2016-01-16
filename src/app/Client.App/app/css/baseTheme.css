@@ -24,3 +24,8 @@
 footer {
     margin: 50px 0;
 }
+
+#ttNonWorkingDaysRemove {
+    height: 300px;
+    overflow: scroll;
+}

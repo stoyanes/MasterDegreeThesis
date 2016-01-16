@@ -5,8 +5,8 @@
     function (app) {
         'use strict';
         app.controller('ApplicationController', [
-            '$scope', 'AuthenticationService', 'USER_ROLES', '$state', 'SessionService',
-            function ($scope, authenticationService, USER_ROLES, $state, sessionService) {
+            '$rootScope', '$scope', 'AuthenticationService', 'USER_ROLES', '$state', 'SessionService',
+            function ($rootScope, $scope, authenticationService, USER_ROLES, $state, sessionService) {
 
                 if(!authenticationService.isAuthenticated()) {
                     $state.go('login');

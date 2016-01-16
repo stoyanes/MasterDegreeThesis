@@ -5,8 +5,8 @@
     function (app) {
         'use strict';
         app.controller('LoginController', [
-            '$scope', 'AuthenticationService', 'SessionService', '$state',
-            function ($scope, autherticationService, sessionService, $state) {
+            '$rootScope', '$scope', 'AuthenticationService', 'SessionService', '$state',
+            function ($rootScope, $scope, autherticationService, sessionService, $state) {
 
                 $scope.credentials = {
                     userName: 'admin@myemail.com', // 'employee1@myemail.com',

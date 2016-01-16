@@ -49,7 +49,6 @@
         'ng-idle': [
             '../bower_components/ng-idle/angular-idle.min'
         ],
-
         'app': [
             '../app/js/app'
         ]

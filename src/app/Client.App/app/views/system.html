@@ -54,6 +54,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Non-Working Days </div>
+                        <div class="panel-body">
+                            <ul class="list-group" ng-repeat="nonWorkingDay in nonWorkingDays">
+                                <li class="list-group-item">
+                                  {{nonWorkingDay.workingDate | date:'yyyy-MM-dd' }} - {{ nonWorkingDay.description }}
+                                </li>
+                            </ul>
+                            <div ng-if="nonWorkingDays.length === 0">
+                                There are no non-working days to show.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

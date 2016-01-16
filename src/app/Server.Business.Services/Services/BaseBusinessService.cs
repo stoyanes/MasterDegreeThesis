@@ -13,7 +13,7 @@ namespace Server.Business.Services
 {
     public class BaseBusinessService<TEntity, TEntityDto> : IDisposable, IBaseBusinessService<TEntityDto> where TEntity : class, IBaseEntity
     {
-        protected IRepository<TEntity> entityRepository; // = new Repository<TEntity>(new ApplicationDbContext());
+        protected IRepository<TEntity> entityRepository;
 
         public BaseBusinessService()
         {

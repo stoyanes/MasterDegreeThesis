@@ -12,11 +12,11 @@ namespace Server.Data.Model
         public int Id { get; set; }
 
         [Required]
-        public DateTime HolidayDate { get; set; }
+        public DateTime WorkingDate { get; set; }
         
         [Required]
-        [MinLength(8)]
+        [MinLength(3)]
         [MaxLength(256)]
-        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

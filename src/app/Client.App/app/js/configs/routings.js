@@ -64,6 +64,15 @@
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
                     })
+                    .state('manageNonWorkingDays', {
+                        parent: 'system',
+                        url: '/manageNonWorkingDays',
+                        templateUrl: 'app/views/manageNonWorkingDays.html',
+                        controller: 'HolidayController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin]
+                        }
+                    })
                     .state('error', {
                         parent: 'system',
                         url: '/error',

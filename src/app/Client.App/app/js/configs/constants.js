@@ -10,7 +10,8 @@
             authenticationUri: './api/Token',
             requestVacationUri: './api/VacationRequests',
             leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
-            employeeUri: './api/employees'
+            employeeUri: './api/employees',
+            holidayUri: './api/Holidays'
         });
 
         app = app.constant('AUTH_EVENTS', {

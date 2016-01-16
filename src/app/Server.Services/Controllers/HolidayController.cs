@@ -24,8 +24,15 @@ namespace Server.Services.Controllers
         public IHttpActionResult GetForYear(int year)
         {
             var holidays = holidayService.GetForYear(year);
-
             return Ok(holidays);
+        }
+
+        [HttpPost]
+        [Route("")]
+        public IHttpActionResult Create(HolidayDto holidayToCreate)
+        {
+            int createdId = holidayService.CreateEntity(holidayToCreate);
+            return Ok(createdId);
         }
     }
 }

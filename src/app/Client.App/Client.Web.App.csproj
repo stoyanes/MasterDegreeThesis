@@ -65,6 +65,7 @@
     <Content Include="app\js\configs\onStartup.js" />
     <Content Include="app\js\configs\routings.js" />
     <Content Include="app\js\controllers\applicationController.js" />
+    <Content Include="app\js\controllers\holidayController.js" />
     <Content Include="app\js\controllers\systemController.js" />
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\controllers\requestVacationController.js" />
@@ -74,11 +75,13 @@
     <Content Include="app\js\main.js" />
     <Content Include="app\js\modulesLoader.js" />
     <Content Include="app\js\services\authInterceptor.js" />
+    <Content Include="app\js\services\holidayService.js" />
     <Content Include="app\js\services\employeeService.js" />
     <Content Include="app\js\services\requestVacationService.js" />
     <Content Include="app\js\services\leaveDaysService.js" />
     <Content Include="app\js\services\sessionService.js" />
     <Content Include="app\views\error.html" />
+    <Content Include="app\views\manageNonWorkingDays.html" />
     <Content Include="app\views\system.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\menus\admin.html" />

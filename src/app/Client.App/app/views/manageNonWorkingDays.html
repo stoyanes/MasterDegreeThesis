@@ -1,0 +1,50 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">Manage non-working days</div>
+            <div class="panel-body">
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="ttDate">Date</label>
+                            <p class="input-group">
+                                <input type="text"
+                                       id="ttDate"
+                                       class="form-control"
+                                       uib-datepicker-popup
+                                       is-open="dateModel.popupOpenStatus"
+                                       datepicker-options="dateModel.dateOptions"
+                                       ng-model="dateModel.date"
+                                       ng-required="true"
+                                       close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            ng-click="dateModel.togglePopUp($event)">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="ttDescription">Description</label>
+                            <textarea id="ttDescription"
+                                      class="form-control"
+                                      placeholder="Note"
+                                      ng-model="description"
+                                      rows="5"></textarea>
+                        </div>
+                        <button class="btn btn-default"
+                                ng-disabled="!isValidHoliday()"
+                                ng-click="submit()">
+                           Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div ui-calendar ng-model="calendarData"></div>
+    </div>
+</div>

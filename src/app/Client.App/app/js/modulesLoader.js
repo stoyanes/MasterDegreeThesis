@@ -11,13 +11,15 @@
     './controllers/requestVacationController',
     './controllers/userRequestsController',
     './controllers/requestApprovingController',
+    './controllers/holidayController',
 
     './services/authenticationService',
     './services/sessionService',
     './services/authInterceptor',
     './services/requestVacationService',
     './services/leaveDaysService',
-    './services/employeeService'
+    './services/employeeService',
+    './services/holidayService'
 ], function (ng) {
 
 });

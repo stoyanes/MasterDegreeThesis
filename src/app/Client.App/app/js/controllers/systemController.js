@@ -4,12 +4,26 @@
     function (app) {
         'use strict';
         app.controller('SystemController', [
-            '$scope', '$state', 'LeaveDaysService', 'EmployeeService',
-            function ($scope, $state, leaveDaysService, employeeService) {
+            '$scope', '$state', 'LeaveDaysService', 'EmployeeService', 'HolidayService',
+            function ($scope, $state, leaveDaysService, employeeService, holidayService) {
                 $scope.calendarData = [];
-                $scope.leaveDays = {};
+                $scope.leaveDays = [];
                 $scope.currentEmployeeInfo = {};
+                $scope.nonWorkingDays = [];
 
+                $scope.getNonWorkingDays = function () {
+                    holidayService
+                        .getHolidaysForYear((new Date()).getFullYear())
+                        .then(
+                        // success
+                        function (resultData) {
+                            $scope.nonWorkingDays = resultData;
+                        },
+                        // error
+                        function () {
+                            $state.go('error');
+                        });
+                };
 
                 $scope.getLeaveDays = function () {
                     leaveDaysService
@@ -39,8 +53,6 @@
                         });
                 };
 
-
-
                 $scope.getApprovalManagerName = function () {
                     var managerName = 'You have no approval manager.';
 
@@ -53,5 +65,6 @@
 
                 $scope.getLeaveDays();
                 $scope.getCurrentEmployeeInfo();
+                $scope.getNonWorkingDays();
             }]); // end of controller
     }); // end of define

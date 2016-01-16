@@ -9,7 +9,7 @@
             function ($scope, autherticationService, sessionService, $state) {
 
                 $scope.credentials = {
-                    userName: 'employee1@myemail.com', // 'admin@myemail.com',
+                    userName: 'admin@myemail.com', // 'employee1@myemail.com',
                     userPassword: 'Temp_123'
                 };
                 $scope.isLoginButtonDisabled = false;

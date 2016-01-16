@@ -14,7 +14,7 @@ namespace Server.Business.Services
         {
             var holidays = this.entityRepository
                 .FindAll()
-                .Where(holiday => holiday.HolidayDate.Year == year)
+                .Where(holiday => holiday.WorkingDate.Year == year)
                 .ToList();
             var resultHolidays = Mapper.Map<List<HolidayDto>>(holidays);
             return resultHolidays;

@@ -25,6 +25,38 @@
             return deffered.promise;
         };
 
+        employeeService.getAll = function () {
+            var deffered = $q.defer();
+            _resource.query({},
+                function (responce) {
+                    deffered.resolve(responce);
+                },
+
+                function (responce) {
+                    deffered.reject(responce);
+                }
+            );
+            return deffered.promise;
+        };
+
+        employeeService.updateEmployee = function (employee) {
+            var deffered = $q.defer();
+            var localResourse = $resource(CONNECTION_CONSTANTS.employeeUri, null, {
+                update: {
+                    method: 'PUT'
+                }
+            });
+            localResourse.update(employee,
+                function (responce) {
+                    deffered.resolve(responce);
+                },
+
+                function (responce) {
+                    deffered.reject(responce);
+                }
+            );
+            return deffered.promise;
+        };
         return employeeService;
     }]);
 });

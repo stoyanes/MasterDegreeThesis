@@ -11,7 +11,7 @@ namespace Server.Services.Controllers
     [RoutePrefix("Employees")]
     public class EmployeeController : ApiController
     {
-        IEmployeeService employeeService; // = new EmployeeService();
+        IEmployeeService employeeService;
 
         public EmployeeController(IEmployeeService empService)
         {

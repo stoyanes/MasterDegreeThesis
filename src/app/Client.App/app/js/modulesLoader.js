@@ -12,6 +12,7 @@
     './controllers/userRequestsController',
     './controllers/requestApprovingController',
     './controllers/holidayController',
+    './controllers/userManagementController',
 
     './services/authenticationService',
     './services/sessionService',
@@ -19,7 +20,8 @@
     './services/requestVacationService',
     './services/leaveDaysService',
     './services/employeeService',
-    './services/holidayService'
+    './services/holidayService',
+    './services/usersMenagementService'
 ], function (ng) {
 
 });

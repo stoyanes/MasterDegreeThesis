@@ -30,11 +30,10 @@ namespace Server.Services.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+        public AccountController(ApplicationUserManager userManager)
         {
             UserManager = userManager;
-            AccessTokenFormat = accessTokenFormat;
+            AccessTokenFormat = Startup.OAuthOptions.AccessTokenFormat;
         }
 
         public ApplicationUserManager UserManager

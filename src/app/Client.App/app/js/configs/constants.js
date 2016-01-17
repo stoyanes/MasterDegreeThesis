@@ -11,7 +11,8 @@
             requestVacationUri: './api/VacationRequests',
             leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
             employeeUri: './api/employees',
-            holidayUri: './api/Holidays'
+            holidayUri: './api/Holidays',
+            usersUri: './api/Account'
         });
 
         app = app.constant('AUTH_EVENTS', {

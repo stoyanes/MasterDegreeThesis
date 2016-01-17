@@ -1,7 +1,10 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Practices.Unity;
 using Server.Business.Interfaces;
 using Server.Business.Services;
 using Server.Data;
+using Server.Data.Model;
 using Server.Data.Repositories;
 using System.Data.Entity;
 
@@ -40,6 +43,10 @@ namespace Server.Business.Configs
 
             container.RegisterType<DbContext, ApplicationDbContext>();
             container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
+
+
+            container.RegisterType<UserManager<Employee, int>, ApplicationUserManager>();
+            container.RegisterType<IUserStore<Employee, int>, CustomUserStore>();
 
             return container;
         }

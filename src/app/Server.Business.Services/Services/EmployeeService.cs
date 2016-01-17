@@ -27,5 +27,28 @@ namespace Server.Business.Services
 
             return true;
         }
+
+        public override bool UpdateEntity (EmployeeDto newEntity)
+        {
+            Employee empToUpdate = this.entityRepository.FindById(newEntity.Id);
+            Employee newManager = null;
+
+            if (newEntity.Manager != null)
+            {
+                newManager = this.entityRepository.FindById(newEntity.Manager.Id);
+            }
+
+            if (empToUpdate != null)
+            {
+                empToUpdate.Manager = newManager;
+                empToUpdate.UserName = newEntity.UserName;
+
+                return this.entityRepository.SaveChanges();
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

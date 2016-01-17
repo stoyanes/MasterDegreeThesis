@@ -7,10 +7,8 @@ namespace Server.Business.Dto
     {
         public int Id { get; set; }
 
-        public IList<VacationRequest> Requests { get; set; }
+        public string UserName { get; set; }
 
-        public IList<LeaveDays> LeaveDays { get; set; }
-
-        public Employee Manager { get; set; }
+        public EmployeeDto Manager { get; set; }
     }
 }

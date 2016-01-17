@@ -70,11 +70,13 @@
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\controllers\requestVacationController.js" />
     <Content Include="app\js\controllers\requestApprovingController.js" />
+    <Content Include="app\js\controllers\userManagementController.js" />
     <Content Include="app\js\controllers\userRequestsController.js" />
     <Content Include="app\js\services\authenticationService.js" />
     <Content Include="app\js\main.js" />
     <Content Include="app\js\modulesLoader.js" />
     <Content Include="app\js\services\authInterceptor.js" />
+    <Content Include="app\js\services\usersMenagementService.js" />
     <Content Include="app\js\services\holidayService.js" />
     <Content Include="app\js\services\employeeService.js" />
     <Content Include="app\js\services\requestVacationService.js" />
@@ -88,6 +90,7 @@
     <Content Include="app\views\menus\regular.html" />
     <Content Include="app\views\requestVacation.html" />
     <Content Include="app\views\requestsToApprove.html" />
+    <Content Include="app\views\manageEmployees.html" />
     <Content Include="app\views\userRequests.html" />
     <Content Include="bower.json" />
     <None Include="Web.Debug.config">

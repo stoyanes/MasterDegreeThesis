@@ -1,0 +1,79 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">Register new employee</div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="ttUserName">User name</label>
+                        <p class="input-group">
+                            <input type="text"
+                                   id="ttUserName"
+                                   class="form-control"
+                                   ng-model="userModel.name"
+                                   ng-required="true" />
+                        </p>
+                        <label for="ttUserPassword">User password</label>
+                        <p class="input-group">
+                            <input type="password"
+                                   id="ttUserPassword"
+                                   class="form-control"
+                                   ng-model="userModel.password"
+                                   ng-required="true" />
+                        </p>
+                    </div>
+                    <button class="btn btn-default btn-success"
+                            ng-disabled="!isValidUserDetails()"
+                            ng-click="registerUser()">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div id="ttEmployees" class="panel panel-default">
+            <div class="panel-body">
+                <ul class="list-group" ng-repeat="employee in allEmployees">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-12">
+                                User: {{ employee.userName }}
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-9">
+                                Manager: {{ employee.manager && employee.manager.userName || 'No approval manager' }}
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-default btn-sm btn-info" ng-click="showEdit = true" ng-init="showEdit = false">Edit</button>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row" ng-show="showEdit">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="ttUserManager">Approval manager</label>
+                                    <select class="form-control"
+                                            id="ttUserManager"
+                                            required="required"
+                                            ng-options="emp as emp.userName for emp in allEmployees track by emp.id"
+                                            ng-init="empManagerSelection=-1"
+                                            ng-model="empManagerSelection"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-default btn-sm btn-success" ng-click="updateUserManager(employee, empManagerSelection)">Save</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-if="allEmployees.length === 0">
+                    There are no employees.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div ui-calendar ng-model="calendarData"></div>
+    </div>
+</div>

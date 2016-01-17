@@ -73,6 +73,15 @@
                             authorizedRoles: [USER_ROLES.admin]
                         }
                     })
+                    .state('manageEmployees', {
+                        parent: 'system',
+                        url: '/manageEmployees',
+                        templateUrl: 'app/views/manageEmployees.html',
+                        controller: 'UserManagementController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin]
+                        }
+                    })
                     .state('error', {
                         parent: 'system',
                         url: '/error',

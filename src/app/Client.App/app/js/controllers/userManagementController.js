@@ -24,7 +24,8 @@
                         // TODO move this to configuration
                         email: $scope.userModel.name + '@company.com',
                         password: $scope.userModel.password,
-                        confirmPassword: $scope.userModel.password
+                        confirmPassword: $scope.userModel.password,
+                        roles: ["admin"]
                     };
 
                     userManagementService

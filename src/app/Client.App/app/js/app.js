@@ -7,7 +7,8 @@
         'angular-loading-bar',
         'angular-animate',
         'ng-idle',
-        'ui-bootstrap-tpls'
+        'ui-bootstrap-tpls',
+        'angular-ui-grid'
     ],
     function (angular) {
         'use strict';
@@ -19,7 +20,8 @@
             'angular-loading-bar',
             'ngAnimate',
             'ngIdle',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'ui.grid'
         ]);
 
         /* Adding the auth interceptor here, to check every $http request*/

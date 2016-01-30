@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using Server.Data.Model;
 
 namespace Server.Services.Models
 {
@@ -47,6 +49,10 @@ namespace Server.Services.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name ="Roles")]
+        public IList<string> Roles { get; set; }
     }
 
     public class RegisterExternalBindingModel

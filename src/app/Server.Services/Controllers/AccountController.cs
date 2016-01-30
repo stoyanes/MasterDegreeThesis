@@ -327,8 +327,13 @@ namespace Server.Services.Controllers
             }
 
             var user = new Employee() { UserName = model.Email, Email = model.Email };
-
+            
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            foreach (string role in model.Roles)
+            {
+                UserManager.AddToRole(user.Id, role);
+            }
 
             if (!result.Succeeded)
             {

@@ -1,8 +1,9 @@
 ﻿<div class="row">
-    <div class="col-md-5">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">Manage non-working days</div>
             <div class="panel-body">
+                <div ui-grid="gridOptions"></div>
                 <form>
                     <div class="form-group">
                         <label for="ttDate">Date</label>
@@ -63,8 +64,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-7">
-        <div ui-calendar ng-model="calendarData"></div>
     </div>
 </div>

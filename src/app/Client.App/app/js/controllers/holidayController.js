@@ -84,5 +84,10 @@
                             $state.go('error');
                         });
                 };
+
+                $scope.gridOptions = {
+                    
+                };
+
             }]); // end of controller
     }); // end of define

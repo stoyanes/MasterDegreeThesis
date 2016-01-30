@@ -49,6 +49,9 @@
         'ng-idle': [
             '../bower_components/ng-idle/angular-idle.min'
         ],
+        'angular-ui-grid': [
+            '../bower_components/angular-ui-grid/ui-grid.min'
+        ],
         'app': [
             '../app/js/app'
         ]
@@ -92,6 +95,9 @@
             deps: ['angular']
         },
         'ng-idle': {
+            deps: ['angular']
+        },
+        'angular-ui-grid': {
             deps: ['angular']
         }
     }

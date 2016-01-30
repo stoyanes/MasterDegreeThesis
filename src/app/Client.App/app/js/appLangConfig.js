@@ -8,6 +8,6 @@
     requestsToApproveBtn: 'Requests to approve',
     welcomeMessage: 'Hello',
     adminMenuMessage: 'Admin menu',
-    manageNonWorkingDaysPanel: 'Manage Non-working Days',
+    manageNonWorkingDaysPanel: 'Manage holidays',
     manageEmployeesPanel: 'Manage employees'
 };

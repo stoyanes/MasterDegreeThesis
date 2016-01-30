@@ -8,7 +8,8 @@
         'angular-animate',
         'ng-idle',
         'ui-bootstrap-tpls',
-        'angular-ui-grid'
+        'angular-ui-grid',
+        'ng-dialog'
     ],
     function (angular) {
         'use strict';
@@ -21,7 +22,8 @@
             'ngAnimate',
             'ngIdle',
             'ui.bootstrap',
-            'ui.grid'
+            'ui.grid',
+            'ngDialog'
         ]);
 
         /* Adding the auth interceptor here, to check every $http request*/

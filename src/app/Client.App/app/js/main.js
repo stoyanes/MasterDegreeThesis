@@ -52,6 +52,9 @@
         'angular-ui-grid': [
             '../bower_components/angular-ui-grid/ui-grid.min'
         ],
+        'ng-dialog': [
+            '../bower_components/ng-dialog/js/ngDialog.min'
+        ],
         'app': [
             '../app/js/app'
         ]
@@ -99,6 +102,9 @@
         },
         'angular-ui-grid': {
             deps: ['angular']
+        },
+        'ng-dialog': {
+            deps: ['angular']
         }
     }
 });
@@ -114,4 +120,4 @@ require(
         'use strict';
         ng.bootstrap(document, ['app']);
     }
-); // end of require
+    ); // end of require

@@ -1,10 +1,4 @@
-﻿<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">Manage non-working days</div>
-            <div class="panel-body">
-                <div ui-grid="gridOptions"></div>
-                <form>
+<form>
                     <div class="form-group">
                         <label for="ttDate">Date</label>
                         <p class="input-group">
@@ -40,29 +34,3 @@
                         Submit
                     </button>
                 </form>
-            </div>
-        </div>
-        <div id="ttNonWorkingDaysRemove" class="panel panel-default">
-            <div class="panel-body">
-                <ul class="list-group" ng-repeat="nonWorkingDay in nonWorkingDays">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-6">
-                                {{nonWorkingDay.workingDate | date:'yyyy-MM-dd' }} - {{ nonWorkingDay.description }}
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-sm btn-danger" ng-click="removeHoliday(nonWorkingDay)">Remove</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-sm btn-info" ng-click="updateHoliday(nonWorkingDay)">Edit</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div ng-if="nonWorkingDays.length === 0">
-                    There are no non-working days to show.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

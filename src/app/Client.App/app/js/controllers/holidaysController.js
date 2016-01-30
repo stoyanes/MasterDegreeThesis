@@ -23,8 +23,11 @@
                         openDatepickerPopup($event, this);
                     }
                 };
-                $scope.description = '';
-                $scope.holidayId = 0;
+
+                $scope.holidayObj = {
+                    holidayId: -1,
+                    description: ''
+                };
 
                 $scope.isValidHoliday = function () {
                     var isValidDate = $rootScope.isDate($scope.dateModel.date);
@@ -37,7 +40,7 @@
                         .getHolidaysForYear((new Date()).getFullYear())
                         .then(function (res) {
                             $rootScope.nonWorkingDays = res;
-                            
+
                         }, function () {
                             $state.go('error');
                         });
@@ -60,15 +63,15 @@
 
                 $scope.updateHoliday = function (holiday) {
                     $scope.dateModel.date = new Date(holiday.workingDate);
-                    $scope.description = holiday.description;
-                    $scope.holidayId = holiday.id;
+                    $scope.holidayObj.description = holiday.description;
+                    $scope.holidayObj.holidayId = holiday.id;
                 };
 
                 $scope.submit = function () {
                     var holiday = {
                         workingDate: $scope.dateModel.date,
-                        description: $scope.description,
-                        id: $scope.holidayId
+                        description: $scope.holidayObj.description,
+                        id: $scope.holidayObj.holidayId
                     };
 
                     ngDialog.close();
@@ -78,9 +81,9 @@
                         .then(
                             // success
                             function (res) {
-                                $scope.description = '';
+                                $scope.holidayObj.description = '';
                                 $scope.dateModel.date = null;
-                                $scope.holidayId = 0;
+                                $scope.holidayObj.holidayId = 0;
                                 updateNonWorkingDays();
                             },
                             // error
@@ -91,17 +94,24 @@
 
                 $scope.addClickHandler = function () {
                     ngDialog.open({
-                        template: '../../app/views/templates/addHolidayTemplate.html',
-                        controller: 'HolidayController'
+                        template: '../../app/views/templates/addOrUpdateHolidayTemplate.html',
+                        scope: $scope
                     });
                 };
 
                 $scope.editClickHandler = function (rowEntity) {
+                    $scope.holidayObj.holidayId = rowEntity.id;
+                    $scope.holidayObj.description = rowEntity.description;
+                    $scope.dateModel.date = new Date(rowEntity.workingDate);
 
+                    ngDialog.open({
+                        template: '../../app/views/templates/addOrUpdateHolidayTemplate.html',
+                        scope: $scope
+                    });
                 };
 
                 $scope.removeClickHandler = function (rowEntity) {
-
+                    $scope.removeHoliday(rowEntity.id);
                 };
 
                 $scope.gridOptions = {
@@ -117,11 +127,7 @@
                         },
                         {
                             name: 'Actions',
-                            // TODO move this to html template...
-                            cellTemplate: '<div class="row">' +
-                            '<div class="col-md-3"><button class="btn btn-xs btn-info" ng-click="grid.appScope.editClickHandler(row.entity)">Edit</button></div>' +
-                            '<div class="col-md-6"><button class="btn btn-xs btn-danger" ng-click="grid.appScope.removeClickHandler(row.entity)">Remove</button></div>' +
-                            '<div>',
+                            cellTemplate: '../../app/views/templates/gridRowActionsTemplate.html',
                             enableFiltering: false,
                             enableSorting: false,
                             enableHiding: false

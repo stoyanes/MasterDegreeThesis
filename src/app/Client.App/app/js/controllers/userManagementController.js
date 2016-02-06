@@ -14,9 +14,19 @@ define([
             function ($rootScope, $scope, $state, userManagementService, employeeService, ngDialog) {
                 $scope.userModel = {
                     name: '',
-                    password: ''
+                    password: '',
+                    roles: []
                 };
-
+                $scope.availableUserRoles = [
+                    {
+                        id: 1,
+                        name: 'admin'
+                    },
+                    {
+                        id: 2,
+                        name: 'regular'
+                    }
+                ];
                 $scope.userEditModel = {
                     id: -1,
                     userName: undefined,
@@ -37,7 +47,7 @@ define([
                         email: $scope.userModel.name + '@company.com',
                         password: $scope.userModel.password,
                         confirmPassword: $scope.userModel.password,
-                        roles: ["admin"]
+                        roles: $scope.userModel.roles.map(function (value) { return value.name })
                     };
                     ngDialog.close();
                     userManagementService
@@ -83,7 +93,7 @@ define([
 
                 $scope.updateUser = function (user) {
                     ngDialog.close();
-                    
+
                     employeeService
                         .updateEmployee(user)
                         .then(

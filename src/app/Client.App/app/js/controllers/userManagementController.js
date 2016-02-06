@@ -16,6 +16,12 @@
                     password: ''
                 };
 
+                $scope.userEditModel = {
+                    id: -1,
+                    userName: undefined,
+                    manager: undefined
+                };
+
                 $scope.allEmployees = [];
 
                 $scope.isValidUserDetails = function () {
@@ -74,22 +80,20 @@
                             });
                 };
 
-                $scope.updateUserManager = function (user, selectedManager) {
-                    if (selectedManager) {
-                        user.manager = selectedManager;
-                        employeeService
-                            .updateEmployee(user)
-                            .then(
-                                // success
-                                function () {
-                                    $state.go($state.current, {}, { reload: true });
-                                },
-                                // error
-                                function () {
-                                    $state.go('error');
-                                });
-                    }
-
+                $scope.updateUser = function (user) {
+                    ngDialog.close();
+                    
+                    employeeService
+                        .updateEmployee(user)
+                        .then(
+                            // success
+                            function (res) {
+                                $scope.getAllEmployees();
+                            },
+                            // error
+                            function () {
+                                $state.go('error');
+                            });
                 };
                 $scope.addClickHandler = function () {
                     ngDialog.open({
@@ -99,6 +103,7 @@
                 };
 
                 $scope.editClickHandler = function (rowEntity) {
+                    $scope.userEditModel = rowEntity;
                     ngDialog.open({
                         template: '../../app/views/templates/updateEmployeeTemplate.html',
                         scope: $scope

@@ -4,8 +4,13 @@
     function (app) {
         'use strict';
         app.controller('UserManagementController', [
-           '$rootScope', '$scope', '$state', 'UsersManagementService', 'EmployeeService',
-            function ($rootScope, $scope, $state, userManagementService, employeeService) {
+            '$rootScope',
+            '$scope',
+            '$state',
+            'UsersManagementService',
+            'EmployeeService',
+            'ngDialog',
+            function ($rootScope, $scope, $state, userManagementService, employeeService, ngDialog) {
                 $scope.userModel = {
                     name: '',
                     password: ''
@@ -27,50 +32,107 @@
                         confirmPassword: $scope.userModel.password,
                         roles: ["admin"]
                     };
-
+                    ngDialog.close();
                     userManagementService
                         .registerUserAsync(userToRegister)
                         .then(
-                        // success
-                        function () {
-                            $state.go($state.current, {}, { reload: true });
-                        },
-                        // error
-                        function () {
-                            $state.go('error')
-                        });
+                            // success
+                            function () {
+                                $state.go($state.current, {}, { reload: true });
+                            },
+                            // error
+                            function () {
+                                $state.go('error')
+                            });
                 };
 
                 $scope.getAllEmployees = function () {
                     employeeService
                         .getAll()
                         .then(
-                        // success
-                        function (res) {
-                            $scope.allEmployees = res;
-                        },
-                        // error
-                        function () {
-                            $state.go('error');
-                        });
+                            // success
+                            function (res) {
+                                $scope.allEmployees = res;
+                            },
+                            // error
+                            function () {
+                                $state.go('error');
+                            });
+                };
+
+                $scope.removeEmployee = function (employeeId) {
+                    employeeService
+                        .removeUserAsync(employeeId)
+                        .then(
+                            // success
+                            function (res) {
+                                $scope.getAllEmployees();
+                            },
+                            // error
+                            function () {
+                                $state.go('error');
+                            });
                 };
 
                 $scope.updateUserManager = function (user, selectedManager) {
                     if (selectedManager) {
                         user.manager = selectedManager;
                         employeeService
-                        .updateEmployee(user)
-                        .then(
-                        // success
-                        function () {
-                            $state.go($state.current, {}, { reload: true });
-                        },
-                        // error
-                        function () {
-                            $state.go('error');
-                        });
+                            .updateEmployee(user)
+                            .then(
+                                // success
+                                function () {
+                                    $state.go($state.current, {}, { reload: true });
+                                },
+                                // error
+                                function () {
+                                    $state.go('error');
+                                });
                     }
 
+                };
+                $scope.addClickHandler = function () {
+                    ngDialog.open({
+                        template: '../../app/views/templates/addEmployeeTemplate.html',
+                        scope: $scope
+                    });
+                };
+
+                $scope.editClickHandler = function (rowEntity) {
+                    ngDialog.open({
+                        template: '../../app/views/templates/updateEmployeeTemplate.html',
+                        scope: $scope
+                    });
+                };
+
+                $scope.removeClickHandler = function (rowEntity) {
+                    $scope.removeEmployee(rowEntity.id);
+                };
+                $scope.gridOptions = {
+                    data: 'allEmployees',
+                    columnDefs: [
+                        {
+                            name: 'id',
+                            field: 'id'
+                        },
+                        {
+                            name: 'userName',
+                            field: 'userName'
+                        },
+                        {
+                            name: 'manager',
+                            field: 'manager.userName'
+                        },
+                        {
+                            name: 'Actions',
+                            cellTemplate: '../../app/views/templates/gridRowActionsTemplate.html',
+                            enableFiltering: false,
+                            enableSorting: false,
+                            enableHiding: false
+                        }
+                    ],
+
+                    enableFiltering: true
                 };
 
                 $scope.getAllEmployees();

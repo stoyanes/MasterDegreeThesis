@@ -28,7 +28,7 @@ namespace Server.Business.Services
             return true;
         }
 
-        public override bool UpdateEntity (EmployeeDto newEntity)
+        public override bool UpdateEntity(EmployeeDto newEntity)
         {
             Employee empToUpdate = this.entityRepository.FindById(newEntity.Id);
             Employee newManager = null;
@@ -49,6 +49,19 @@ namespace Server.Business.Services
             {
                 return false;
             }
+        }
+
+        public override bool DeleteEntityById(int id)
+        {
+            Employee empToDelete = this.entityRepository.FindById(id);
+            if (empToDelete.Manager != null)
+            {
+                empToDelete.Manager = null;
+                this.entityRepository.Update(empToDelete);
+                this.entityRepository.SaveChanges();
+            }
+            this.entityRepository.Delete(id);
+            return this.entityRepository.SaveChanges();
         }
     }
 }

@@ -26,7 +26,6 @@ namespace Server.Services.Controllers
             return Ok(entities);
         }
 
-
         [NonAction]
         private EmployeeDto GetEmployeeById(int id)
         {
@@ -101,7 +100,6 @@ namespace Server.Services.Controllers
             else
             {
                 return InternalServerError();
-
             }
         }
     }

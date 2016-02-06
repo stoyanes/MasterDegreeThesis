@@ -1,0 +1,22 @@
+<form>
+    <div class="form-group">
+        <label for="ttUserName">User name</label>
+        <p class="input-group">
+            <input type="text" id="ttUserName" class="form-control" ng-model="userModel.name" ng-required="true" />
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="ttUserManager">Approval manager</label>
+                <select class="form-control" id="ttUserManager" required="required" ng-options="emp as emp.userName for emp in allEmployees track by emp.id"
+                ng-init="empManagerSelection=-1" ng-model="empManagerSelection"></select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        <button class="btn btn-default btn-sm btn-success" ng-click="updateUserManager(employee, empManagerSelection)">Save</button>
+        </div>
+    </div>
+</form>

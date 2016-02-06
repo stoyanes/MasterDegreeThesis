@@ -4,7 +4,12 @@
     function (app) {
         'use strict';
         app.controller('HolidayController', [
-            '$rootScope', '$scope', 'HolidayService', '$state', 'ngDialog',
+            '$rootScope', 
+            '$scope', 
+            'HolidayService', 
+            '$state', 
+            'ngDialog',
+            
             function ($rootScope, $scope, holidayService, $state, ngDialog) {
                 var openDatepickerPopup = function ($event, dpModel) {
                     $event.preventDefault();
@@ -110,12 +115,12 @@
                     });
                 };
 
-                $scope.removeClickHandler = function (rowEntity) {
-                    $scope.removeHoliday(rowEntity.id);
+                $scope.removeClickHandler = function (rowEntityId) {
+                    $scope.removeHoliday(rowEntityId);
                 };
 
                 $scope.gridOptions = {
-                    data: $rootScope.nonWorkingDays,
+                    data: 'nonWorkingDays',
                     columnDefs: [
                         {
                             name: 'workingDate',

@@ -1,4 +1,22 @@
 ﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Manage employees</div>
+            <div class="panel-body">
+                <div class="row">
+                    <button class="btn btn-default btn-success pull-right" ng-click="addClickHandler()">Add New Employee
+                    </button>
+                </div>
+                <div class="row">
+                    <div ui-grid="gridOptions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="row">
     <div class="col-md-5">
         <div class="panel panel-default">
             <div class="panel-heading">Register new employee</div>
@@ -76,4 +94,4 @@
     <div class="col-md-7">
         <div ui-calendar ng-model="calendarData"></div>
     </div>
-</div>
+</div>-->

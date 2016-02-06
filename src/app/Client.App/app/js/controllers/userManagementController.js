@@ -1,4 +1,5 @@
-﻿define([
+﻿/* global angular */
+define([
     'app'
 ],
     function (app) {
@@ -103,7 +104,7 @@
                 };
 
                 $scope.editClickHandler = function (rowEntity) {
-                    $scope.userEditModel = rowEntity;
+                    $scope.userEditModel = angular.copy(rowEntity);
                     ngDialog.open({
                         template: '../../app/views/templates/updateEmployeeTemplate.html',
                         scope: $scope

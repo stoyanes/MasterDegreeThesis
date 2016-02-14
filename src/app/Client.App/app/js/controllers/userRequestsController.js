@@ -4,26 +4,8 @@
     function (app) {
         'use strict';
         app.controller('UserRequestsController', [
-            '$scope', '$state', 'RequestVacationService',
-            function ($scope, $state, requestVacationService) {
-
-                $scope.userRequests = [];
-
-                $scope.getUserRequests = function () {
-                    requestVacationService
-                        .getAllRequestsForCurrentUserAsync()
-                        .then(
-                        // success
-                        function (resultData) {
-                            $scope.userRequests = resultData;
-                        },
-                        // error
-                        function () {
-                            $state.go('error');
-                        });
-                };
-
-                $scope.getUserRequests();
+            '$rootScope','$scope',
+            function ($rootScope, $scope) {
 
                 $scope.getVacationTypeName = function (vacationType) {
                     var vacationTypeName = '';

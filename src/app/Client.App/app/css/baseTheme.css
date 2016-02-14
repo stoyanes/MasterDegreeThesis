@@ -30,3 +30,11 @@ footer {
     height: 350px;
     overflow: scroll;
 }
+
+.fc-title {
+    white-space: normal
+}
+
+.fc-state-highlight.fc-today {
+    background-color: goldenrod;
+}

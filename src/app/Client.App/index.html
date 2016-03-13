@@ -23,17 +23,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/system">{{ appLangResource.appName }}</a>
+                    <a class="navbar-brand" href="#/system">{{ 'APP_NAME' | translate }}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse" ng-class="!navCollapsed && 'in'">
                     <ul class="nav navbar-nav ">
                         <li ng-show="currentUser">
                             <a ui-sref="system">
-                                {{ appLangResource.welcomeMessage }}, {{ currentUser.userName || '' }}
+                                {{ 'WELCOME_MESS' | translate }}, {{ currentUser.userName || '' }}
                             </a>
                         </li>
                         <li ng-show="!isCurrentUserInRole(currentUser, userRoles.guest)">
-                            <a ng-click="logOut()"> {{ appLangResource.logOut }} </a>
+                            <a ng-click="logOut()"> {{ 'LOG_OUT' | translate }} </a>
                         </li>
                     </ul>
                 </div>
@@ -43,7 +43,6 @@
             <div ui-view></div>
         </div>
     </div>
-    <script src="app/js/appLangConfig.js"></script>
     <script src="bower_components/requirejs/require.js" data-main="./app/js/main.js"></script>
 </body>
 </html>

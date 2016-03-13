@@ -23,6 +23,9 @@
                     return false;
                 };
 
+                $scope.getMess = function() {
+                    return timeOffSystemLang.appName;
+                };
                 $scope.logOut = function () {
                     sessionService.destroySession();
                     $state.go('login');

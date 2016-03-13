@@ -18,6 +18,8 @@
 
         public int SickDays { get; set; }
 
+        public int OtherDays { get; set; }
+
         public int TransferredDays { get; set; }
 
         public int CompensationDays { get; set; }

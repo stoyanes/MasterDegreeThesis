@@ -59,6 +59,10 @@
                     {
                         vacationType: 3,
                         label: 'Sickness'
+                    },
+                    {
+                        vacationType: 4,
+                        label: 'Other'
                     }
                 ];
                 $scope.vacationTypeSelection = $scope.vacationTypeSelectOptions[0];
@@ -93,6 +97,10 @@
                         isValid = false;
                     }
                     if ($scope.vacationTypeSelection.vacationType === $scope.vacationTypeSelectOptions[0].vacationType) {
+                        isValid = false;
+                    }
+                    if($scope.vacationTypeSelection.vacationType === $scope.vacationTypeSelectOptions[4].vacationType &&
+                        $scope.description === ''){
                         isValid = false;
                     }
                     return isValid;

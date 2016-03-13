@@ -9,13 +9,16 @@
         'ng-idle',
         'ui-bootstrap-tpls',
         'angular-ui-grid',
-        'ng-dialog'
+        'ng-dialog',
+        'angular-translate',
+        'angular-sanitize'
     ],
     function (angular) {
         'use strict';
 
         var app = angular.module('app', [
             'ngResource',
+            'ngSanitize',
             'ui.router',
             'ui.calendar',
             'angular-loading-bar',
@@ -23,7 +26,8 @@
             'ngIdle',
             'ui.bootstrap',
             'ui.grid',
-            'ngDialog'
+            'ngDialog',
+            'pascalprecht.translate' // angular translate
         ]);
 
         /* Adding the auth interceptor here, to check every $http request*/

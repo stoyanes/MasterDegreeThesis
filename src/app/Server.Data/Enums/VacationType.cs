@@ -5,6 +5,7 @@
         None,
         Paid,
         Unpaid,
-        Sickness
+        Sickness,
+        Other
     }
 }

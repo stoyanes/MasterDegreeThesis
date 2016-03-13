@@ -32,6 +32,7 @@
 
         app = app.constant('GUEST_USER', {
             userName: 'Guest',
-            accessToken: 'GUEST_USER_TOKEN',
+            accessToken: 'GUEST_USER_TOKEN'
         });
+        return app;
     });

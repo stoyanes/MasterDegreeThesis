@@ -13,18 +13,15 @@
                     var authorizedRoles = next.data.authorizedRoles;
                     if (!authenticationService.isAuthorized(authorizedRoles)) {
                         event.preventDefault();
-                        if (authenticationService.isAuthenticated()) {
-                            // user is not allowed
-                            $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-                        } else {
+                        if (!authenticationService.isAuthenticated()) {
                             // user is not logged in
                             $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+                        } else {
+                            // user is not allowed
+                            $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
                         }
                     }
                 });
-                
-                // language inside application
-                $rootScope.appLangResource = appLanguageEn || { };
 
                 idle.watch();
 
@@ -37,7 +34,7 @@
                 };
 
                 $rootScope.triggerDigest = function () {
-                    !$rootScope.$$phase && $rootScope.$apply();
+                    return !$rootScope.$$phase && $rootScope.$apply();
                 };
             }]);
     });

@@ -4,6 +4,8 @@
     './configs/constants',
     './configs/onStartup',
     './configs/routings',
+    './configs/i18n',
+
 
     './controllers/loginController',
     './controllers/systemController',
@@ -23,5 +25,4 @@
     './services/holidayService',
     './services/usersMenagementService'
 ], function (ng) {
-
 });

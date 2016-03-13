@@ -2,13 +2,13 @@
     <div class="form-group">
         <label for="ttDate">Date</label>
         <p class="input-group">
-            <input type="text" id="ttDate" 
+            <input type="text" id="ttDate"
             class="form-control"
-             uib-datepicker-popup 
+             uib-datepicker-popup
              is-open="dateModel.popupOpenStatus"
              datepicker-options="dateModel.dateOptions"
-             ng-model="dateModel.date" 
-             ng-required="true" c
+             ng-model="dateModel.date"
+             ng-required="true"
              lose-text="Close" />
             <span class="input-group-btn">
                                 <button type="button"
@@ -21,10 +21,10 @@
     </div>
     <div class="form-group">
         <label for="ttDescription">Description</label>
-        <textarea id="ttDescription" 
-        class="form-control" 
-        placeholder="Note" 
-        ng-model="holidayObj.description" 
+        <textarea id="ttDescription"
+        class="form-control"
+        placeholder="Note"
+        ng-model="holidayObj.description"
         rows="5"></textarea>
     </div>
     <button class="btn btn-default btn-success" ng-disabled="!isValidHoliday()" ng-click="submit()">

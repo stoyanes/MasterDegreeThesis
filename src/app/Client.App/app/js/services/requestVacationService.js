@@ -61,7 +61,7 @@
             };
 
             requestVacationService.getRequestsToApprove = function () {
-                var localResource = $resource(CONNECTION_CONSTANTS.requestVacationUri + '/GetRequestsToApprove')
+                var localResource = $resource(CONNECTION_CONSTANTS.requestVacationUri + '/GetRequestsToApprove');
                 var deffered = $q.defer();
 
                 localResource.query({},
@@ -91,7 +91,7 @@
                 );
 
                 return deffered.promise;
-            }
+            };
 
             return requestVacationService;
         }]); // end of service

@@ -55,6 +55,12 @@
         'ng-dialog': [
             '../bower_components/ng-dialog/js/ngDialog.min'
         ],
+        'angular-translate': [
+            '../bower_components/angular-translate/angular-translate.min'
+        ],
+        'angular-sanitize': [
+            '../bower_components/angular-sanitize/angular-sanitize.min'
+        ],
         'app': [
             '../app/js/app'
         ]
@@ -105,6 +111,12 @@
         },
         'ng-dialog': {
             deps: ['angular']
+        },
+        'angular-translate': {
+            deps: ['angular']
+        },
+        'angular-sanitize': {
+            deps: ['angular']
         }
     }
 });
@@ -119,5 +131,6 @@ require(
     function (ng) {
         'use strict';
         ng.bootstrap(document, ['app']);
+        console.log(arguments);
     }
     ); // end of require

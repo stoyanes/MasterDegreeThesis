@@ -31,14 +31,6 @@ namespace Server.Business.Services
             leaveDaysService = ld;
         }
 
-        //public VacationRequestService(IUnityContainer container)
-        //{
-        //    holidayService = container.Resolve<IHolidayService>();
-        //    additionalWroingDaysService = container.Resolve<IAdditionalWorkingDaysService>();
-        //    employeeService = container.Resolve<IEmployeeService>();
-        //    leaveDaysService = container.Resolve<ILeaveDaysService>();
-        //}
-
         private IList<DateTime> GetWorkingDays(DateTime startDate, DateTime endDate, IList<VacationRequestDto> currentVacationRequests)
         {
             IList<DateTime> workingDates = new List<DateTime>();
@@ -112,6 +104,11 @@ namespace Server.Business.Services
                 empLeaveDays.SickDays += workingDays.Count;
                 vacationRequestToCreate.Status = RequestStates.Approved;
             }
+            else if (vacationRequestToCreate.VacationType == VacationType.Other)
+            {
+                empLeaveDays.OtherDays += workingDays.Count;
+            }
+
             VacationRequest createdEntity = entityRepository.Create(vacationRequestToCreate);
             entityRepository.SaveChanges();
             leaveDaysService.UpdateEntity(empLeaveDays);

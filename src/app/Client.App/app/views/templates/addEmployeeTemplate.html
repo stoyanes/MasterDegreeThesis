@@ -2,10 +2,10 @@
     <div class="form-group">
         <label for="ttUserName">User name</label>
         <p class="input-group">
-            <input 
-            type="text" 
-            id="ttUserName" 
-            class="form-control" 
+            <input
+            type="text"
+            id="ttUserName"
+            class="form-control"
             ng-model="userModel.name"
             ng-required="true" />
         </p>
@@ -15,7 +15,7 @@
         </p>
         <label for="ttUserRoles">User roles</label>
         <select
-                class="form-control" 
+                class="form-control"
                 id="ttUserRoles"
                 multiple
                 ng-multiple="true"
@@ -24,9 +24,9 @@
                 >
         </select>
     </div>
-    <button 
-        class="btn btn-default btn-success" 
-        ng-disabled="!isValidUserDetails()" 
+    <button
+        class="btn btn-default btn-success"
+        ng-disabled="!isValidUserDetails()"
         ng-click="registerUser()">
         Submit
     </button>

@@ -47,7 +47,7 @@ define([
                         email: $scope.userModel.name + '@company.com',
                         password: $scope.userModel.password,
                         confirmPassword: $scope.userModel.password,
-                        roles: $scope.userModel.roles.map(function (value) { return value.name })
+                        roles: $scope.userModel.roles.map(function (value) { return value.name; })
                     };
                     ngDialog.close();
                     userManagementService
@@ -59,7 +59,7 @@ define([
                             },
                             // error
                             function () {
-                                $state.go('error')
+                                $state.go('error');
                             });
                 };
 
@@ -153,5 +153,5 @@ define([
 
                 $scope.getAllEmployees();
             }
-        ]) // end of controller
+        ]); // end of controller
     }); // end of define

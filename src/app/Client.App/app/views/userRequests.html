@@ -7,19 +7,19 @@
             <ul ng-repeat="userRequest in userRequests">
                 <li class="list-group-item" ng-class="getCssClass(userRequest)">
                     <div class="row">
-                        <div class="col-md-4">Start Date: {{ userRequest.startDate | date:'yyyy-MM-dd'}}</div>
-                        <div class="col-md-4">End Date: {{ userRequest.endDate | date:'yyyy-MM-dd'}}</div>
-                        <div class="col-md-4">Vacation Type: {{ getVacationTypeName(userRequest.vacationType) }}</div>
+                        <div class="col-md-4">{{ 'REQUEST_START_DATE_MESS' | translate }}: {{ userRequest.startDate | date:'yyyy-MM-dd'}}</div>
+                        <div class="col-md-4">{{ 'REQUEST_END_DATE_MESS' | translate }}: {{ userRequest.endDate | date:'yyyy-MM-dd'}}</div>
+                        <div class="col-md-4">{{ 'REQUEST_VAC_TYPE_MESS' | translate }}: {{ getVacationTypeName(userRequest.vacationType) }}</div>
                     </div>
                     <hr />
                     <div class="row">
-                        <div class="col-md-6">Description: {{ userRequest.description }}</div>
-                        <div class="col-md-6">Status: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-6">{{ 'REQUEST_DESCRIPTION_MESS' | translate }}: {{ userRequest.description }}</div>
+                        <div class="col-md-6">{{ 'REQUEST_STATUS_MESS' | translate }}: {{ getStatusName(userRequest.status) }}</div>
                     </div>
                 </li>
             </ul>
             <div ng-if="userRequests.length === 0">
-                There are no requests.
+                {{ 'NO_REQUESTS_MESS' | translate }}
             </div>
         </div>
     </div>

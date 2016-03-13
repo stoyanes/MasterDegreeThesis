@@ -6,7 +6,7 @@
                 <div class="panel-body">
                     <form>
                         <div class="form-group">
-                            <label for="ttStartDate">Start Date</label>
+                            <label for="ttStartDate">{{ 'REQUEST_START_DATE_MESS' | translate }}</label>
                             <p class="input-group">
                                 <input type="text"
                                        id="ttStartDate"
@@ -28,7 +28,7 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="ttEndDate">End Date</label>
+                            <label for="ttEndDate">{{ 'REQUEST_END_DATE_MESS' | translate }}</label>
                             <p class="input-group">
                                 <input type="text"
                                        id="ttEndDate"
@@ -50,7 +50,7 @@
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="ttVacationType">Vacation Type</label>
+                            <label for="ttVacationType">{{ 'REQUEST_VAC_TYPE_MESS' | translate }}</label>
                             <select class="form-control"
                                     id="ttVacationType"
                                     required="required"
@@ -58,7 +58,7 @@
                                     ng-model="vacationTypeSelection"></select>
                         </div>
                         <div class="form-group">
-                            <label for="ttDescription">Description</label>
+                            <label for="ttDescription">{{ 'REQUEST_DESCRIPTION_MESS' | translate }}</label>
                             <textarea id="ttDescription"
                                       class="form-control"
                                       placeholder="Note"
@@ -68,7 +68,7 @@
                         <button class="btn btn-default"
                                 ng-disabled="!isVacationRequestValid()"
                                 ng-click="requestVacation()">
-                            Request Vacation
+                                {{ 'REQUEST_VACATION_BTN' | translate }}
                         </button>
                     </form>
                 </div>

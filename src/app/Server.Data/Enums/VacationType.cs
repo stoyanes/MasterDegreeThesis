@@ -6,6 +6,10 @@
         Paid,
         Unpaid,
         Sickness,
+        Marriage,
+        BloodDonation,
+        Death,
+        Motherhood,
         Other
     }
 }

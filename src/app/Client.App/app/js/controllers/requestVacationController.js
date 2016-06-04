@@ -62,6 +62,18 @@
                     },
                     {
                         vacationType: 4,
+                        label: 'Marriage'
+                    },
+                    {
+                        vacationType: 5,
+                        label: 'BloodDonation'
+                    },
+                    {
+                        vacationType: 6,
+                        label: 'Death'
+                    },
+                    {
+                        vacationType: 7,
                         label: 'Other'
                     }
                 ];

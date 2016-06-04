@@ -104,6 +104,14 @@ namespace Server.Business.Services
                 empLeaveDays.SickDays += workingDays.Count;
                 vacationRequestToCreate.Status = RequestStates.Approved;
             }
+            else if (vacationRequestToCreate.VacationType == VacationType.BloodDonation ||
+                     vacationRequestToCreate.VacationType == VacationType.Marriage ||
+                     vacationRequestToCreate.VacationType == VacationType.Death)
+            {
+                empLeaveDays.AllowedPaidDays += 2;
+                empLeaveDays.TakenPaidDays += 2;
+                vacationRequestToCreate.Status = RequestStates.Approved;
+            }
             else if (vacationRequestToCreate.VacationType == VacationType.Other)
             {
                 empLeaveDays.OtherDays += workingDays.Count;

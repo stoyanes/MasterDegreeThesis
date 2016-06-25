@@ -66,6 +66,7 @@
                 };
 
                 $rootScope.getCssClass = function (userRequest) {
+
                     var cssClass = '';
                     switch (userRequest.status) {
                         case 1: cssClass = 'list-group-item-info'; break;

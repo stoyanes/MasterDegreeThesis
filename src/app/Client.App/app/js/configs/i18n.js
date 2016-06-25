@@ -39,7 +39,11 @@ define(
                 TAKEN_NON_PAID_DAYS: 'Taken non-paid days',
                 TAKEN_SICKNESS_DAYS: 'Taken sickness days',
                 TRANSF_FROM_LAST_YEAR: 'Transferred from last year',
-                COMPENSASION: 'Compensasion'
+                COMPENSASION: 'Compensasion',
+                PRINT_FROM_MESS: 'From',
+                PRINT_TO_MESS: 'To',
+                PRINT_REQUEST_MESS: 'I would like take vacation on these days',
+                PRINT_HEAD_MESS: 'R E Q U E S T'
             });
             $translateProvider.preferredLanguage('en');
             $translateProvider.useSanitizeValueStrategy('sanitize');

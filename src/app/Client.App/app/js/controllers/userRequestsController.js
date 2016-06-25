@@ -9,8 +9,11 @@
                 $scope.currentUserRequestToPrint = {};
                 $scope.updateCurrentSelectedRequestToPrint = function (currentRequest) {
                     $scope.currentUserRequestToPrint = angular.copy(currentRequest);
-                    // $rootScope.triggerDigest();
-                    // $window.print();
+                     $rootScope.triggerDigest();
+                     setTimeout(function () {
+                        $window.print();
+                     }, 0)
+                     
                 };
             }]); // end of controller
     }); // end of define

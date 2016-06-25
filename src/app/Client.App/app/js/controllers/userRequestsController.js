@@ -6,19 +6,6 @@
         app.controller('UserRequestsController', [
             '$rootScope','$scope',
             function ($rootScope, $scope) {
-
-                $scope.getVacationTypeName = function (vacationType) {
-                    var vacationTypeName = '';
-                    switch(vacationType) {
-                        case 1:vacationTypeName = 'Paid'; break;
-                        case 2: vacationTypeName = 'Unpaid'; break;
-                        case 3: vacationTypeName = 'Sickness'; break;
-                        case 4: vacationTypeName = 'Other'; break;
-                        default: vacationTypeName = 'None'; break;
-                    }
-                    return vacationTypeName;
-                };
-
                 $scope.getStatusName = function (status) {
                     var statusName = '';
                     switch(status) {

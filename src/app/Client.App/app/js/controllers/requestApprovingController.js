@@ -7,16 +7,6 @@
            '$rootScope', '$scope', '$state', 'RequestVacationService',
             function ($rootScope, $scope, $state, requestVacationService) {
 
-                $scope.getVacationTypeName = function (vacationType) {
-                    var vacationTypeName = '';
-                    switch (vacationType) {
-                        case 1: vacationTypeName = 'Paid'; break;
-                        case 2: vacationTypeName = 'Unpaid'; break;
-                        case 3: vacationTypeName = 'Sickness'; break;
-                        default: vacationTypeName = 'None'; break;
-                    }
-                    return vacationTypeName;
-                };
 
                 $scope.getStatusName = function (status) {
                     var statusName = '';

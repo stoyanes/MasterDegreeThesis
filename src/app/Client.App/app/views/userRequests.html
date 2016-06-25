@@ -13,9 +13,14 @@
                     </div>
                     <hr />
                     <div class="row">
-                        <div class="col-md-6">{{ 'REQUEST_DESCRIPTION_MESS' | translate }}: {{ userRequest.description }}</div>
-                        <div class="col-md-6">{{ 'REQUEST_STATUS_MESS' | translate }}: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-4">{{ 'REQUEST_DESCRIPTION_MESS' | translate }}: {{ userRequest.description }}</div>
+                        <div class="col-md-4">{{ 'REQUEST_STATUS_MESS' | translate }}: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-4">
+                            <!-- TODO create a enums for that ugly check - 2 -->
+                            <button ng-show="userRequest.status === 2" > Print </button>
+                        </div>
                     </div>
+
                 </li>
             </ul>
             <div ng-if="userRequests.length === 0">

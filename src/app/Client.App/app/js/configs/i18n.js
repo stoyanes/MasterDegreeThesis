@@ -46,10 +46,21 @@ define(
                 PRINT_HEAD_MESS: 'R E Q U E S T',
                 FAQ: 'FAQ',
                 FAQ_WOR_NWOR_INFO_Q: 'Where can I find information about working and non-working days?',
-                FAQ_WOR_NWOR_INFO_A: 'You can find information on the ‘Home’ page. On the right there are several panels. One is for vacation status which shows how many days are used and how many you have. The other panel is non-working days which shows official holidays for the year.',
+                FAQ_WOR_NWOR_INFO_A: 'You can find information on the \'Home\' page. On the right there are several panels. One is for vacation status which shows how many days are used and how many you have. The other panel is non-working days which shows official holidays for the year.',
                 FAQ_NWOR_DAYS_Q: 'What are company non-working days?',
                 FAQ_NWOR_DAYS_A: 'These are days when the office will be closed and all employees are obliged to use paid or unpaid vacation. A yearly example are the working days between Christmas and New Year\'s Day. All employees will be notified by e-mail when a new company non-working day is added. Another periodic notifications will be sent to remind employees who haven\'t yet requested a vacation for company non-working day.',
-                
+                FAQ_ADDING_AFFECTING_Q: 'Can adding working or non-working days affect my vacation requests?',
+                FAQ_ADDING_AFFECTING_A: 'If a new working or non-working day that was added happens to be part of your vacation request, the request will be automatically removed and you will have to make another request. This will prevent you from having your vacation balance calculation done wrong.',
+                FAQ_TRANF_COMPN_ADD_DAYS_Q: 'What does Transferred, Compensation and Additional days stand for?',
+                FAQ_TRANF_COMPN_ADD_DAYS_A: 'Transferred paid leave is the regular paid vacation days that left unused by the employee during the previous year. Compensation days are added to cover overtime work. Additional days are described in the Labor Code and include the following vacation types: Marriage, Blood donation, Death of a relative, Student vacation, Where can I see who is responsible for my vacation request approval process? Your assigned approval managers are listed on the \'Home\' and \'Request Vacation\' pages.',
+                FAQ_REQUEST_VACATION_Q: 'Can I request a vacation when some of my approval managers are on vacation or unable to approve the request for some other reason?',
+                FAQ_REQUEST_VACATION_A: 'Your request can be approved by any of the system administrators, so you should not worry about the presence of your approval managers.',
+                FAQ_SUBMIT_Q: 'How can I submit a vacation request?',
+                FAQ_SUBMIT_A: 'You can submit vacation requests by using the functionality on the \'Request Vacation\' page. There you can select the period and type of the vacation and also leave a note. When a vacation request is submitted your approval manager.',
+                FAQ_CHECK_ST_Q: 'Where can I check the status of my vacation request?',
+                FAQ_CHECK_ST_A: 'The page \'My Requests\' provides a table view of all your requests. Use the filters to change the state of displayed requests or switch between years. Will I be notified when my vacation request has its state changed? You will receive e-mail notification when a request of yours is approved, delayed or rejected by approval managers. Another type of notification will be received, if for some reason a request of yours is deleted by an administrator.',
+                FAQ_TYPE_ALRE_CHANGED_Q: 'Why was the type of my already approved vacation changed?',
+                FAQ_TYPE_ALRE_CHANGED_A: 'If you had used all your paid leave and then requested unpaid leave for a period between other requests, the system will automatically reassemble your requests in order to use all the paid leave before the unpaid leave. This may also split longer requests into two consecutive requests. This is done due to law restrictions. An e-mail notification will be sent to the system administrators.'
             });
             $translateProvider.preferredLanguage('en');
             $translateProvider.useSanitizeValueStrategy('sanitize');

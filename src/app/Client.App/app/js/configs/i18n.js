@@ -43,7 +43,8 @@ define(
                 PRINT_FROM_MESS: 'From',
                 PRINT_TO_MESS: 'To',
                 PRINT_REQUEST_MESS: 'I would like take vacation on these days',
-                PRINT_HEAD_MESS: 'R E Q U E S T'
+                PRINT_HEAD_MESS: 'R E Q U E S T',
+                FAQ: 'FAQ'
             });
             $translateProvider.preferredLanguage('en');
             $translateProvider.useSanitizeValueStrategy('sanitize');

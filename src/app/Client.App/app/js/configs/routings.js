@@ -89,6 +89,14 @@
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }
+                    })
+                    .state('faq', {
+                        parent: 'system',
+                        url: '/faq',
+                        templateUrl: 'app/views/FAQ.html',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
+                        }
                     });
             }]);
     });

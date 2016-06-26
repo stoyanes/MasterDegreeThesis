@@ -44,7 +44,12 @@ define(
                 PRINT_TO_MESS: 'To',
                 PRINT_REQUEST_MESS: 'I would like take vacation on these days',
                 PRINT_HEAD_MESS: 'R E Q U E S T',
-                FAQ: 'FAQ'
+                FAQ: 'FAQ',
+                FAQ_WOR_NWOR_INFO_Q: 'Where can I find information about working and non-working days?',
+                FAQ_WOR_NWOR_INFO_A: 'You can find information on the ‘Home’ page. On the right there are several panels. One is for vacation status which shows how many days are used and how many you have. The other panel is non-working days which shows official holidays for the year.',
+                FAQ_NWOR_DAYS_Q: 'What are company non-working days?',
+                FAQ_NWOR_DAYS_A: 'These are days when the office will be closed and all employees are obliged to use paid or unpaid vacation. A yearly example are the working days between Christmas and New Year\'s Day. All employees will be notified by e-mail when a new company non-working day is added. Another periodic notifications will be sent to remind employees who haven\'t yet requested a vacation for company non-working day.',
+                
             });
             $translateProvider.preferredLanguage('en');
             $translateProvider.useSanitizeValueStrategy('sanitize');

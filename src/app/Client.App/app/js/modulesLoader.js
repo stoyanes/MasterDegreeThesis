@@ -6,7 +6,6 @@
     './configs/routings',
     './configs/i18n',
 
-
     './controllers/loginController',
     './controllers/systemController',
     './controllers/applicationController',

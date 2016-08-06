@@ -14,6 +14,7 @@
     './controllers/requestApprovingController',
     './controllers/holidaysController',
     './controllers/userManagementController',
+    './controllers/manageVacationRequestsController',
 
     './services/authenticationService',
     './services/sessionService',

@@ -15,6 +15,7 @@ define(
                 WELCOME_MESS: 'Hello',
                 ADMIN_MENU_MESS: 'Admin menu',
                 MANAGE_NON_WORKING_DAYS_PANEL: 'Manage holidays',
+                MANAGE_VAC_REQUESTS_PANEL: 'Manage vacation requests',
                 MANAGE_EMPLOYEES_PANEL: 'Manage employees',
                 ERROR_TITLE: 'Error',
                 ERROR_MESS: 'Something went wrong. Try again later. We logged this error and will try to fix it, as soon as possible.',

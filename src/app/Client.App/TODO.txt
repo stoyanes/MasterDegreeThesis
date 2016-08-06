@@ -1,2 +1,2 @@
 ﻿Things to be done:
-1. 
+1. Manage requests panel

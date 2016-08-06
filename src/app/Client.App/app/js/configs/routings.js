@@ -82,6 +82,15 @@
                             authorizedRoles: [USER_ROLES.admin]
                         }
                     })
+                    .state('manageVacationRequests', {
+                        parent: 'system',
+                        url: '/manageVacationRequests',
+                        templateUrl: 'app/views/manageVacationRequests.html',
+                        controller: 'ManageVacationRequestsController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin]
+                        }
+                    })
                     .state('error', {
                         parent: 'system',
                         url: '/error',

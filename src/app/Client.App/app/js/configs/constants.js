@@ -8,14 +8,14 @@
 
         // *********************** BEGIN FOR LOCAL DEVELOPMENT *************
 
-        // app = app.constant('CONNECTION_CONSTANTS', {
-        //     authenticationUri: './api/Token',
-        //     requestVacationUri: './api/VacationRequests',
-        //     leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
-        //     employeeUri: './api/employees',
-        //     holidayUri: './api/Holidays',
-        //     usersUri: './api/Account',
-        // });
+         //app = app.constant('CONNECTION_CONSTANTS', {
+         //    authenticationUri: './api/Token',
+         //    requestVacationUri: './api/VacationRequests',
+         //    leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
+         //    employeeUri: './api/employees',
+         //    holidayUri: './api/Holidays',
+         //    usersUri: './api/Account',
+         //});
 
         // *********************** END FOR LOCAL DEVELOPMENT *************
 

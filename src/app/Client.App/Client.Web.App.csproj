@@ -104,6 +104,8 @@
     <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\timeoffsystem-app - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\timeoffsystem-app - Web Deploy.pubxml" />
+    <Content Include="Web.config" />
+    <None Include="Properties\PublishProfiles\timeoffsystem-app.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,7 +117,6 @@
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="TODO.txt" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

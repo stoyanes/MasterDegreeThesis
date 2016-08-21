@@ -4,7 +4,7 @@ using System.Web.Http;
 
 namespace Server.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("Holidays")]
     public class HolidayController : ApiController
     {

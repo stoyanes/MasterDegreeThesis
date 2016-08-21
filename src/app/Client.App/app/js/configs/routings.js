@@ -82,10 +82,27 @@
                             authorizedRoles: [USER_ROLES.admin]
                         }
                     })
+                    .state('manageVacationRequests', {
+                        parent: 'system',
+                        url: '/manageVacationRequests',
+                        templateUrl: 'app/views/manageVacationRequests.html',
+                        controller: 'ManageVacationRequestsController',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin]
+                        }
+                    })
                     .state('error', {
                         parent: 'system',
                         url: '/error',
                         templateUrl: 'app/views/error.html',
+                        data: {
+                            authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
+                        }
+                    })
+                    .state('faq', {
+                        parent: 'system',
+                        url: '/faq',
+                        templateUrl: 'app/views/FAQ.html',
                         data: {
                             authorizedRoles: [USER_ROLES.admin, USER_ROLES.regular]
                         }

@@ -6,7 +6,6 @@
     './configs/routings',
     './configs/i18n',
 
-
     './controllers/loginController',
     './controllers/systemController',
     './controllers/applicationController',
@@ -15,6 +14,7 @@
     './controllers/requestApprovingController',
     './controllers/holidaysController',
     './controllers/userManagementController',
+    './controllers/manageVacationRequestsController',
 
     './services/authenticationService',
     './services/sessionService',

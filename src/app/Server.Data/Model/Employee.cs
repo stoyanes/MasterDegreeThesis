@@ -10,11 +10,13 @@ namespace Server.Data.Model
 {
     public class Employee : IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>, IBaseEntity
     {
+        #region Constructors
         public Employee()
         {
             LeaveDays = new List<LeaveDays>();
             LeaveDays.Add(new LeaveDays() { AllowedNonPaidDays = 60, EmployeeID = this.Id, AllowedPaidDays = 20, ForYear = DateTime.Now.Year });
         }
+        #endregion
 
         #region Public methods
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Employee, int> manager, string authenticationType)

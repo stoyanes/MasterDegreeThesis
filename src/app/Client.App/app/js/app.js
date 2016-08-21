@@ -11,7 +11,8 @@
         'angular-ui-grid',
         'ng-dialog',
         'angular-translate',
-        'angular-sanitize'
+        'angular-sanitize',
+        'angularPrint'
     ],
     function (angular) {
         'use strict';
@@ -27,7 +28,8 @@
             'ui.bootstrap',
             'ui.grid',
             'ngDialog',
-            'pascalprecht.translate' // angular translate
+            'pascalprecht.translate', // angular translate
+            'AngularPrint'
         ]);
 
         /* Adding the auth interceptor here, to check every $http request*/

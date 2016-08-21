@@ -37,5 +37,44 @@
                         $scope.logOut();
                     }
                 });
+
+                $rootScope.getVacationTypeName = function (vacationType) {
+                    var vacationTypeName = '';
+                    switch (vacationType) {
+                        case 1: vacationTypeName = 'Paid'; break;
+                        case 2: vacationTypeName = 'Unpaid'; break;
+                        case 3: vacationTypeName = 'Sickness'; break;
+                        case 4: vacationTypeName = 'Marriage'; break;
+                        case 5: vacationTypeName = 'BloodDonation'; break;
+                        case 6: vacationTypeName = 'Death'; break;
+                        case 7: vacationTypeName = 'Motherhood'; break;
+                        case 8: vacationTypeName = 'Other'; break;
+                        default: vacationTypeName = 'None'; break;
+                    }
+                    return vacationTypeName
+                };
+
+                $rootScope.getStatusName = function (status) {
+                    var statusName = '';
+                    switch (status) {
+                        case 1: statusName = 'Submitted'; break;
+                        case 2: statusName = 'Approved'; break;
+                        case 3: statusName = 'Rejected'; break;
+                        default: statusName = 'None'; break;
+                    }
+                    return statusName;
+                };
+
+                $rootScope.getCssClass = function (userRequest) {
+
+                    var cssClass = '';
+                    switch (userRequest.status) {
+                        case 1: cssClass = 'list-group-item-info'; break;
+                        case 2: cssClass = 'list-group-item-success'; break;
+                        case 3: cssClass = 'list-group-item-danger'; break;
+                        default: cssClass = 'list-group-item-warning'; break;
+                    }
+                    return cssClass;
+                };
             }]); // end of controller
     }); // end of define

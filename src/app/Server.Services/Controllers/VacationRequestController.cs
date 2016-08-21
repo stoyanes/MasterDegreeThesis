@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Server.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("VacationRequests")]
     public class VacationRequestController : ApiController
     {
@@ -70,6 +70,7 @@ namespace Server.Services.Controllers
 
         [HttpPut]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult UpdateEntity([FromBody] VacationRequestDto newEntity)
         {
             bool updateResult = vacationRequestService.UpdateEntity(newEntity);
@@ -82,6 +83,7 @@ namespace Server.Services.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult DeleteEntity(int id)
         {
             bool deleteResult = vacationRequestService.DeleteEntityById(id);

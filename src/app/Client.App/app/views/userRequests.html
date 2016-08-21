@@ -1,4 +1,25 @@
-﻿<div class="panel panel-default">
+﻿<div print-section>
+    <div print-only>
+        <strong>{{ 'PRINT_FROM_MESS' | translate }}:</strong> {{currentUserRequestToPrint.employeeUserName}}
+        <br/>
+        <strong>{{ 'PRINT_TO_MESS' | translate }}:</strong> CEO
+        <br/> <br /> <br/>
+        <strong> {{ 'PRINT_HEAD_MESS' | translate }} </strong>
+        <br/> <br /> <br/>
+        {{ 'WELCOME_MESS' | translate }},
+        <br/> {{ 'PRINT_REQUEST_MESS' | translate }}:
+        <br/>
+        <strong>{{ 'REQUEST_START_DATE_MESS' | translate }}:</strong> {{currentUserRequestToPrint.startDate}}
+        <br/>
+        <strong>{{ 'REQUEST_END_DATE_MESS' | translate }}:</strong> {{currentUserRequestToPrint.endDate}}
+        <br/>
+        <strong>{{ 'REQUEST_DESCRIPTION_MESS' | translate }}: </strong> {{currentUserRequestToPrint.description}}
+        <br/> <br /> <br/> Regards,
+        <br/> {{currentUserRequestToPrint.employeeUserName}}
+    </div>
+</div>
+
+<div class="panel panel-default">
     <div class="panel-heading">
         Requests
     </div>
@@ -13,11 +34,17 @@
                     </div>
                     <hr />
                     <div class="row">
-                        <div class="col-md-6">{{ 'REQUEST_DESCRIPTION_MESS' | translate }}: {{ userRequest.description }}</div>
-                        <div class="col-md-6">{{ 'REQUEST_STATUS_MESS' | translate }}: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-4">{{ 'REQUEST_DESCRIPTION_MESS' | translate }}: {{ userRequest.description }}</div>
+                        <div class="col-md-4">{{ 'REQUEST_STATUS_MESS' | translate }}: {{ getStatusName(userRequest.status) }}</div>
+                        <div class="col-md-4">
+                            <!-- TODO create a enums for that ugly check - 2 -->
+                            <button class="btn btn-default" ng-show="userRequest.status === 2" ng-click="updateCurrentSelectedRequestToPrint(userRequest)"> Print </button>
+                        </div>
                     </div>
+
                 </li>
             </ul>
+
             <div ng-if="userRequests.length === 0">
                 {{ 'NO_REQUESTS_MESS' | translate }}
             </div>

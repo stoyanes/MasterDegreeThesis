@@ -61,6 +61,9 @@
         'angular-sanitize': [
             '../bower_components/angular-sanitize/angular-sanitize.min'
         ],
+        'angularPrint': [
+            '../bower_components/angularPrint/angularPrint'
+        ],
         'app': [
             '../app/js/app'
         ]
@@ -117,6 +120,9 @@
         },
         'angular-sanitize': {
             deps: ['angular']
+        },
+        'angularPrint': {
+            deps: ['angular']
         }
     }
 });
@@ -131,6 +137,5 @@ require(
     function (ng) {
         'use strict';
         ng.bootstrap(document, ['app']);
-        console.log(arguments);
     }
-    ); // end of require
+); // end of require

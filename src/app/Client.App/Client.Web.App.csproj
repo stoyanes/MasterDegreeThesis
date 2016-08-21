@@ -62,10 +62,12 @@
     <Content Include="app\css\baseTheme.css" />
     <Content Include="app\js\app.js" />
     <Content Include="app\js\configs\constants.js" />
+    <Content Include="app\js\configs\i18n.js" />
     <Content Include="app\js\configs\onStartup.js" />
     <Content Include="app\js\configs\routings.js" />
     <Content Include="app\js\controllers\applicationController.js" />
-    <Content Include="app\js\controllers\holidayController.js" />
+    <Content Include="app\js\controllers\holidaysController.js" />
+    <Content Include="app\js\controllers\manageVacationRequestsController.js" />
     <Content Include="app\js\controllers\systemController.js" />
     <Content Include="app\js\controllers\loginController.js" />
     <Content Include="app\js\controllers\requestVacationController.js" />
@@ -83,7 +85,9 @@
     <Content Include="app\js\services\leaveDaysService.js" />
     <Content Include="app\js\services\sessionService.js" />
     <Content Include="app\views\error.html" />
-    <Content Include="app\views\manageNonWorkingDays.html" />
+    <Content Include="app\views\FAQ.html" />
+    <Content Include="app\views\manageHolidays.html" />
+    <Content Include="app\views\manageVacationRequests.html" />
     <Content Include="app\views\system.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\menus\admin.html" />
@@ -91,8 +95,17 @@
     <Content Include="app\views\requestVacation.html" />
     <Content Include="app\views\requestsToApprove.html" />
     <Content Include="app\views\manageEmployees.html" />
+    <Content Include="app\views\templates\addEmployeeTemplate.html" />
+    <Content Include="app\views\templates\addOrUpdateHolidayTemplate.html" />
+    <Content Include="app\views\templates\gridRowActionsTemplate.html" />
+    <Content Include="app\views\templates\updateEmployeeTemplate.html" />
     <Content Include="app\views\userRequests.html" />
     <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <None Include="Properties\PublishProfiles\timeoffsystem-app - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\timeoffsystem-app - Web Deploy.pubxml" />
+    <Content Include="Web.config" />
+    <None Include="Properties\PublishProfiles\timeoffsystem-app.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -104,7 +117,6 @@
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="TODO.txt" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +124,9 @@
   <ItemGroup>
     <Folder Include="app\img\" />
     <Folder Include="app\js\directives\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

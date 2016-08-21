@@ -1,2 +1,2 @@
 ﻿Things to be done:
-1. Move all messages inside app into angular constants
+1. Manage requests panel

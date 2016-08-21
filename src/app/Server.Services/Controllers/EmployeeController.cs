@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Server.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("Employees")]
     public class EmployeeController : ApiController
     {
@@ -20,6 +20,7 @@ namespace Server.Services.Controllers
 
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult GetAll()
         {
             var entities = employeeService.GetAll();
@@ -70,6 +71,7 @@ namespace Server.Services.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult CreateEntity([FromBody] EmployeeDto newEntity)
         {
             var createResult = employeeService.CreateEntity(newEntity);
@@ -78,6 +80,7 @@ namespace Server.Services.Controllers
 
         [HttpPut]
         [Route("")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult UpdateEntity([FromBody] EmployeeDto newEntity)
         {
             bool updateResult = employeeService.UpdateEntity(newEntity);
@@ -90,6 +93,7 @@ namespace Server.Services.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult DeleteEntity(int id)
         {
             bool deleteResult = employeeService.DeleteEntityById(id);

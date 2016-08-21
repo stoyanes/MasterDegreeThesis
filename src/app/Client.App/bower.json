@@ -35,9 +35,11 @@
     "ng-idle": "~1.1.1",
     "angular-ui-grid": "~3.1.0",
     "ng-dialog": "~0.5.6",
-    "angular-sanitize": "~1.5.0"
+    "angular-sanitize": "~1.5.0",
+    "angularPrint": "angular-print#~0.3.8",
+    "angular-translate": "^2.11.1"
   },
   "resolutions": {
-    "angular": "1.4.7"
+    "angular": "1.5.8"
   }
 }

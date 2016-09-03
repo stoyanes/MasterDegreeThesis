@@ -99,6 +99,7 @@
     <Content Include="app\views\templates\addOrUpdateHolidayTemplate.html" />
     <Content Include="app\views\templates\gridRowActionsTemplate.html" />
     <Content Include="app\views\templates\updateEmployeeTemplate.html" />
+    <Content Include="app\views\templates\updateVacationRequestTemplate.html" />
     <Content Include="app\views\userRequests.html" />
     <Content Include="bower.json" />
     <Content Include="package.json" />

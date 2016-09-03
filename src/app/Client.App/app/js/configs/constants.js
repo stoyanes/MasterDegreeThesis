@@ -8,26 +8,26 @@
 
         // *********************** BEGIN FOR LOCAL DEVELOPMENT *************
 
-         app = app.constant('CONNECTION_CONSTANTS', {
-            authenticationUri: './api/Token',
-            requestVacationUri: './api/VacationRequests',
-            leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
-            employeeUri: './api/employees',
-            holidayUri: './api/Holidays',
-            usersUri: './api/Account',
-         });
+        //  app = app.constant('CONNECTION_CONSTANTS', {
+        //     authenticationUri: './api/Token',
+        //     requestVacationUri: './api/VacationRequests',
+        //     leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
+        //     employeeUri: './api/employees',
+        //     holidayUri: './api/Holidays',
+        //     usersUri: './api/Account',
+        //  });
 
         // *********************** END FOR LOCAL DEVELOPMENT *************
 
         // ********** BEGIN FOR AZURE (CLOUD) DEVELOPMENT *****************//
-        // app = app.constant('CONNECTION_CONSTANTS', {
-        //    authenticationUri: 'http://timeoffsystem-api.azurewebsites.net/Token',
-        //    requestVacationUri: 'http://timeoffsystem-api.azurewebsites.net/VacationRequests',
-        //    leaveDaysForEmployeeByYearUri: 'http://timeoffsystem-api.azurewebsites.net/LeaveDays/AllForEmployeeByYear',
-        //    employeeUri: 'http://timeoffsystem-api.azurewebsites.net/employees',
-        //    holidayUri: 'http://timeoffsystem-api.azurewebsites.net/Holidays',
-        //    usersUri: 'http://timeoffsystem-api.azurewebsites.net/Account'
-        // });
+        app = app.constant('CONNECTION_CONSTANTS', {
+           authenticationUri: 'http://timeoffsystem-api.azurewebsites.net/Token',
+           requestVacationUri: 'http://timeoffsystem-api.azurewebsites.net/VacationRequests',
+           leaveDaysForEmployeeByYearUri: 'http://timeoffsystem-api.azurewebsites.net/LeaveDays/AllForEmployeeByYear',
+           employeeUri: 'http://timeoffsystem-api.azurewebsites.net/employees',
+           holidayUri: 'http://timeoffsystem-api.azurewebsites.net/Holidays',
+           usersUri: 'http://timeoffsystem-api.azurewebsites.net/Account'
+        });
         // ********** END FOR AZURE (CLOUD) DEVELOPMENT *****************//
 
         app = app.constant('AUTH_EVENTS', {

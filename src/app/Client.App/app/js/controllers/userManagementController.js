@@ -17,6 +17,7 @@ define([
                     password: '',
                     roles: []
                 };
+
                 $scope.availableUserRoles = [
                     {
                         id: 1,
@@ -27,6 +28,7 @@ define([
                         name: 'regular'
                     }
                 ];
+                
                 $scope.userEditModel = {
                     id: -1,
                     userName: undefined,
@@ -106,6 +108,7 @@ define([
                                 $state.go('error');
                             });
                 };
+                
                 $scope.addClickHandler = function () {
                     ngDialog.open({
                         template: '../../app/views/templates/addEmployeeTemplate.html',

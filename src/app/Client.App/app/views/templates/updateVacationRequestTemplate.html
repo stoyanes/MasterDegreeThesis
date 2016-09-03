@@ -1,0 +1,69 @@
+<form>
+    <div class="form-group">
+        <label for="sttDate">Start Date</label>
+        <p class="input-group">
+            <input type="text" id="sttDate"
+            class="form-control"
+             uib-datepicker-popup
+             is-open="startDateModel.popupOpenStatus"
+             datepicker-options="startDateModel.dateOptions"
+             ng-model="currentVacationRequest.startDate"
+             ng-required="true"
+             lose-text="Close" />
+            <span class="input-group-btn">
+                                <button type="button"
+                                        class="btn btn-default"
+                                        ng-click="startDateModel.togglePopUp($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+        </p>
+    </div>
+        <div class="form-group">
+        <label for="ettDate">End Date</label>
+        <p class="input-group">
+            <input type="text" id="ettDate"
+            class="form-control"
+             uib-datepicker-popup
+             is-open="endDateModel.popupOpenStatus"
+             datepicker-options="endDateModel.dateOptions"
+             ng-model="currentVacationRequest.endDate"
+             ng-required="true"
+             lose-text="Close" />
+            <span class="input-group-btn">
+                                <button type="button"
+                                        class="btn btn-default"
+                                        ng-click="endDateModel.togglePopUp($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+        </p>
+    </div>
+    <div class="form-group">
+        <label for="ttDescription">Description</label>
+        <textarea id="ttDescription"
+        class="form-control"
+        placeholder="Description"
+        ng-model="currentVacationRequest.description"
+        rows="5"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="ttStatus">Status</label>
+        <select class="form-control"
+         id="ttStatus"
+         required="required"
+         ng-options="item as item.label for item in statusOptions track by item.status"
+         ng-model="currentVacationRequest.status"></select>
+    </div>
+    <div class="form-group">
+        <label for="ttVacationType">Vacation Type</label>
+         <select class="form-control"
+         id="ttVacationType"
+         required="required"
+         ng-options="item as item.label for item in vacationTypeSelectOptions track by item.vacationType"
+         ng-model="currentVacationRequest.vacationType"></select>
+    </div>
+    <button class="btn btn-default btn-success" ng-click="submit()">
+        Submit
+    </button>
+</form>

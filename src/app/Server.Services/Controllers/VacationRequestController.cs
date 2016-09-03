@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Server.Services.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [RoutePrefix("VacationRequests")]
     public class VacationRequestController : ApiController
     {

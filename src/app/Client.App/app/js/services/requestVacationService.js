@@ -5,7 +5,7 @@
 
     app.factory('RequestVacationService', ['$resource', '$q', 'CONNECTION_CONSTANTS',
         function ($resource, $q, CONNECTION_CONSTANTS) {
-            var _resource = $resource(CONNECTION_CONSTANTS.requestVacationUri, null, {
+            var _resource = $resource(CONNECTION_CONSTANTS.requestVacationUri + '/:id', null, {
                 update: { method: 'PUT' }
             }),
 
@@ -15,6 +15,22 @@
                 var deffered = $q.defer();
 
                 _resource.save(requestData,
+                    function (responce) {
+                        deffered.resolve(responce);
+                    },
+
+                    function (responce) {
+                        deffered.reject(responce);
+                    }
+                );
+
+                return deffered.promise;
+            };
+
+            requestVacationService.deleteAsync = function (entityId) {
+                var deffered = $q.defer();
+
+                _resource.delete({ id: entityId },
                     function (responce) {
                         deffered.resolve(responce);
                     },

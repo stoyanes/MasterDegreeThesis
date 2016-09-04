@@ -123,6 +123,51 @@ namespace Server.Business.Services
             return createdEntity.Id;
         }
 
+        public override bool DeleteEntityById(int id)
+        {
+            VacationRequest vacReq = this.entityRepository.FindById(id);
+
+            LeaveDaysDto empLeaveDaysForYear = leaveDaysService
+                                                .GetAllForEmployeeByYear(vacReq.EmployeeID, vacReq.EndDate.Year);
+
+            int totalDaysToDelete = 0;
+
+            if (vacReq.StartDate == vacReq.EndDate)
+            {
+                totalDaysToDelete = 1;
+            } else
+            {
+                totalDaysToDelete = (int)Math.Floor((vacReq.EndDate - vacReq.StartDate).TotalDays) + 1;
+            }
+
+            if (empLeaveDaysForYear != null)
+            {
+                switch (vacReq.VacationType)
+                {
+                    case VacationType.Unpaid:
+                        empLeaveDaysForYear.TakenNonPaidDays -= totalDaysToDelete;
+                        break;
+                    case VacationType.Sickness:
+                        empLeaveDaysForYear.SickDays -= totalDaysToDelete;
+                        break;
+                    case VacationType.Paid:
+                    case VacationType.Marriage:
+                    case VacationType.BloodDonation:
+                    case VacationType.Death:
+                    case VacationType.Motherhood:
+                        empLeaveDaysForYear.TakenPaidDays -= totalDaysToDelete;
+                        break;
+                    default:
+                        break;
+                }
+
+                leaveDaysService.UpdateEntity(empLeaveDaysForYear);
+            }
+
+            this.entityRepository.Delete(vacReq.Id);
+            return this.entityRepository.SaveChanges();
+        }
+
         public IList<VacationRequestDto> GetAllForEmployeeByYear(int employeeId, int year)
         {
             var vacationReqs = this.entityRepository

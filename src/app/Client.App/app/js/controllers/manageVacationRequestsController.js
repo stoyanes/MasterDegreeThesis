@@ -12,6 +12,7 @@
             'ngDialog',
 
             function ($rootScope, $scope, requestVacationService, $state, ngDialog) {
+
                 $scope.allRequests = [];
 
                 $scope.currentVacationRequest = {
@@ -115,24 +116,6 @@
                     }
                 ];
 
-                $scope.getStatusName = function (par) {
-                    var res = '';
-                    switch (par) {
-                        case 1:
-                            res = 'Submitted';
-                            break;
-                        case 2:
-                            res = 'Approved';
-                            break;
-                        case 3:
-                            res = 'Rejected';
-                            break;
-                        default:
-                            break;
-                    }
-                    return res;
-                };
-
                 $scope.getVacationTypeName = function (vacationType) {
                     var res = '';
 
@@ -155,6 +138,7 @@
                         case 6:
                             res = 'Death';
                             break;
+
                         default:
                             break;
                     }
@@ -165,6 +149,9 @@
                 $scope.submit = function () {
 
                     ngDialog.close();
+
+                    $scope.currentVacationRequest.status = $scope.currentSelectedStatus.value.status || 0;
+                    $scope.currentVacationRequest.vacationType = $scope.currentSelectedVacationType.value.vacationType || 0;
 
                     requestVacationService
                         .updateVacationRequest($scope.currentVacationRequest)
@@ -181,11 +168,20 @@
                                 status: -1,
                                 vacationType: -1
                             };
+                            $state.go($state.current, {}, { reload: true });
                         },
                         // error
                         function (res) {
                             $state.go('error');
                         });
+                };
+
+                $scope.getDefaultOption = function (option) {
+
+                    var filtered = $scope.statusOptions.filter(function (element) {
+                        return element.status === option;
+                    })[0];
+                    return filtered;
                 };
 
                 $scope.editClickHandler = function (rowEntity) {
@@ -197,6 +193,8 @@
                     $scope.currentVacationRequest.endDate = rowEntity.endDate;
                     $scope.currentVacationRequest.status = rowEntity.status;
                     $scope.currentVacationRequest.vacationType = rowEntity.vacationType;
+                    $scope.currentSelectedStatus = { value: rowEntity.status };
+                    $scope.currentSelectedVacationType = { value: rowEntity.vacationType };
 
                     ngDialog.open({
                         template: '../../app/views/templates/updateVacationRequestTemplate.html',
@@ -204,7 +202,28 @@
                     });
                 };
 
-                $scope.removeClickHandler = function (rowEntityId) {
+                $scope.removeClickHandler = function (rowEntity) {
+                    requestVacationService
+                        .deleteAsync(rowEntity.id)
+                        .then(
+                        // success
+                        function (res) {
+                            $scope.currentVacationRequest = {
+                                id: -1,
+                                employeeID: -1,
+                                employeeUserName: '',
+                                startDate: '',
+                                endDate: '',
+                                description: '',
+                                status: -1,
+                                vacationType: -1
+                            };
+                            $state.go($state.current, {}, { reload: true });
+                        },
+                        // error
+                        function (res) {
+                            $state.go('error');
+                        });
                 };
 
                 $scope.gridOptions = {

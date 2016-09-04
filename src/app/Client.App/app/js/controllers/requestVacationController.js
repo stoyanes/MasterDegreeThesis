@@ -77,9 +77,11 @@
                         label: 'Other'
                     }
                 ];
+
                 $scope.vacationTypeSelection = $scope.vacationTypeSelectOptions[0];
 
                 $scope.requestVacation = function () {
+
                     var requestVacationData = {
                         vacationType: $scope.vacationTypeSelection.vacationType,
                         startDate: $scope.startVacationDateModel.date,

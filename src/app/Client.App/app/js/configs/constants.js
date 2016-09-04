@@ -8,14 +8,14 @@
 
         // *********************** BEGIN FOR LOCAL DEVELOPMENT *************
 
-        //  app = app.constant('CONNECTION_CONSTANTS', {
-        //     authenticationUri: './api/Token',
-        //     requestVacationUri: './api/VacationRequests',
-        //     leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
-        //     employeeUri: './api/employees',
-        //     holidayUri: './api/Holidays',
-        //     usersUri: './api/Account',
-        //  });
+          app = app.constant('CONNECTION_CONSTANTS', {
+             authenticationUri: './api/Token',
+             requestVacationUri: './api/VacationRequests',
+             leaveDaysForEmployeeByYearUri: './api/LeaveDays/AllForEmployeeByYear',
+             employeeUri: './api/employees',
+             holidayUri: './api/Holidays',
+             usersUri: './api/Account',
+          });
 
         // *********************** END FOR LOCAL DEVELOPMENT *************
 
@@ -28,16 +28,17 @@
            holidayUri: 'http://timeoffsystem-api.azurewebsites.net/Holidays',
            usersUri: 'http://timeoffsystem-api.azurewebsites.net/Account'
         });
+
         // ********** END FOR AZURE (CLOUD) DEVELOPMENT *****************//
 
-        app = app.constant('AUTH_EVENTS', {
-            loginSuccess: 'auth-login-success',
-            loginFailed: 'auth-login-failed',
-            logoutSuccess: 'auth-logout-success',
-            sessionTimeout: 'auth-session-timeout',
-            notAuthenticated: 'auth-not-authenticated',
-            notAuthorized: 'auth-not-authorized'
-        });
+        //app = app.constant('AUTH_EVENTS', {
+        //    loginSuccess: 'auth-login-success',
+        //    loginFailed: 'auth-login-failed',
+        //    logoutSuccess: 'auth-logout-success',
+        //    sessionTimeout: 'auth-session-timeout',
+        //    notAuthenticated: 'auth-not-authenticated',
+        //    notAuthorized: 'auth-not-authorized'
+        //});
 
         app = app.constant('USER_ROLES', {
             admin: 'admin',
